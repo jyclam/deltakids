@@ -15,3 +15,43 @@
  *= require_tree .
  *= require_self
  */
+
+ * {
+ margin: 0px;
+ }
+
+ #main-logo {
+   width: 275px;
+   margin-top: 25px;
+ }
+
+ .icon-bar {
+   background-color: black;
+ }
+
+.nav li {
+  font-size: 16px;
+  color: #004C81;
+  margin-top: 15px;
+  margin-right: 50px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.fa-search {
+  margin-bottom: 10px;
+}
+
+.div-lower-navbar {
+
+}
+
+.lower-navbar {
+  display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.lower-navbar li {
+  font-family: 'Bree Serif', serif;
+  // justify-content: space-between;
+}
