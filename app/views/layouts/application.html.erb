@@ -6,9 +6,48 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   </head>
 
   <body>
+    <div class="container">
+
+      <nav>
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapse_button" data-toggle="collapse" data-target=".myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse myNavbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li> About </li>
+            <li> Live 5-2-1-0 </li>
+            <li> Contact Us </li>
+          </ul>
+        </div>
+      </nav>
+
+    <%= link_to image_tag('main-logo.jpg', id: "main-logo"), home_path %>
+
+    <div class="div-lower-navbar collapse navbar-collapse myNavbar" >
+      <ul class="nav navbar-nav lower-navbar">
+        <li> ACTIVITIES CALENDER </li>
+        <li> LEARNING </li>
+        <li> PROGRAMS  </li>
+        <li> SERVICES </li>
+        <li> WHAT'S NEW? </li>
+        <li>
+          <i class="fa fa-search" aria-hidden="true"></i>
+        </li>
+      </ul>
+    </div>
+
+    </div>
+
     <%= yield %>
   </body>
 </html>
