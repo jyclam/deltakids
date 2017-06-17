@@ -1,0 +1,31 @@
+<h1>Create a new Organization</h1>
+<%= @organization.errors.full_messages.join(', ') %>
+<%= form_for @organization do |f| %>
+  <div>
+	<%= f.label :organization_name %>
+	<%= f.text_field :title %>
+  </div>
+  <div>
+	<div class="address-input">
+	  Enter your address
+	</div>
+	<div>
+	  <%= f.label :street_address %>
+	  <%= f.text_field :street_address %>
+	</div>
+	<div>
+	  <%= f.label :unit_number %>
+	  <%= f.text_field :unit_num %>
+	</div>
+	<div>
+	  <%= f.label :postal_code %>
+	  <%= f.text_field :postal_code %>
+	  <%= f.label :city %>
+	  <%= f.text_field :city %>
+	</div>
+  </div>
+  <div>
+	<%= f.submit %>
+  </div>
+
+<% end %>
