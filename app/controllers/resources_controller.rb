@@ -1,9 +1,56 @@
 class ResourcesController < ApplicationController
+  # don't need location column in resource table
+      # - change in model after consulting with john
+  # might have to add a column for approval status after
+
 
   before_action :resource_params, only: [:create]
 
   def index
-    @resources = Resource.all
+    @locations = ResourceLocation.all
+    @age_groups = AgeGroup.all
+    @topics = ResourceTopic.all
+    @types = ResourceType.all
+
+    # @resources = Resource.all
+    @resources = Resource.where(feature: true)
+  end
+
+
+  def filter
+    @locations = ResourceLocation.all
+    @age_groups = AgeGroup.all
+    @topics = ResourceTopic.all
+    @types = ResourceType.all
+
+    filters = ResourceFilter.all
+
+    if params[:location]
+      filters = ResourceFilter.where(resource_location_id: params[:location])
+    end
+
+    if params[:type]
+      filters = filters.where(resource_type_id: params[:type])
+    end
+
+    if params[:topic_ids]
+      filters = filters.where(resource_topic_id: params[:topic_ids])
+    end
+
+    if params[:age_group_ids]
+      filters = filters.where(age_group_id: params[:age_group_ids])
+    end
+
+    @resources = []
+    resource_ids = []
+    filters.each do |filter|
+
+      @resources.push(filter.resource) unless resource_ids.include?(filter.resource_id)
+      resource_ids.push(filter.resource_id) unless resource_ids.include?(filter.resource_id)
+    end
+    # render json: filters
+    render :index
+    # redirect_to @resources
   end
 
   def new
@@ -12,11 +59,8 @@ class ResourcesController < ApplicationController
     @age_groups = AgeGroup.all
     @topics = ResourceTopic.all
     @types = ResourceType.all
-
-    # render json: @types
   end
 
-  # don't need location column in resource table
   def create
     resource = Resource.new resource_params
 
@@ -42,13 +86,15 @@ class ResourcesController < ApplicationController
             })
           end
         end
-
-        render json: resource.resource_filters
+        # render json: params
+        redirect_to resource_path(resource), notice: 'Resource created'
     end
 
   end
 
-
+  def show
+    @resource = Resource.find params[:id]
+  end
 
 
 
