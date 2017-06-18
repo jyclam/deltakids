@@ -1,0 +1,88 @@
+<div class="container-fluid">
+  <%= form_for @resource do |f| %>
+
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_area :name, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :feature %>
+      <input type='radio' name='resource[feature]' value='true'>
+      <span>Yes</span>
+      <input type='radio' name='resource[feature]' value='false'>
+      <span>No</span>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :start_date %>
+      <%= f.date_field :start_date %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :end_date %>
+      <%= f.date_field :end_date %>
+    </div>
+
+    <div class="form-group">
+      <% @locations.each do |location| %>
+        <input type='radio' name='location' value='<%= location.id %>'>
+      <span><%= location.location %></span>
+      <% end %>
+    </div>
+
+    <div class="form-group">
+      <% @age_groups.each do |age_group| %>
+        <input type="checkbox" name="age_group_ids[]" value="<%= age_group.id %>" />
+        <span><%= age_group.name %></span>
+      <% end %>
+    </div>
+
+    <div class="form-group">
+      <% @topics.each do |topic| %>
+        <input type="checkbox" name="topic_ids[]" value="<%= topic.id %>" />
+        <span><%= topic.name %></span>
+      <% end %>
+    </div>
+
+    <% @types.each do |type| %>
+      <input type='radio' name='type' value='<%= type.id %>'>
+      <span><%= type.name %></span>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :description %>
+      <%= f.text_area :description, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :contact_name %>
+      <%= f.text_field :contact_name, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :contact_email %>
+      <%= f.email_field :contact_email, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit class: 'btn btn-primary' %>
+    </div>
+
+  <% end %>
+</div>
+
+
+<!-- class Resource < ApplicationRecord {
+               :id => :integer,
+             :name => :string, -
+          :feature => :boolean, -
+       :start_date => :date, -
+         :end_date => :date, -
+         :location => :string,-
+      :description => :text,
+     :contact_name => :string,
+    :contact_email => :string,
+       :created_at => :datetime,
+       :updated_at => :datetime
+} -->
