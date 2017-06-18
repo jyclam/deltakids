@@ -60,10 +60,7 @@ GEM
     builder (3.2.3)
     byebug (9.0.6)
     cancancan (1.17.0)
-    chosen-rails (1.5.2)
-      coffee-rails (>= 3.2)
-      railties (>= 3.0)
-      sass-rails (>= 3.2)
+    choice (0.2.0)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0)
@@ -128,6 +125,11 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
+    rails-erd (1.5.2)
+      activerecord (>= 3.2)
+      activesupport (>= 3.2)
+      choice (~> 0.2.0)
+      ruby-graphviz (~> 1.2)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
     railties (5.1.1)
@@ -140,6 +142,7 @@ GEM
     rb-fsevent (0.9.8)
     rb-inotify (0.9.9)
       ffi (~> 1.0)
+    ruby-graphviz (1.2.3)
     ruby_dep (1.5.0)
     sass (3.4.24)
     sass-rails (5.0.6)
@@ -188,7 +191,6 @@ DEPENDENCIES
   bootstrap-sass (~> 3.3.6)
   byebug
   cancancan (~> 1.10)
-  chosen-rails
   coffee-rails (~> 4.2)
   faker!
   font-awesome-rails
@@ -200,6 +202,7 @@ DEPENDENCIES
   pg (~> 0.18)
   puma (~> 3.7)
   rails (~> 5.1.1)
+  rails-erd
   sass-rails (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)

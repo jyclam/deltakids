@@ -6,9 +6,226 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
   </head>
 
   <body>
+    <div class="container">
+
+      <nav>
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapse_button" data-toggle="collapse" data-target=".myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse myNavbar">
+          <ul class="nav navbar-nav navbar-right upper_nav">
+            <li> About </li>
+            <li> Live 5-2-1-0 </li>
+            <li> Contact Us </li>
+          </ul>
+        </div>
+      </nav>
+
+    <%= link_to image_tag('main-logo.jpg', id: "main-logo"), home_path %>
+
+    <div class="div-lower-navbar collapse navbar-collapse myNavbar" >
+      <ul class="nav navbar-nav lower-navbar">
+        <li> ACTIVITIES CALENDER </li>
+
+        <!-- LEARNING DROPDOWN  -->
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown"> LEARNING
+            <span class="caret"></span></a>
+            <!-- <div class="arrow"></div> -->
+          <ul class="dropdown-menu">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="nav_pregnant col-sm-4">
+                  <li class="yellow_header_nav"><a href="#">PREGNANT?</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Best Beginnings
+                  <i class="fa fa-caret-right" aria-hidden="true"></i>
+                  </a></li>
+                </div>
+                <div class="nav_till_six col-sm-4">
+                  <li class="yellow_header_nav"><a href="#">0-6 YEAR OLDS</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Articles
+                  <i class="fa fa-caret-right" aria-hidden="true"></i>
+                  <li class="divider"></li>
+                  <li><a href="#">Early Development Instrument (EDI)</a>
+                  <i class="fa fa-caret-right" aria-hidden="true"></i>
+                  <li class="divider"></li>
+                  <li><a href="#">Child Development Milestones</a>
+                  <i class="fa fa-caret-right" aria-hidden="true"></i>
+                </div>
+                <div class="nav_till_twelve col-sm-4">
+                  <li class="yellow_header_nav"><a  href="#">6-12 YEAR OLDS</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Articles
+                  <i class="fa fa-caret-right" aria-hidden="true"></i>
+                  <li class="divider"></li>
+                  <li><a href="#">Middle Development Instrument (MDI)</a>
+                  <i class="fa fa-caret-right" aria-hidden="true"></i>
+                  <li class="divider"></li>
+                  <li><a href="#">My School Aged Child's Development</a>
+                  <i class="fa fa-caret-right" aria-hidden="true"></i>
+                </div>
+              </div>
+            </div>
+          </ul>
+
+          <!-- PROGRAMS DROPDOWN -->
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown"> PROGRAMS
+            <span class="caret"></span></a>
+            <!-- <div class="arrow"></div> -->
+          <ul class="dropdown-menu">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-sm-6">
+                  <li class="yellow_header_nav"><a href="#">0-6 YEAR OLDS</a></li>
+                  <li class="divider"></li>
+                  <div class="col-sm-6 no_padding">
+                    <li><a href="#">Preschool
+                    <i class="fa fa-caret-right" aria-hidden="true"></i>
+                    </a></li>
+                  </div>
+                  <div class="col-sm-6 no_padding">
+                    <li><a href="#">Preschool Drop-In
+                    <i class="fa fa-caret-right" aria-hidden="true"></i>
+                    </a></li>
+                  </div>
+                </div>
+                <div class="nav_till_twelve col-sm-6">
+                  <li class="yellow_header_nav"><a  href="#">6-12 YEAR OLDS</a></li>
+                  <li class="divider"></li>
+                  <div class="col-sm-6 no_padding">
+                    <li><a href="#">Sports
+                    <i class="fa fa-caret-right" aria-hidden="true"></i>
+                    <li class="divider"></li>
+                    <li><a href="#">Arts & Culture</a>
+                    <i class="fa fa-caret-right" aria-hidden="true"></i>
+                    <li class="divider"></li>
+                    <li><a href="#">Community Clubs </a>
+                    <i class="fa fa-caret-right" aria-hidden="true"></i>
+                  </div>
+                  <div class="col-sm-6">
+                    <li><a href="#">Before & After School</a>
+                    <i class="fa fa-caret-right" aria-hidden="true"></i>
+                    <li class="divider"></li>
+                    <li><a href="#">Holliday/Pro-D days</a>
+                    <i class="fa fa-caret-right" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ul>
+
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown"> SERVICES
+            <span class="caret"></span></a>
+            <!-- <div class="arrow"></div> -->
+          <ul class="dropdown-menu">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="nav_pregnant col-sm-3">
+                  <li class="yellow_header_nav"><a href="#">PREGNANCY & NEW PARENTS</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Pregnancy, Breast feeding, My child's health
+                  <i class="fa fa-caret-right" aria-hidden="true"></i>
+                  </a></li>
+                  <li><a href="#">Caring for my Family and Baby</a>
+                  <i class="fa fa-caret-right" aria-hidden="true"></i>
+                  <li class="divider"></li>
+                  <li><a href="#">Post Partum Depression</a>
+                  <i class="fa fa-caret-right" aria-hidden="true"></i>
+                </div>
+
+                <div class="nav_till_six col-sm-3">
+                  <li class="yellow_header_nav"><a href="#">CHILD DEVELOPMENT</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Child's Vision, Hearing, Nutrition
+                  <i class="fa fa-caret-right" aria-hidden="true"></i>
+                  <li class="divider"></li>
+                  <li><a href="#">Child's Physical Development</a>
+                  <i class="fa fa-caret-right" aria-hidden="true"></i>
+                  <li class="divider"></li>
+                  <li><a href="#">Child's Communication, Speech or Language</a>
+                  <i class="fa fa-caret-right" aria-hidden="true"></i>
+                </div>
+
+                <div class="nav_till_twelve col-sm-3">
+                  <li class="yellow_header_nav"><a  href="#">BRAIN & BEHAVIOR</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Child's Behaviour
+                  <i class="fa fa-caret-right" aria-hidden="true"></i>
+                  <li class="divider"></li>
+                  <li><a href="#">Support for families whose children have special needs</a>
+                  <i class="fa fa-caret-right" aria-hidden="true"></i>
+                  <li class="divider"></li>
+                  <li><a href="#">Services for Children with Autism Spectrum Disorders</a>
+                  <i class="fa fa-caret-right" aria-hidden="true"></i>
+                  <li class="divider"></li>
+                  <li><a href="#">Child's Learning Behavior</a>
+                  <i class="fa fa-caret-right" aria-hidden="true"></i>
+                </div>
+
+                <div class="nav_till_twelve col-sm-3">
+                  <li class="yellow_header_nav"><a  href="#">FAMILY SERVICES</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Finding a Childcare and/or Preschool Program
+                  <i class="fa fa-caret-right" aria-hidden="true"></i>
+                  <li class="divider"></li>
+                  <li><a href="#">Assistance with Fees </a>
+                  <i class="fa fa-caret-right" aria-hidden="true"></i>
+                  <li class="divider"></li>
+                  <li><a href="#">Finding Work</a>
+                  <i class="fa fa-caret-right" aria-hidden="true"></i>
+                  <li class="divider"></li>
+                  <li><a href="#">Parenting Support</a>
+                  <i class="fa fa-caret-right" aria-hidden="true"></i>
+                  <li class="divider"></li>
+                  <li><a href="#">Services to help families who are experiencing abuse / violence</a>
+                  <i class="fa fa-caret-right" aria-hidden="true"></i>
+                </div>
+
+              </div>
+            </div>
+          </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <li> WHAT'S NEW? </li>
+        <li>
+          <i class="fa fa-search" aria-hidden="true"></i>
+        </li>
+      </ul>
+    </div>
+
+
+
+
+  </div>
+
     <%= yield %>
   </body>
 </html>

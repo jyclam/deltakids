@@ -15,3 +15,76 @@
  *= require_tree .
  *= require_self
  */
+
+ #main-logo {
+   width: 275px;
+   margin-top: 25px;
+ }
+
+ .icon-bar {
+   background-color: black;
+ }
+
+.upper_nav li {
+  font-size: 16px;
+  color: #004C81;
+  margin-top: 15px;
+  margin-right: 50px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.fa-search {
+  margin-bottom: 10px;
+}
+
+.lower-navbar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.lower-navbar li {
+  font-family: 'Bree Serif', serif;
+}
+
+.dropdown-toggle {
+  margin-top: -15px;
+  padding-top: 0px;
+}
+
+.dropdown-menu {
+  background-color: #004C81;
+  width: 500px;
+  border: 2px solid #a1a1a1;
+  border-radius: 10px;
+
+}
+
+.dropdown-menu div li a {
+  font-family: 'Open Sans', sans-serif;
+  color: white;
+  padding: 0px;
+}
+
+.dropdown-menu div li i {
+  color: white;
+}
+
+.no_padding{
+  padding: 0px;
+}
+
+.yellow_header_nav a{
+  color: #FFF200 !important;
+}
+
+.arrow
+{
+	width: 0;
+	height: 0;
+	margin-left: 15px;
+	border-left: 7px solid transparent;
+	border-right: 7px solid transparent;
+	border-bottom: 9px solid #004C81;
+  color: white;
+}
