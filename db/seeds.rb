@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+data = SmarterCSV.process('programs.csv')
+
+length = data.count
+
+0.upto(data.count-1).each do |key, val|
+  if key == agencies {
+    Organization.create(title: val)
+  }
+
+
+end
