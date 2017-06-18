@@ -20,11 +20,23 @@
 
 <% end  %>
 
+<% if @category.present?  %>
 <div class="row">
   <div class="col-lg-4">
-
+    <h2>Category</h2>
+    <%= @category.name %>
   </div>
   <div class="col-lg-8">
 
+    <h2>Services</h2>
+    <% @services.each do |service| %>
+      <p>Service name: <%= service.name %></p>
+      <p>Service logo: <%= service&.logo %></p>
+      <p>Service logo: <%= service&.website %></p>
+      <p>website: <a href="/<%= service&.website %>">website</a></p>
+      <a href="/services/<%= service.id %>">learn more</a>
+    <% end %>
+
   </div>
 </div>
+<% end  %>
