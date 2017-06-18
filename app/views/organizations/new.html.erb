@@ -6,9 +6,7 @@
 	<%= f.text_field :title %>
   </div>
   <div>
-	<div class="address-input">
-	  Enter your address
-	</div>
+	<h5>Please Enter Your Address:</h5>
 	<div>
 	  <%= f.label :street_address %>
 	  <%= f.text_field :street_address %>
@@ -22,6 +20,65 @@
 	  <%= f.text_field :postal_code %>
 	  <%= f.label :city %>
 	  <%= f.text_field :city %>
+	</div>
+  </div>
+  <div>
+	<%= f.label :website %>
+	<%= f.text_field :website %>
+  </div>
+  <div>
+	<%= f.label(:phone_num, 'phone number:') %>
+	<%= f.text_field :phone_num %>
+  </div>
+
+  <div>
+	<%= f.label(:age_group, "Age Group:") %>
+	<%= f.radio_button(:age_group, "child") %>
+	<%= f.label(:age_group, "0-5 years") %>
+	<%= f.radio_button(:age_group, "teen") %>
+	<%= f.label(:age_group, "6-12 years") %>
+	<%= f.radio_button(:age_group, "adult") %>
+	<%= f.label(:age_group, "Adult (parents, caregivers etc)") %>
+  </div>
+  <div>
+	<%= f.label(:activity_type, "Activity Type: ") %>
+	<%= f.check_box(:activity_type) %>
+	<%= f.label(:activity_type, "Art & Culture") %>
+	<%= f.check_box(:activity_type) %>
+	<%= f.label(:activity_type, "Education") %>
+	<%= f.check_box(:activity_type) %>
+	<%= f.label(:activity_type, "Entertainment") %>
+	<%= f.check_box(:activity_type) %>
+	<%= f.label(:activity_type, "Health") %>
+	<%= f.check_box(:activity_type) %>
+	<%= f.label(:activity_type, "Sports") %>
+  </div>
+  <div>
+	<%= f.label(:description, "Description:") %>
+	<%= f.text_field(:description) %>
+  </div>
+  <div>
+	<%= f.label(:target_clientelle, "Target Clientelle:") %>
+	<%= f.select :target_clientelle, ['Pregancy And Babies', 'Children', 'Families']%>
+  </div>
+  <div>
+	<%= f.label(:services, "Services:") %>
+	<%= f.select :services, ['Help in A Crisis', 'Assistance with Fees', 'Baby and Health Development',
+	'Child and Health Development', 'Child Advocacy', 'Childcare and Preschool', 'Support for Children', 'Support for families']%>
+  </div>
+  <div>
+	<h3>Please create your account sign information...</h3>
+	<div>
+	  <%= f.label :email %>
+	  <%= f.email_field :email %>
+	</div>
+	<div>
+	  <%= f.label :password %>
+	  <%= f.password_field :password %>
+	</div>
+	<div>
+	  <%= f.label :password_confirmation %>
+	  <%= f.password_field :password_confirmation %>
 	</div>
   </div>
   <div>
