@@ -1,3 +1,3 @@
 class Resource < ApplicationRecord
-  belongs_to :age_group
+  has_many :resource_filters, dependent: :destroy
 end
