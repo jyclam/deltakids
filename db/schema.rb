@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20170618191641) do
     t.time "time_end"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "website"
     t.string "cost"
     t.boolean "registration"
     t.text "description"
@@ -121,7 +122,8 @@ ActiveRecord::Schema.define(version: 20170618191641) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category"], name: "index_programs_on_category", unique: true
+    t.bigint "age_group_id"
+    t.index ["age_group_id"], name: "index_programs_on_age_group_id"
   end
 
   create_table "resource_filters", force: :cascade do |t|
@@ -193,6 +195,7 @@ ActiveRecord::Schema.define(version: 20170618191641) do
   add_foreign_key "events", "activities"
   add_foreign_key "orgprograms", "organizations"
   add_foreign_key "orgprograms", "programs"
+  add_foreign_key "programs", "age_groups"
   add_foreign_key "resource_filters", "age_groups"
   add_foreign_key "resource_filters", "resource_locations"
   add_foreign_key "resource_filters", "resource_topics"
