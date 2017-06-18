@@ -1,0 +1,2 @@
+class ResourceTopic < ApplicationRecord
+end
