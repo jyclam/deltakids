@@ -4,9 +4,11 @@ Rails.application.routes.draw do
   # resources :welcome, only: :index
 	resources :activities
 
+
   # resources :services
   # get '/:category_id/'
   # resources :categories, only: [:index]
-  get '/categories/:category_id', to: 'categories#index'
+  # get '/categories/:category_id', to: 'categories#index'
+  resources :services
 
 end
