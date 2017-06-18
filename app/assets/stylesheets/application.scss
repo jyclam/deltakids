@@ -12,8 +12,9 @@
  *
  *= require bootstrap_and_overrides
  *= require font-awesome
- *= require_tree .
+ *= require jquery-ui
  *= require_self
+ *= require_tree .
  */
 
  #main-logo {
@@ -87,4 +88,14 @@
 	border-right: 7px solid transparent;
 	border-bottom: 9px solid #004C81;
   color: white;
+}
+
+// CSS white cloud background
+.top-cloud-background {
+    background-image: url("top.png");
+}
+
+.content-background {
+    background-color: #CCEEF8;
+    padding: 0 2.5em;
 }
