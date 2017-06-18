@@ -1,12 +1,16 @@
 class ServicesController < ApplicationController
 
   def show
-    service = Service.find params[:id]
-    if service.status
-      @service = sevice
-    else
-      redirect_to services_path
-    end
+    # if params.has_key?(:id)
+      service = Service.find params[:id]
+      # if !service.status  #have to take of the bang!
+      @service = service
+    #   else
+    #     redirect_to services_path
+    #   end
+    # else
+    #   redirect_to services_category_path
+    # end
   end
 
   def new
@@ -16,7 +20,9 @@ class ServicesController < ApplicationController
   def create
     # if can? :create, @service
     @service = Service.new service_params
-    @category = Category.find_by params[:categort_id]
+    # @category = Category.find_by params[:categort_id]
+    # @cat = Cat.find_by params[:cat_id]
+    @service.organization = current_user
     if @service.save
       redirect_to service_path(@service)
     else
@@ -25,15 +31,14 @@ class ServicesController < ApplicationController
   end
 
   def index
-    # @category = Category.find params[:id]
-    # @category = Category.find_by_name params[:id]
-    if !params[:category_id].present?
+
+    # if !params[:category_id].present?
       @services = Service.where(status:false)
-    else
-      # @category = Category.find_by_name params[:id]
-      @category = Category.find params[:category_id]
-      @services = @category.services.where(status:false)
-    end
+    # else
+    #   # @category = Category.find_by_name params[:id]
+    #   @category = Category.find params[:category_id]
+    #   @services = @category.services.where(status:false)
+    # end
 
   end
 
@@ -48,7 +53,7 @@ class ServicesController < ApplicationController
   private
 
     def service_params
-      params.require(:service).permit([:title, :description, :website, :logo, :category_id, :organization_id])
+      params.require(:service).permit([:title, :description, :website, :logo, :category_id, :organization_id, :cat_id])
     end
 
 end

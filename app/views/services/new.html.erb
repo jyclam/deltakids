@@ -36,5 +36,15 @@
       prompt: 'Choose a category!'
       %>
   </div>
+  <div class="form-group">
+    <%= f.label :cat %>
+    <%= f.collection_select :cat_id,
+      Cat.all,
+      :id,
+      :name,
+      include_blank: true,
+      prompt: 'Choose a cat!'
+      %>
+  </div>
   <%= f.submit class: 'btn btn-primary' %>
 <% end %>

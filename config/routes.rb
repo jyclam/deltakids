@@ -5,12 +5,10 @@ Rails.application.routes.draw do
 	resources :activities
 
 
-  # resources :services
-  # get '/:category_id/'
-  # resources :categories, only: [:index]
-  # get '/categories/:category_id', to: 'categories#index'
-  resources :services do
-    get ':category_id', to: 'services#index'
+  namespace :services do
+    resources :pandb, only: [:index, :show]
+    resources :children, only: [:index, :show]
+    resources :families, only: [:index, :show]
   end
-
+  resources :services
 end
