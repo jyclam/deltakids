@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20170617234722) do
+=======
+ActiveRecord::Schema.define(version: 20170618000351) do
+>>>>>>> integration
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -111,6 +115,52 @@ ActiveRecord::Schema.define(version: 20170617234722) do
     t.index ["category"], name: "index_programs_on_category", unique: true
   end
 
+  create_table "resource_filters", force: :cascade do |t|
+    t.bigint "resource_id"
+    t.bigint "age_group_id"
+    t.bigint "resource_topic_id"
+    t.bigint "resource_location_id"
+    t.bigint "resource_type_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["age_group_id"], name: "index_resource_filters_on_age_group_id"
+    t.index ["resource_id"], name: "index_resource_filters_on_resource_id"
+    t.index ["resource_location_id"], name: "index_resource_filters_on_resource_location_id"
+    t.index ["resource_topic_id"], name: "index_resource_filters_on_resource_topic_id"
+    t.index ["resource_type_id"], name: "index_resource_filters_on_resource_type_id"
+  end
+
+  create_table "resource_locations", force: :cascade do |t|
+    t.string "location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "resource_topics", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "resource_types", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "resources", force: :cascade do |t|
+    t.string "name"
+    t.boolean "feature"
+    t.date "start_date"
+    t.date "end_date"
+    t.string "location"
+    t.text "description"
+    t.string "contact_name"
+    t.string "contact_email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "services", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -130,6 +180,11 @@ ActiveRecord::Schema.define(version: 20170617234722) do
   add_foreign_key "events", "activities"
   add_foreign_key "orgprograms", "organizations"
   add_foreign_key "orgprograms", "programs"
+  add_foreign_key "resource_filters", "age_groups"
+  add_foreign_key "resource_filters", "resource_locations"
+  add_foreign_key "resource_filters", "resource_topics"
+  add_foreign_key "resource_filters", "resource_types"
+  add_foreign_key "resource_filters", "resources"
   add_foreign_key "services", "categories"
   add_foreign_key "services", "organizations"
 end
