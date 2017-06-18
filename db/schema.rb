@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20170618172336) do
 
   # These are extensions that must be enabled in order to support this database
@@ -51,6 +52,14 @@ ActiveRecord::Schema.define(version: 20170618172336) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_categories_on_name"
+  end
+
+  create_table "cats", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_cats_on_category_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -167,6 +176,9 @@ ActiveRecord::Schema.define(version: 20170618172336) do
     t.bigint "organization_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "status", default: false
+    t.bigint "cat_id"
+    t.index ["cat_id"], name: "index_services_on_cat_id"
     t.index ["category_id"], name: "index_services_on_category_id"
     t.index ["organization_id"], name: "index_services_on_organization_id"
   end
@@ -174,6 +186,7 @@ ActiveRecord::Schema.define(version: 20170618172336) do
   add_foreign_key "activities", "age_groups"
   add_foreign_key "activities", "organizations"
   add_foreign_key "activities", "programs"
+  add_foreign_key "cats", "categories"
   add_foreign_key "events", "activities"
   add_foreign_key "orgprograms", "organizations"
   add_foreign_key "orgprograms", "programs"
@@ -183,5 +196,6 @@ ActiveRecord::Schema.define(version: 20170618172336) do
   add_foreign_key "resource_filters", "resource_types"
   add_foreign_key "resource_filters", "resources"
   add_foreign_key "services", "categories"
+  add_foreign_key "services", "cats"
   add_foreign_key "services", "organizations"
 end
