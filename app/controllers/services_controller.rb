@@ -1,7 +1,12 @@
 class ServicesController < ApplicationController
 
   def show
-
+    service = Service.find params[:id]
+    if service.status
+      @service = sevice
+    else
+      redirect_to services_path
+    end
   end
 
   def new
