@@ -11,3 +11,15 @@ categories = Category.create([
   {name: 'Families'},
   {name: 'Pregnency and babies'}
 ])
+
+cats = Cat.create([
+  {name: 'Help in a crisis'},
+  {name: 'Assistance with fees'},
+  {name: 'Help in a crisis'},
+  {name: 'Baby Health & Development'},
+  {name: 'Child Health & Development'},
+  {name: 'Child Advocacy'},
+  {name: 'Childcare & Preschool'},
+  {name: 'Supports for Children'},
+  {name: 'Supports for Families'}
+  ])
