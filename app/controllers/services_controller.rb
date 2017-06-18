@@ -25,23 +25,15 @@ class ServicesController < ApplicationController
   def index
     # @category = Category.find params[:id]
     # @category = Category.find_by_name params[:id]
-    if !params[:categort_id].present?
-      debugger
+    if !params[:category_id].present?
       @services = Service.find_by_status(true)
     else
       # @category = Category.find_by_name params[:id]
-      @category = Category.find params[:id]
+      @category = Category.find params[:category_id]
       @services = @category.services
     end
 
   end
-#
-#   if params.has_key? :user_id
-#   @user = User.find(params[:user_id])
-#   @questions = @user.liked_questions.order(created_at: :desc)
-# else
-#   @questions = Question.recent(30)
-# end
 
 
 
