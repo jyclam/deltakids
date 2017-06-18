@@ -1,17 +1,12 @@
-// Place all the styles related to the activities controller here.
+//Place all the styles related to the activities controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.body-background {
-    background-color: #D1F0FA;
-    /*padding: 0 40px;*/
-    margin-top: 0px;
-    margin-bottom: 0px;
-    border: solid 0px red;
-    padding-top: 0px;
-    padding-bottom: 0px;
-
-}
+// .body-background {
+//     background-color: #D1F0FA;
+//     // padding: 0 40px;
+//
+// }
 .filter {
     background-color: #EFF8FD;
     margin-left: 5px;
@@ -39,4 +34,8 @@
 
 hr {
     border-top: 1px solid #8c8b8b;
+}
+
+#accordion{
+	background-color: #C6ECF9;
 }
