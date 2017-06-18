@@ -99,10 +99,7 @@ ActiveRecord::Schema.define(version: 20170618172336) do
     t.string "description"
     t.string "target_clientelle"
     t.string "services"
-<<<<<<< HEAD
-=======
     t.boolean "is_admin", default: false
->>>>>>> integration
     t.index ["email"], name: "index_organizations_on_email", unique: true
     t.index ["title"], name: "index_organizations_on_title", unique: true
   end
