@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170617215201) do
+ActiveRecord::Schema.define(version: 20170618083137) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "activities", force: :cascade do |t|
     t.string "name"
-    t.string "date_start"
-    t.string "date_end"
+    t.date "date_start"
+    t.date "date_end"
     t.boolean "repeat"
     t.bigint "age_group_id"
     t.bigint "program_id"
@@ -30,10 +30,13 @@ ActiveRecord::Schema.define(version: 20170617215201) do
     t.string "contact_name"
     t.string "contact_email"
     t.string "contact_phone_num"
-    t.string "time_start"
-    t.string "time_end"
+    t.time "time_start"
+    t.time "time_end"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "website"
+    t.boolean "registration"
+    t.boolean "paid"
     t.index ["age_group_id"], name: "index_activities_on_age_group_id"
     t.index ["organization_id"], name: "index_activities_on_organization_id"
     t.index ["program_id"], name: "index_activities_on_program_id"
@@ -103,7 +106,8 @@ ActiveRecord::Schema.define(version: 20170617215201) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category"], name: "index_programs_on_category", unique: true
+    t.bigint "age_group_id"
+    t.index ["age_group_id"], name: "index_programs_on_age_group_id"
   end
 
   create_table "services", force: :cascade do |t|
@@ -125,6 +129,7 @@ ActiveRecord::Schema.define(version: 20170617215201) do
   add_foreign_key "events", "activities"
   add_foreign_key "orgprograms", "organizations"
   add_foreign_key "orgprograms", "programs"
+  add_foreign_key "programs", "age_groups"
   add_foreign_key "services", "categories"
   add_foreign_key "services", "organizations"
 end
