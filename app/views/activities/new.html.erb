@@ -6,8 +6,28 @@
 	  <%= f.text_field :name %>
 	</div>
 	<div>
-	  <%= f.label(:name, 'Title: ')  %>
-	  <%= f.text_field :name %>
+	  <%= f.label(:date_start, 'Date Start: ')  %>
+	  <%= f.date_select :date_start %>
+	  <%= f.label(:time_start, 'Time Start: ') %>
+	  <%= f.time_select :time_start %>
+	</div>
+	<div>
+	  <%= f.label(:date_end, 'Date End: ')  %>
+	  <%= f.date_select :date_end %>
+	  <%= f.label(:time_end, 'Time End: ') %>
+	  <%= f.time_select :time_end %>
+	</div>
+	<div>
+	  <%= f.label(:repeat, 'Event Repeat: ') %>
+	  <%= f.radio_button(:repeat, true) %> 
+	  <%= f.label(:repeat, 'Weekly') %> 
+	  <%= f.radio_button(:repeat, false) %> 
+	  <%= f.label(:repeat, 'Never') %> 
+	</div>
+	<div>
+	</div>
+	<div>
+	  <%= f.submit %>
 	</div>
 <% end %>
 

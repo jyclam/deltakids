@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170618172336) do
+ActiveRecord::Schema.define(version: 20170618182521) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "activities", force: :cascade do |t|
     t.string "name"
-    t.string "date_start"
-    t.string "date_end"
+    t.date "date_start"
+    t.date "date_end"
     t.boolean "repeat"
     t.bigint "age_group_id"
     t.bigint "program_id"
@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(version: 20170618172336) do
     t.string "contact_name"
     t.string "contact_email"
     t.string "contact_phone_num"
-    t.string "time_start"
-    t.string "time_end"
+    t.time "time_start"
+    t.time "time_end"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["age_group_id"], name: "index_activities_on_age_group_id"
