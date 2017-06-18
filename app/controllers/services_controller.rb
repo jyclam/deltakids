@@ -1,10 +1,7 @@
 class ServicesController < ApplicationController
 
   def show
-    # @category = Category.find params[:id]
-    @service = Service.find params[:id]
-    # @category = Category.find_by_name params[:id]
-    @services = @category.services
+
   end
 
   def new
@@ -16,7 +13,7 @@ class ServicesController < ApplicationController
     @service = Service.new service_params
     @category = Category.find_by params[:categort_id]
     if @service.save
-      redirect_to service_path(@category)
+      redirect_to service_path(@service)
     else
       render :new
     end
@@ -30,7 +27,7 @@ class ServicesController < ApplicationController
     else
       # @category = Category.find_by_name params[:id]
       @category = Category.find params[:category_id]
-      @services = @category.services
+      @services = @category.services.find_by_status(true)
     end
 
   end
