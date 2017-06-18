@@ -9,7 +9,7 @@ class OrganizationsController < ApplicationController
   # @organization.service_ids = [params[:organization][:service_ids]]
 
 	if @organization.save
-	  session[:org_id] = @organization.id
+	  # session[:org_id] = @organization.id
 	  redirect_to home_path
 	else
 	  render :new
