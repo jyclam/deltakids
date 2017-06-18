@@ -1,3 +1,79 @@
 // Place all the styles related to the resources controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+hr{
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #004C81;
+    margin: 1em 0;
+    padding: 0;
+}
+
+// left side
+.resource{
+  background-color: #C8ECF5;
+}
+.filter-bar{
+  background-color: #F0FFFF;
+  border-radius: 15px;
+}
+.filter-head{
+color:#004C81;
+// position: relative;
+}
+.filter-info{
+  margin-left: 20px;
+  margin-right: 10px;
+  // margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+#filter-name{
+  font-size: 34px;
+  font-family: "Bree serif";
+}
+
+.filter-icon{
+  width: 40px;
+  height: 40px;
+  float: right;
+}
+
+// right side
+.main-pic{
+  height: 400px;
+  width: 100%;
+  z-index: 0;
+}
+
+.articles{
+  // background-color: white;
+}
+.article{
+  padding: 5px 10px 10px 10px;
+  margin-bottom: 10px;
+  background-color: white;
+}
+
+.article-share{
+  text-align: center;
+}
+
+.share-pic{
+  width: 25px;
+  height: 25px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+// colours
+.teal-blue{
+  color: #004C81;
+}
+.deep-sky-blue{
+  color: #00A3DA
+}
+
+.light-blue{
+  color: #C8ECF5;
+}
