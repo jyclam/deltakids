@@ -16,6 +16,8 @@
  *= require_self
  */
 
+ // HEADER
+
  #main-logo {
    width: 275px;
    margin-top: 25px;
@@ -25,7 +27,7 @@
    background-color: black;
  }
 
-.upper_nav li {
+.upper-nav li {
   font-size: 16px;
   color: #004C81;
   margin-top: 15px;
@@ -70,21 +72,60 @@
   color: white;
 }
 
-.no_padding{
+.no-padding{
   padding: 0px;
 }
 
-.yellow_header_nav a{
+.yellow-header-nav a{
   color: #FFF200 !important;
 }
 
-.arrow
-{
-	width: 0;
-	height: 0;
-	margin-left: 15px;
-	border-left: 7px solid transparent;
-	border-right: 7px solid transparent;
-	border-bottom: 9px solid #004C81;
+// .arrow
+// {
+// 	width: 0;
+// 	height: 0;
+// 	margin-left: 15px;
+// 	border-left: 7px solid transparent;
+// 	border-right: 7px solid transparent;
+// 	border-bottom: 9px solid #004C81;
+//   color: white;
+// }
+
+// FOOTER
+
+.footer {
+  background-color: #004C81;
+  height: 100px;
+  text-align: center;
+  padding-top: 25px;
+  font-size: 12px;
+}
+
+.footer i {
+  color: #004C81;
+  background-color: white;
+  padding: 8px;
+  border-radius: 5px;
+  margin: 0px 5px 2px 5px;
+
+}
+
+#copyright-icon {
   color: white;
+  background-color: #004C81;
+  font-size: 10px;
+  padding: 0px;
+}
+
+.footer-text p {
+  color: white;
+  font-size: 10px;
+}
+
+.footer-text-firstline p {
+  display: inline-block;
+  color: white;
+  padding-top: 10px;
+  line-height: 0%;
+  font-size: 10px;
 }
