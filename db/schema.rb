@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20170617234722) do
+=======
 ActiveRecord::Schema.define(version: 20170618000351) do
+>>>>>>> integration
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,6 +89,11 @@ ActiveRecord::Schema.define(version: 20170618000351) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "age_group"
+    t.string "activity_type"
+    t.string "description"
+    t.string "target_clientelle"
+    t.string "services"
     t.index ["email"], name: "index_organizations_on_email", unique: true
     t.index ["title"], name: "index_organizations_on_title", unique: true
   end
