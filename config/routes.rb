@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   # get '/:category_id/'
   # resources :categories, only: [:index]
   # get '/categories/:category_id', to: 'categories#index'
-  resources :services
+  resources :services do
+    get ':category_id', to: 'services#index'
+  end
 
 end
