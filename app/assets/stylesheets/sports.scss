@@ -1,53 +1,44 @@
 // Place all the styles related to the sports controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-
-
 .sidebar-brand{
-	font-family: Bree serif;
-	font-size: 20px;
+    font-size: 20px;
+    color: white;
+    padding-left: 1em;
 }
-
 #contact{
-	font-size: 25px;
-
+    font-size: 16px;
+    color: #00A3DA;
+    padding-left: 1em;
 }
 #sidebar{
-	background-color: #1171b0;
-	color: #00A3DA;
-	margin-top: 10%;
-	border: red solid;
-	height: 100%;
-
+    font-family: "Open Sans";
+    background-color: #004C81;
+    // border: red solid;
+    padding: 2em 0;
 }
-
 .left-nav li a{
-	color: white;
+    color: white;
 }
-
-.logos{
-	border: red solid;
-	padding-left: 15%;
-	margin-top: 36px;
-	margin-right: 10px;
-
-
-}
-
 .content{
-	border: red solid;
-	margin-top: 10%;
+    // border: red solid;
+    font-family: "Open Sans";
+    background-color: white;
+    font-size: 16px;
+    color: #004C81;
+    padding: 0.5em 1.2em;
+}
+.content-header{
+    font-weight: bold;
+    border-bottom: 1px solid;
 
 }
-
-#logo{
-	    width: 50px;
-			margin-left: -43px;
-			margin-top: 2px;
+.content-row{
+    font-size: 16px;
+    color: #004C81;
+    padding: 0.5em 1.2em;
+    border-bottom: 1px solid;
 }
-
 .register{
-	border: red solid;
-
+    border: red solid;
 }
