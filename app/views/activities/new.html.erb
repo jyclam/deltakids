@@ -65,6 +65,14 @@
 	  <%= f.radio_button(:cost, 'paid') %>
 	  <%= f.label :cost, 'Paid' %>
 	</div>
+	<div class="">
+		<%= f.label :activity_types, "Activity Types:" %>
+		<% Program.all.each do |program| %>
+		  <%= f.radio_button(:program_id, program.id) %>
+		  <%= f.label(:program_id, program.category) %>
+		<% end %>
+	</div>
+
 	<div>
 	  <%= f.submit %>
 	</div>
