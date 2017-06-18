@@ -7,15 +7,15 @@
 	</div>
 	<div>
 	  <%= f.label(:date_start, 'Date Start: ')  %>
-	  <%= f.date_select :date_start %>
+	  <%= f.date_field :date_start %>
 	  <%= f.label(:time_start, 'Time Start: ') %>
-	  <%= f.time_select :time_start %>
+	  <%= f.time_field :time_start %>
 	</div>
 	<div>
 	  <%= f.label(:date_end, 'Date End: ')  %>
-	  <%= f.date_select :date_end %>
+	  <%= f.date_field :date_end %>
 	  <%= f.label(:time_end, 'Time End: ') %>
-	  <%= f.time_select :time_end %>
+	  <%= f.time_field :time_end %>
 	</div>
 	<div>
 	  <%= f.label(:repeat, 'Event Repeat: ') %>
@@ -23,6 +23,38 @@
 	  <%= f.label(:repeat, 'Weekly') %> 
 	  <%= f.radio_button(:repeat, false) %> 
 	  <%= f.label(:repeat, 'Never') %> 
+	</div>
+	<div>
+	    <h5>Event Address: </h5>
+		<div>
+			<%= f.label :street_address %>
+			<%= f.text_field :street_address %>
+		</div>
+		<div>
+			<%= f.label :unit_number %>
+			<%= f.text_field :unit_num %>
+		</div>
+		<div>
+			<%= f.label :postal_code %>
+			<%= f.text_field :postal_code %>
+		</div> 
+		<div>
+			<%= f.label :city, 'City: ' %>
+			<%= f.radio_button(:city, 'Ladner') %>
+			<%= f.label :city, 'Ladner' %>
+			<%= f.radio_button(:city, 'Delta') %>
+			<%= f.label :city, 'North Delta' %>
+			<%= f.radio_button(:city, 'Tsawwassen') %>
+			<%= f.label :city, 'Tsawwassen' %>
+		</div>
+	</div>
+	<div>
+	  <%= f.label :age_group_id, 'Age Group:' %>
+	  <% agegroups = AgeGroup.all %>
+	  <% agegroups.each do |agegroup| %>
+		<%= f.radio_button(:age_group_id, agegroup.id) %>
+		<%= f.label(:age_group_id, agegroup.name)%>
+	  <% end %>
 	</div>
 	<div>
 	</div>
