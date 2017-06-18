@@ -11,7 +11,7 @@ gem 'hirb'
 gem 'font-awesome-rails'
 # gem 'chosen-rails'
 gem 'jquery-rails'
-gem 'bootstrap-form'
+gem 'bootstrap_form'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.1'

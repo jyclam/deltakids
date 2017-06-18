@@ -1,0 +1,156 @@
+
+<div class="container background">
+  <h2>Create a new Organization</h2>
+  <%= @organization.errors.full_messages.join(', ') %>
+  <%= form_for @organization do |f| %>
+  <div class="form-horizontal">
+    <!-- <div class="well"> -->
+      <div class="form-group">
+      	<%= f.label :organization_name, class: "col-sm-3" %>
+        <div class="col-sm-9">
+      	   <%= f.text_field :title, class: 'form-control' %>
+        </div>
+      </div>
+      <div>
+
+      <div class="form-group">
+      	 <%= f.label :street_address, class: "col-sm-3" %>
+         <div class="col-sm-9">
+      	    <%= f.text_field :street_address, class: 'form-control' %>
+        </div>
+    	</div>
+
+      <div class="form-group">
+      	 <%= f.label :unit_number, class: "col-sm-3" %>
+         <div class="col-sm-9">
+      	    <%= f.text_field :unit_num, class: 'form-control' %>
+        </div>
+    	</div>
+
+    	<div class="form-group">
+    	  <%= f.label :postal_code , class: "col-sm-3"%>
+        <div class="col-sm-4">
+      	  <%= f.text_field :postal_code, class: 'form-control' %>
+        </div>
+    	  <%= f.label :city, class: "col-sm-1" %>
+        <div class="col-sm-4">
+          <%= f.text_field :city, class: 'form-control' %>
+        </div>
+    	</div>
+
+      <div class="form-group">
+         <%= f.label :website, class: "col-sm-3" %>
+         <div class="col-sm-9">
+            <%= f.text_field :website, class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class="form-group">
+    	<%= f.label(:phone_num, 'phone number: ', class: "col-sm-3")%>
+      <div class="col-sm-9">
+      	<%= f.text_field :phone_num, class: 'form-control' %>
+      </div>
+      </div>
+
+      <div class="form-group">
+      	<%= f.label(:age_group, "Age Group:", class: "col-sm-3") %>
+        <div class="col-sm-3">
+        	<%= f.radio_button(:age_group, "child") %>
+          <%= f.label(:age_group, "0-5 years") %>
+        </div>
+        <div class="col-sm-3">
+        	<%= f.radio_button(:age_group, "teen") %>
+          <%= f.label(:age_group, "6-12 years") %>
+        </div>
+        <div class="col-sm-3">
+        	<%= f.radio_button(:age_group, "adult") %>
+          <%= f.label(:age_group, "Adult (parents, caregivers, etc)") %>
+        </div>
+      </div>
+      </div>
+      <!-- <div>
+      	<%# f.label(:activity_type, "Activity Type: ") %>
+      	<%# f.check_box(:activity_type) %>
+      	<%# f.label(:activity_type, "Art & Culture") %>
+      	<%# f.check_box(:activity_type) %>
+      	<%# f.label(:activity_type, "Education") %>
+      	<%# f.check_box(:activity_type) %>
+      	<%# f.label(:activity_type, "Entertainment") %>
+      	<%# f.check_box(:activity_type) %>
+      	<%# f.label(:activity_type, "Health") %>
+      	<%# f.check_box(:activity_type) %>
+      	<%# f.label(:activity_type, "Sports") %>
+      </div> -->
+
+      <!-- <div class="">
+    	  <%= f.label :activity_types, "Activity Types:" %>
+        <%= f.collection_check_boxes :programs_offered_ids, Program.all, :id, :category %>
+      </div> -->
+
+      <div class="form-group">
+         <%= f.label(:description, "Description:" , class: "col-sm-3") %>
+         <div class="col-sm-9">
+            <%= f.text_field :description, class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class="form-group">
+      	<%= f.label(:target_clientelle, "Target Clientelle:", class: "col-sm-3") %>
+        <div class="col-sm-3">
+        	<%= f.select :target_clientelle, ['Pregancy And Babies', 'Children', 'Families'], class: 'form-control'%>
+        </div>
+      <!-- </div> -->
+    </div>
+        <!-- <div class="form-group">
+        	<%= f.label :services, class: "col-sm-3" %>
+          <div class="col-sm-3">
+        	   <%= f.collection_select(:service_ids, Service.all, :id, :name)%>
+          </div>
+        </div> -->
+
+
+      <!-- <div class="well"> -->
+        <h3>Please create your account sign information...</h3>
+        <br>
+        <div class="form-group">
+          <%= f.label :first_name , class: "col-sm-3"%>
+          <div class="col-sm-3">
+            <%= f.text_field :first_name, class: 'form-control' %>
+          </div>
+          <%= f.label :last_name, class: "col-sm-2" %>
+          <div class="col-sm-4">
+            <%= f.text_field :last_name, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+           <%= f.label :email, class: "col-sm-3" %>
+           <div class="col-sm-9">
+              <%= f.text_field :email, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+           <%= f.label :password, class: "col-sm-3" %>
+           <div class="col-sm-9">
+              <%= f.text_field :password, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+           <%= f.label :password_confirmation, class: "col-sm-3" %>
+           <div class="col-sm-9">
+              <%= f.text_field :password_confirmation, class: 'form-control' %>
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <div class="col-sm-9 col-sm-offset-3">
+          	<%= f.submit 'Submit', class: "btn btn-default" %>
+          </div>
+        </div>
+      <% end %>
+    <!-- </div> -->
+  </div>
+</div>
