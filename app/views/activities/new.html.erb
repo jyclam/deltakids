@@ -72,7 +72,29 @@
 		  <%= f.label(:program_id, program.category) %>
 		<% end %>
 	</div>
-
+	<div>
+	  <%= f.label :registration, 'Registration: ' %>
+	  <%= f.radio_button(:registration, true) %>
+	  <%= f.label(:registration, 'Drop-in') %>
+	  <%= f.radio_button(:registration, false) %>
+	  <%= f.label(:registration, 'Pre-registration required') %>
+	</div>
+	<div>
+	  <%= f.label :description, 'Description: '%>
+	  <%= f.text_area :description %>
+	</div>
+	<div>
+	  <%= f.label :more_info, 'More Info: '%>
+	  <%= f.text_field :more_info %>
+	</div>
+	<div>
+	  <%= f.label :contact_name, 'Contact Name: ' %>
+	  <%= f.text_field :contact_name %>
+	</div>
+	<div>
+	  <%= f.label :contact_email, 'Contact Email: ' %>
+	  <%= f.text_field :contact_email %>
+	</div>
 	<div>
 	  <%= f.submit %>
 	</div>
