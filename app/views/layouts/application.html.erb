@@ -32,6 +32,7 @@
         </div>
 		<% if org_signed_in? %>
 		  Hello <%= current_org.title %>
+		  <%= link_to 'Sign Out', sessions_path, method: :delete %>
 	    <% else %>
 		  <%= link_to 'Sign In', new_session_path %>
 	    <% end %>
