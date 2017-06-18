@@ -57,6 +57,13 @@
 	  <% end %>
 	</div>
 	<div>
+	  <%= f.label(:cost, 'Cost: ')%> 
+	  <%= f.radio_button(:cost, 'free') %>
+	  <%= f.label :cost, 'Free' %>
+	  <%= f.radio_button(:cost, 'low') %>
+	  <%= f.label :cost, 'Low Cost' %>
+	  <%= f.radio_button(:cost, 'paid') %>
+	  <%= f.label :cost, 'Paid' %>
 	</div>
 	<div>
 	  <%= f.submit %>
