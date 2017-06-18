@@ -23,11 +23,11 @@ class ServicesController < ApplicationController
     # @category = Category.find params[:id]
     # @category = Category.find_by_name params[:id]
     if !params[:category_id].present?
-      @services = Service.find_by_status(true)
+      @services = Service.where(status:false)
     else
       # @category = Category.find_by_name params[:id]
       @category = Category.find params[:category_id]
-      @services = @category.services.find_by_status(true)
+      @services = @category.services.where(status:false)
     end
 
   end
