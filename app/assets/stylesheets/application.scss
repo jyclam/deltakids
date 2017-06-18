@@ -18,6 +18,10 @@
 
  // HEADER
 
+ // body {
+ //   margin: 0px;
+ // }
+
  #main-logo {
    width: 275px;
    margin-top: 25px;
@@ -121,11 +125,16 @@
 
 // CSS white cloud background
 .top-cloud-background {
-    background-image: url("top.png");
-		width: 100%;
+  margin-left: 0px;
+  background-image: url("top.png");
+	width: 100%;
 }
 
 // .content-background {
 //     background-color: #CCEEF8;
 // 		width: 100%;
 // }
+
+h1, h2, h3, h4, h5, h6 {
+ font-family: 'Bree Serif', serif;
+}
