@@ -1,10 +1,17 @@
 class Services::ChildrenController < ApplicationController
+  before_action :category
+
+  # def index
+  #   # render json: {hello: 'hihi'}
+  #   category = Category.all
+  #   @services = category[0].services
+  # end
 
   def index
-    # render json: {hello: 'hihi'}
-    category = Category.all
-    @services = category[0].services
+
+    @services = category.services
   end
+
 
   def show
     category = Category.all
@@ -13,5 +20,10 @@ class Services::ChildrenController < ApplicationController
     @services = @cat.services
   end
 
+  private
+
+  def category
+      category = Category.all[0]
+  end
 
 end

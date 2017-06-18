@@ -1,16 +1,10 @@
 class ServicesController < ApplicationController
+before_action :authenticate_org!, except: [:index, :show]
+
 
   def show
-    # if params.has_key?(:id)
       service = Service.find params[:id]
-      # if !service.status  #have to take of the bang!
       @service = service
-    #   else
-    #     redirect_to services_path
-    #   end
-    # else
-    #   redirect_to services_category_path
-    # end
   end
 
   def new
@@ -18,11 +12,9 @@ class ServicesController < ApplicationController
   end
 
   def create
-    # if can? :create, @service
+
     @service = Service.new service_params
-    # @category = Category.find_by params[:categort_id]
-    # @cat = Cat.find_by params[:cat_id]
-    @service.organization = current_user
+    @service.organization = current_org
     if @service.save
       redirect_to service_path(@service)
     else
@@ -31,23 +23,19 @@ class ServicesController < ApplicationController
   end
 
   def index
-
-    # if !params[:category_id].present?
       @services = Service.where(status:false)
-    # else
-    #   # @category = Category.find_by_name params[:id]
-    #   @category = Category.find params[:category_id]
-    #   @services = @category.services.where(status:false)
-    # end
-
   end
 
 
 
   def delete
-    @category = Category.find params[:id]
-    @category.destroy
-    redirect_to services_path
+    if can? :destroy, @question
+      @category = Category.find params[:id]
+      @category.destroy
+      redirect_to services_path
+    else
+      head :unauthorized
+    end
   end
 
   private

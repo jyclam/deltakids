@@ -6,4 +6,6 @@ class Organization < ApplicationRecord
 
   has_many :activities, dependent: :nullify
   has_many :services, dependent: :nullify
+
+  has_secure_password
 end

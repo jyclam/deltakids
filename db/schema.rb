@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20170618084615) do
+=======
+ActiveRecord::Schema.define(version: 20170618172336) do
+>>>>>>> d69d5cf953aecf19690830b5e074998f52825a88
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -98,6 +102,10 @@ ActiveRecord::Schema.define(version: 20170618084615) do
     t.string "description"
     t.string "target_clientelle"
     t.string "services"
+<<<<<<< HEAD
+=======
+    t.boolean "is_admin", default: false
+>>>>>>> d69d5cf953aecf19690830b5e074998f52825a88
     t.index ["email"], name: "index_organizations_on_email", unique: true
     t.index ["title"], name: "index_organizations_on_title", unique: true
   end

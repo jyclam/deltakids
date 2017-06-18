@@ -14,4 +14,8 @@ class Services::FamiliesController < ApplicationController
     @services = @cat.services
   end
 
+  def category
+      category = Category.all[1]
+  end
+
 end
