@@ -1,5 +1,6 @@
 <h1>Create a New Activity</h1>
 
+<%= @activity.errors.full_messages.join(', ') %>
 <%= form_for @activity do |f| %>
 	<div>
 	  <%= f.label(:name, 'Title: ')  %>
