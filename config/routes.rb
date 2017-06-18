@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   # resources :welcome, only: :index
 	resources :activities
 
-  resources :organizations, only: [:new, :create]
+	resources :sports
 
+  resources :organizations, only: [:new, :create]
 
 end
