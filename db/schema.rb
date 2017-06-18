@@ -107,6 +107,7 @@ ActiveRecord::Schema.define(version: 20170618000351) do
   end
 
   create_table "resource_filters", force: :cascade do |t|
+    t.bigint "resource_id"
     t.bigint "age_group_id"
     t.bigint "resource_topic_id"
     t.bigint "resource_location_id"
@@ -114,6 +115,7 @@ ActiveRecord::Schema.define(version: 20170618000351) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["age_group_id"], name: "index_resource_filters_on_age_group_id"
+    t.index ["resource_id"], name: "index_resource_filters_on_resource_id"
     t.index ["resource_location_id"], name: "index_resource_filters_on_resource_location_id"
     t.index ["resource_topic_id"], name: "index_resource_filters_on_resource_topic_id"
     t.index ["resource_type_id"], name: "index_resource_filters_on_resource_type_id"
@@ -173,6 +175,7 @@ ActiveRecord::Schema.define(version: 20170618000351) do
   add_foreign_key "resource_filters", "resource_locations"
   add_foreign_key "resource_filters", "resource_topics"
   add_foreign_key "resource_filters", "resource_types"
+  add_foreign_key "resource_filters", "resources"
   add_foreign_key "services", "categories"
   add_foreign_key "services", "organizations"
 end
