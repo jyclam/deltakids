@@ -7,8 +7,11 @@ class Services::PandbController < ApplicationController
   end
 
   def show
-    cat = Cat.find params[:id]
-    @services = cat.services
+    category = Category.all
+    cats = category[2].cats
+    # @cat = cats.find params[:id]
+    @cat = cats[params[:id].to_i]
+    @services = @cat.services
   end
 
 end
