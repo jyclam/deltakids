@@ -15,7 +15,7 @@ Event.destroy_all
 Category.create([
   {name: 'Children'},
   {name: 'Families'},
-  {name: 'Pregnency and babies'}
+  {name: 'Pregnancy and babies'}
 ])
 categories = Category.all
 
@@ -176,7 +176,7 @@ end
 	a = Activity.create(
 		name: ['Summer Basketball with Michael Jordan', 'Winter Hockey with Wayne Gretzsky', 'Drawing with Pablo Picasso', 'Singing with Celine Dion', 'Learning About Space with Neil Degrasse Tyson', 'Cooking with Ratatouille'].sample,
 		date_start: Date.new(2017, rand(1..6), rand(1..15)),
-		date_end: Date.new(2017, (rand(1..6) + 6), (rand(1..15) + 15)), 
+		date_end: Date.new(2017, (rand(1..6) + 6), (rand(1..15) + 15)),
 	  repeat: [true, false].sample,
 	  street_address: ['4838 Clinton St.', '4-565 Shaw Ave.', '911 Emergency Lane'].sample,
 	  city: ['Ladner', 'Tsawwassen', 'North Delta'].sample,
@@ -196,35 +196,35 @@ end
    )
 	if a.repeat == false
 		e = Event.new(
-			name: a.name, 
+			name: a.name,
 			date: a.date_start,
-      unit_num: a.unit_num, 
-			street_address: a.street_address, 
-			city: a.city, 
-			postal_code: a.postal_code, 
-			contact_name: a.contact_name, 
-			contact_email: a.contact_email, 
-			time_start: a.time_start, 
+      unit_num: a.unit_num,
+			street_address: a.street_address,
+			city: a.city,
+			postal_code: a.postal_code,
+			contact_name: a.contact_name,
+			contact_email: a.contact_email,
+			time_start: a.time_start,
 			time_end: a.time_end,
 			activity_id: a.id
 		)
 		e.save
-	else 
+	else
 		date_end = a.date_end
 		date_start = a.date_start
 		current_date = date_start
-		while ((current_date + 1.week) <= date_end) 
+		while ((current_date + 1.week) <= date_end)
 			current_date += 1.week
 			e = Event.new(
-				name: a.name, 
+				name: a.name,
 				date: current_date,
-				unit_num: a.unit_num, 
-				street_address: a.street_address, 
-				city: a.city, 
-				postal_code: a.postal_code, 
-				contact_name: a.contact_name, 
-				contact_email: a.contact_email, 
-				time_start: a.time_start, 
+				unit_num: a.unit_num,
+				street_address: a.street_address,
+				city: a.city,
+				postal_code: a.postal_code,
+				contact_name: a.contact_name,
+				contact_email: a.contact_email,
+				time_start: a.time_start,
 				time_end: a.time_end,
 				activity_id: a.id
 			)
@@ -233,5 +233,3 @@ end
 	end
 
 end
-
-
