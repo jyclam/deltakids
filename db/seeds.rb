@@ -141,7 +141,6 @@ cities = ['North Delta', 'South Delta', 'Surrey']
 data = SmarterCSV.process('programs.csv')
 ds = data.each_slice(5).to_a
 
-# ds[3].each do |row|
 data.each do |row|
   if row[:agencies]
     if Organization.where(title: row[:agencies]).length < 1
