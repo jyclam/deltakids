@@ -62,7 +62,7 @@
 
 .dropdown-menu {
   background-color: #004C81;
-  width: 500px;
+  width: 650px;
   border: 2px solid #a1a1a1;
   border-radius: 10px;
 
@@ -140,3 +140,95 @@
 h1, h2, h3, h4, h5, h6 {
  font-family: 'Bree Serif', serif;
 }
+
+.dropdown-toggle {
+  margin-top: -15px;
+  padding-top: 0px;
+}
+
+.dropdown-menu {
+  background-color: #004C81;
+  width: 500px;
+  border: 2px solid #a1a1a1;
+  border-radius: 10px;
+
+}
+
+.dropdown-menu div li a {
+  font-family: 'Open Sans', sans-serif;
+  color: white;
+  padding: 0px;
+}
+
+.dropdown-menu div li i {
+  color: white;
+}
+
+.no-padding{
+  padding: 0px;
+}
+
+.yellow-header-nav a{
+  color: #FFF200 !important;
+}
+
+// .arrow
+// {
+// 	width: 0;
+// 	height: 0;
+// 	margin-left: 15px;
+// 	border-left: 7px solid transparent;
+// 	border-right: 7px solid transparent;
+// 	border-bottom: 9px solid #004C81;
+//   color: white;
+// }
+
+// FOOTER
+
+.footer {
+  background-color: #004C81;
+  height: 100px;
+  text-align: center;
+  padding-top: 25px;
+  font-size: 12px;
+}
+
+.footer i {
+  color: #004C81;
+  background-color: white;
+  padding: 8px;
+  border-radius: 5px;
+  margin:	 0px 5px 2px 5px;
+
+}
+
+#copyright-icon {
+  color: white;
+  background-color: #004C81;
+  font-size: 10px;
+  padding: 0px;
+}
+
+.footer-text p {
+  color: white;
+  font-size: 10px;
+}
+
+.footer-text-firstline p {
+  display: inline-block;
+  color: white;
+  padding-top: 10px;
+  line-height: 0%;
+  font-size: 10px;
+}
+
+// CSS white cloud background
+.top-cloud-background {
+    background-image: url("top.png");
+		width: 100%;
+}
+
+// .content-background {
+//     background-color: #CCEEF8;
+// 		width: 100%;
+// }
