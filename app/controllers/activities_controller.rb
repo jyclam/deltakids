@@ -22,10 +22,46 @@ class ActivitiesController < ApplicationController
 	end
 
 	def filter
-		@activities = Program.all.where(age_group_id: 1)
-		@age_groups = AgeGroup.all
+		activity_filter = Activity.all
+		puts activity_filter.count
+		age_group = params[:age_group_id] 
+	  if (params[:age_group_id] != 'all')
+			activity_filter = activity_filter.where(age_group_id: params[:age_group_id])
+			puts activity_filter.count
+		end
+	  if (params[:city] != 'all') 
+			activity_filter = activity_filter.where(city: params[:city])
+			puts activity_filter.count
+		end
+		if (params[:cost] != 'all') 
+			activity_filter = activity_filter.where(cost: params[:cost])
+			puts activity_filter.count
+		end
+		if (params[:repeat] != 'all') 
+			activity_filter = activity_filter.where(repeat: params[:repeat])
+			puts activity_filter.count
+		end
+		if (params[:activity_id] != 'all') 
+			activity_filter = activity_filter.where(id: params[:activity_id])
+			puts activity_filter.count
+		end
+		
+		@filtered_events = []
+		if activity_filter.count > 0 
+			activity_filter.each do |activity| 
+				if !activity.events.empty?
+					@events.push(activity.events) 
+				end
+			end
+		end
 
-		filters = Event.all
+		puts @events.count
+		puts @filtered_events
+		
+
+
+
+		#filters = Event.all
 
 		# if params[:age_group_ids]
 		# 	filters = filters.where(age_group_id: params[:age_group_ids])
