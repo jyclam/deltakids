@@ -1,6 +1,79 @@
-<div class="container-fluid">
-  <h2> <%= @resource.name %> </h2>
-  <h3>Description: <%= @resource.description %></h3>
-  <h3>Contact Name: <%= @resource.contact_name %></h3>
-  <h3>Contact Email: <%= @resource.contact_email %></h3>
+<div class="container">
+  <div class="row resource-back">
+    <div class="col-md-12">
+      <div class="resource-show-top text-center">
+        <%= image_tag 'kids.jpg', :class=> "main-pic" %>
+        <br>
+        <br>
+        <h2 class="deep-sky-blue"> <%= @resource.name %> </h2>
+      </div>
+
+    <div class="row">
+      <br>
+      <div class="col-md-7">
+        <div class="resource-info-left">
+          <h3 class="deep-sky-blue">Description: </h3>
+            <p class="resource-info"><%= @resource.description.html_safe() %></p>
+            <h3 class="deep-sky-blue">Contact Name: </h3>
+            <p class="resource-info"><%= @resource.contact_name %></p>
+            <h3 class="deep-sky-blue">Contact Email: </h3>
+            <p class="resource-info"><%= @resource.contact_email %></p>
+
+            <div class="main-article">
+              <h3 class="teal-blue">Main article</h3>
+              <hr class="hr-thick">
+              <div class="article-share">
+                <%= image_tag 'icons/links.png', :class=> "share-pic" %>
+                <a href="newsletter_09.pdf" target="_blank">Share PDF</a> &nbsp&nbsp&nbsp
+                <%= image_tag 'icons/adobe.png', :class=> "share-pic" %>
+                <a href="newsletter_09.pdf" target="_blank">View</a>
+              </div>
+            </div>
+
+        </div>
+
+      </div>
+
+      <div class="col-md-4 resource-info-right text-center">
+        <h3 class="teal-blue">Suggested Articles</h3>
+
+        <div class="suggested-article">
+          <h4 class="deep-sky-blue">Suggested article 1</h4>
+          <hr class="hr-thick">
+          <div class="article-share">
+            <%= image_tag 'icons/links.png', :class=> "share-pic" %>
+            <a href="newsletter_09.pdf" target="_blank">Share PDF</a> &nbsp&nbsp&nbsp
+            <%= image_tag 'icons/adobe.png', :class=> "share-pic" %>
+            <a href="newsletter_09.pdf" target="_blank">View</a>
+          </div>
+        </div>
+
+        <div class="suggested-article">
+          <h4 class="deep-sky-blue">Suggested article 2</h4>
+          <hr class="hr-thick">
+          <div class="article-share">
+            <%= image_tag 'icons/links.png', :class=> "share-pic" %>
+            <a href="newsletter_09.pdf" target="_blank">Share PDF</a> &nbsp&nbsp&nbsp
+            <%= image_tag 'icons/adobe.png', :class=> "share-pic" %>
+            <a href="newsletter_09.pdf" target="_blank">View</a>
+          </div>
+        </div>
+
+        <div class="suggested-article">
+          <h4 class="deep-sky-blue">Suggested article 3</h4>
+          <hr class="hr-thick">
+          <div class="article-share">
+            <%= image_tag 'icons/links.png', :class=> "share-pic" %>
+            <a href="newsletter_09.pdf" target="_blank">Share PDF</a> &nbsp&nbsp&nbsp
+            <%= image_tag 'icons/adobe.png', :class=> "share-pic" %>
+            <a href="newsletter_09.pdf" target="_blank">View</a>
+          </div>
+        </div>
+        <%= image_tag 'minibookshelf.png', :class=> "shelf-pic" %>
+      </div>
+
+
+    </div>
+  </div>
+</div>
 </div>

@@ -1,5 +1,6 @@
 <div class="container background">
   <h2>Submit your resources to benefit the Delta children here<h2>
+  <br>
   <%= form_for @resource do |f| %>
     <div class="form-horizontal">
 
@@ -29,8 +30,6 @@
         </div>
       </div>
 
-      <br>
-
       <div class="form-group">
         <%= f.label :end_date, class: "col-sm-3" %>
         <div class="col-sm-2">
@@ -38,36 +37,30 @@
         </div>
       </div>
 
+      <br>
       <h4> Resource is about the situation in: <h4>
-
-        <!-- <div class="form-group">
-          <%= f.label :feature, class: "col-sm-3"%>
-          <div class="col-sm-2">
-            <input type='radio' name='resource[feature]' value='true'>
-            <span>Yes</span>
-          </div>
-          <div>
-            <input type='radio' name='resource[feature]' value='false'>
-            <span>No</span>
-          </div>
-        </div> -->
+      <br>
 
       <div class="form-group">
         <div class="col-sm-offset-3">
           <% @locations.each do |location| %>
+          <div class="col-sm-3">
             <input type='radio' name='location' value='<%= location.id %>'>
-          <span><%= location.location %></span>
+            <span><%= location.location %></span>
+          </div>
           <% end %>
         </div>
       </div>
-      <br><br>
+      <br>
 
       <div class="form-group">
         <label class="col-sm-3">Age Group</label>
         <div class="col-sm-offset-3">
           <% @age_groups.each do |age_group| %>
-            <input type="checkbox" name="age_group_ids[]" value="<%= age_group.id %>" />
-            <span><%= age_group.name %></span>
+            <div class="col-sm-3">
+              <input type="checkbox" name="age_group_ids[]" value="<%= age_group.id %>" />
+              <span><%= age_group.name %></span>
+            </div>
           <% end %>
         </div>
       </div>
@@ -75,7 +68,7 @@
       <br>
 
       <div class="form-group">
-        <label class="col-sm-3">Subject</label>
+        <label class="col-sm-3 move-radio">Subject</label>
         <% @topics.each do |topic| %>
           <input type="checkbox" name="topic_ids[]" value="<%= topic.id %>" />
           <span><%= topic.name %></span>
@@ -86,13 +79,17 @@
 
       <div class="form-group">
         <label class="col-sm-3">Type</label>
+          <div class="col-sm-offset-3">
         <% @types.each do |type| %>
-          <input type='radio' name='type' value='<%= type.id %>'>
-          <span><%= type.name %></span>
+          <div class="col-sm-3">
+            <input type='radio' name='type' value='<%= type.id %>'>
+            <span><%= type.name %></span>
+          </div>
         <% end %>
       </div>
+      </div>
 
-      <br><br>
+      <br>
 
       <div class="form-group">
          <%= f.label :description, class: "col-sm-3" %>
@@ -104,6 +101,8 @@
         </div>
       </div>
 
+      <br>
+
       <div class="form-group">
          <%= f.label :contact_name, class: "col-sm-3" %>
          <div class="col-sm-9">
@@ -111,12 +110,16 @@
         </div>
       </div>
 
+      <br>
+
       <div class="form-group">
          <%= f.label :contact_email, class: "col-sm-3" %>
          <div class="col-sm-9">
             <%= f.text_field :contact_email, class: 'form-control' %>
         </div>
       </div>
+
+      <br>
 
       <div class="form-group">
         <div class="col-sm-9 col-sm-offset-3">
