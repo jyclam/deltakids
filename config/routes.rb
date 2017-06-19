@@ -24,10 +24,15 @@ Rails.application.routes.draw do
 
 
 
-  get '/learn/surveys', to: 'learn#surveys'
+  get '/learn/surveys', to: 'learn#surveys', as: :learn_survey
   get '/learn/live', to: 'learn#live', as: :learn_live
   resources :resources, path: '/learn/resources' do
     post '/filters',to: 'resources#filter', as: :filter, on: :collection
+  end
+
+
+  resources :programs, only: [:show] do
+    get '/age/:id', to: 'programs#showage', as: :learn_age, on: :collection
   end
 
   namespace :services do

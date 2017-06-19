@@ -153,7 +153,7 @@ cities = ['North Delta', 'South Delta', 'Surrey']
 data = SmarterCSV.process('programs.csv')
 ds = data.each_slice(5).to_a
 
-ds[3].each do |row|
+data.each do |row|
   if row[:agencies]
     if Organization.where(title: row[:agencies]).length < 1
       Organization.create(
@@ -171,7 +171,6 @@ ds[3].each do |row|
       last_name: Faker::Name.last_name,
       description: row[:short_description_that_relate_to_program] ? row[:short_description_that_relate_to_program] : Faker::Hipster.paragraph(1),
       email: Faker::Internet.email(row[:agencies])
-
       )
     end
   end

@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-hr{
+.hr-thick{
     display: block;
     height: 1px;
     border: 0;
@@ -78,7 +78,52 @@ color:#004C81;
 .light-blue{
   color: #C8ECF5;
 }
+/// resource show page
+.resource-back{
+  background-color: #C8ECF5;
+}
 
+.resource-show-top{
+  background-color: white;
+  margin: 0 25px 25px 25px;
+  padding-bottom: 35px;
+}
+
+.resource-info-left{
+  background-color: white;
+  margin: 0 0 15px 25px;
+  padding: 10px 25px 15px 25px;
+}
+
+.resource-info-right{
+  background-color: white;
+  float: right;
+  margin-right: 38px;
+}
+
+.resource-info{
+  font-size: 20px;
+}
+
+.suggested-article{
+  background-color: #F0FFFF;
+  padding: 10px 20px 10px 20px;
+  margin: 15px 25px 20px 25px;
+  border-radius: 15px;
+}
+
+.main-article{
+  border-radius: 15px;
+  background-color: #F0FFFF;
+  padding: 10px 20px 10px 20px;
+  margin: 15px 15px 20px 15px;
+}
+
+.shelf-pic{
+  width: 100%;
+  float: left;
+}
+////////
 .background {
   background-color: #C8ECF5;
 }
@@ -106,4 +151,12 @@ span {
 
 input[type="checkbox"], input[type="radio"] {
   margin-right: 10px;
+}
+
+h4 {
+  font-size: 24px;
+}
+
+.move-radio {
+  margin-right: 15px;
 }
