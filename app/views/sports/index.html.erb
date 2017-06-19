@@ -1,3 +1,5 @@
+<% @events = Event.all %>
+
 <div class="container">
 
 	<nav class="navbar navbar-fixed col-md-4 " id="sidebar" role="navigation">
@@ -37,20 +39,27 @@
 						PROGRAMS OFFERED
 					</div>
 				</div>
-				<div class="row content-row">
 
-					<div class="col-xs-4 col-sm-2">
-						<%= image_tag('logo.jpg', id: "logo", class: 'img-thumbnail') %>
+				<% @events.each do |event| %>
+					<div class="row content-row">
+						<div class="col-xs-4 col-sm-2">
+							<%= image_tag('logo.jpg', id: "logo", class: 'img-thumbnail') %>
+						</div>
+						<div class="col-xs-8 col-sm-4">
+							<p><%= link_to event.name, sport_path(event.id) %></p>
+							<a>Register Now</a>
+						</div>
+						<div class="col-xs-12 col-sm-6">
+							<span class="visible-xs">Programs Offered: </span>
+							<% a = (rand(3)+1) %>
+							<p>
+							<%= programs = ["Arts and Culture", "Sports", "Education", "Parent and Child", "ChildCare and Preschool", "Community Clubs", "ChildCare"].sample %>
+							</p>
+						</div>
 					</div>
-					<div class="col-xs-8 col-sm-4">
-						<p>Delta Parks & Rec</p>
-						<a>Register Now</a>
-					</div>
-					<div class="col-xs-12 col-sm-6">
-						<span class="visible-xs">Programs Offered: </span>
-						<p>Swimming, Basketball, Badminton, Ice Skating</p>
-					</div>
-				</div>
+  			<% end %>
+
+
 				<div class="row content-row">
 
 					<div class="col-xs-4 col-sm-2">

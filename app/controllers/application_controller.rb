@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   helper_method :org_signed_in?
 
   def current_org
-	@organization ||= Organization.find_by(id: session[:org_id])
+	   @organization ||= Organization.find_by(id: session[:org_id])
   end
 
   helper_method :current_org
