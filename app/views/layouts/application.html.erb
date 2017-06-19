@@ -30,15 +30,16 @@
             <% if org_signed_in? %>
             <li> <%= link_to "Hello, #{current_org.title}" %> </li>
             <li><%= link_to 'Sign Out', sessions_path, method: :delete %></li>
+            <li> <%= link_to 'Dashboard', organizations_dashboard_path %> </li>
+            <li> <%= link_to 'About' %> </li>
+            <li> <%= link_to 'Contact Us' %> </li>
+            <li><%= link_to 'Live 5-2-1-0', learn_live_path %></li>
               <% else %>
             <li><%= link_to 'Sign In', new_session_path %></li>
             <li><%= link_to 'Sign Up', new_organization_path %></li>
             <% end %>
             <% if org_signed_in? && current_org.is_admin? %>
             <li><%= link_to 'Admin Dashboard', admin_organizations_path %></li>
-            <li> <%= link_to 'About' %> </li>
-            <li> <%= link_to 'Contact Us' %> </li>
-            <li><%= link_to 'Live 5-2-1-0', learn_live_path %></li>
             <% end %>
           </ul>
         </div>
