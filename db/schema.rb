@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170618191641) do
+ActiveRecord::Schema.define(version: 20170619111351) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,12 @@ ActiveRecord::Schema.define(version: 20170618191641) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "calendars", force: :cascade do |t|
+    t.text "events", default: [], array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -81,6 +87,7 @@ ActiveRecord::Schema.define(version: 20170618191641) do
     t.bigint "activity_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_approved", default: false
     t.index ["activity_id"], name: "index_events_on_activity_id"
   end
 

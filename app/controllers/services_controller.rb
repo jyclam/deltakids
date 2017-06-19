@@ -10,17 +10,21 @@ class ServicesController < ApplicationController
   end
 
   def create
-    @service = Service.new service_params
-    @service.organization = current_user
-    if @service.save
-      redirect_to service_path(@service)
-    else
-      render :new
-    end
+    # if can? :create, @service
+      @service = Service.new service_params
+      @service.organization = current_org
+      if @service.save
+        redirect_to organizations_dashboard_path, notice: 'Service created, pending approval.'
+      else
+        render :new
+      end
+    # else
+    #   head :unauthorized
+    # end
   end
 
   def index
-    @services = Service.where(status:false)
+    @services = Service.where(status:true)
   end
 
 
@@ -34,7 +38,7 @@ class ServicesController < ApplicationController
   private
 
   def service_params
-    params.require(:service).permit([:title, :description, :website, :logo, :category_id, :organization_id, :cat_id])
+    params.require(:service).permit([:title, :description, :website, :logo, :category_id, :cat_id])
   end
 
 end

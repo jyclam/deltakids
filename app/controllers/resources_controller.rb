@@ -47,6 +47,7 @@ class ResourcesController < ApplicationController
 
       @resources.push(filter.resource) unless resource_ids.include?(filter.resource_id)
       resource_ids.push(filter.resource_id) unless resource_ids.include?(filter.resource_id)
+
     end
     # render json: filters
     render :index
@@ -87,9 +88,14 @@ class ResourcesController < ApplicationController
           end
         end
         # render json: params
-        redirect_to resource_path(resource), notice: 'Resource created'
+        # redirect_to resource_path(resource), notice: 'Resource created'
+        redirect_to :resource_submitted
+
     end
 
+  end
+
+  def submitted
   end
 
   def show
