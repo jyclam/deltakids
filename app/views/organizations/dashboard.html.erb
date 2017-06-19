@@ -38,7 +38,7 @@
           <th>Contact Details</th>
           <th>Status</th>
         </tr>
-        <% @events.where(is_approved:false).each do |event| %>
+        <% @events.each do |event| %>
         <tr>
           <td> <%= event.activity.program.category %></td>
           <td> <%=event.activity.name  %></td>

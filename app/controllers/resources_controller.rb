@@ -47,6 +47,7 @@ class ResourcesController < ApplicationController
 
       @resources.push(filter.resource) unless resource_ids.include?(filter.resource_id)
       resource_ids.push(filter.resource_id) unless resource_ids.include?(filter.resource_id)
+
     end
     # render json: filters
     render :index
