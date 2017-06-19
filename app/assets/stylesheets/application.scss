@@ -11,9 +11,11 @@
  * It is generally better to create a new file per style scope.
  *
  *= require bootstrap_and_overrides
+ *= require simple_calendar
  *= require font-awesome
  *= require_tree .
  *= require_self
+
  */
 
  // HEADER
@@ -29,6 +31,11 @@
 
  .icon-bar {
    background-color: black;
+ }
+
+ .nav-word {
+   color: #004C81;
+   font-size: 18px;
  }
 
 .upper-nav li {
@@ -60,10 +67,13 @@
 
 .dropdown-menu {
   background-color: #004C81;
-  width: 650px;
+  width: 750px;
   border: 2px solid #a1a1a1;
   border-radius: 10px;
+}
 
+#learning-dropdown {
+  width: 300px;
 }
 
 .dropdown-menu div li a {
