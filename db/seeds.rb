@@ -12,12 +12,12 @@ Organization.destroy_all
 Activity.destroy_all
 Event.destroy_all
 
-categories = Category.create([
+Category.create([
   {name: 'Children'},
   {name: 'Families'},
   {name: 'Pregnency and babies'}
 ])
-
+categories = Category.all
 
 cats = Cat.create([
   {name: 'Help in a crisis', category: categories[0] },
@@ -34,29 +34,13 @@ cats = Cat.create([
   ])
 
 
-
-
-
-
-
-
-ResourceFilter.delete_all
-ResourceType.delete_all
-ResourceLocation.delete_all
-ResourceTopic.delete_all
-AgeGroup.delete_all
-Resource.delete_all
-
-
-
-
 # age group seed
-agegroups = AgeGroup.create([
+AgeGroup.create([
   {name: '0-5 years'},
   {name: '6-12 years'},
   {name: 'Not applicable'}
   ])
-
+agegroups = AgeGroup.all
 
 # resource seeds
 def generateResourceDescription
@@ -72,7 +56,6 @@ def generateResourceDescription
   end
   return body
 end
-
 
 50.times do
   Resource.create name: Faker::Hacker.say_something_smart,
@@ -96,7 +79,6 @@ ResourceLocation.create([
   {location: 'Canada'}
   ])
 
-
 ResourceTopic.create([
   {name: 'Physical Health'},
   {name: 'Mental Health'},
@@ -104,7 +86,6 @@ ResourceTopic.create([
   {name: 'Policy'},
   {name: 'Child Safety'}
   ])
-
 
 resource_types = ResourceType.all
 resource_locations = ResourceLocation.all
@@ -134,7 +115,7 @@ resources.each do |resource|
 end
 
 # create programs
-programs = Program.create([
+Program.create([
   {category: 'Arts & Culture', age_group_id: 1},
   {category: 'Sports', age_group_id: 1},
   {category: 'Education', age_group_id: 1},
@@ -146,8 +127,11 @@ programs = Program.create([
   {category: 'Community Clubs', age_group_id: 2},
   {category: 'Childcare', age_group_id: 2}
   ])
+programs = Program.all
 
 # create organizations from programs.csv
+# admin organization:
+Organization.create(title:'Kids Delta Admin', email:'123@123.com', password:'123', is_admin:true)
 cities = ['North Delta', 'South Delta', 'Surrey']
 
 data = SmarterCSV.process('programs.csv')
@@ -175,6 +159,7 @@ data.each do |row|
     end
   end
 end
+organizations = Organization.all
 
 50.times do
   Service.create name: Faker::Company.name,
@@ -223,78 +208,7 @@ end
 	  contact_email: ['important_person@gmail.com', 'vip@vip.com', 'happyman@heaven.ca'].sample,
 	  time_start: ['12:00', '3:00', '6:00'].sample,
 	  time_end: ['7:00', '8:00', '9:00'].sample,
-		activity_id: Activity.all.sample.id
+		activity_id: Activity.all.sample.id,
+    is_approved: [true,false].sample
    )
 end
-
-# services = Service.create([
-#   {name: 'a', description: 'b', website:'www', logo: 'www', category_id: categories.sample.id, cat_id: cats.sample.id, status: false, organization_id: Organization.all.sample.id},
-#   {name: 'b', description: 'b', website:'www', logo: 'www', category_id: categories.sample.id, cat_id: cats.sample.id, status: false, organization_id: Organization.all.sample.id},
-#   {name: 'c', description: 'b', website:'www', logo: 'www', category_id: categories.sample.id, cat_id: cats.sample.id, status: false, organization_id: Organization.all.sample.id},
-#   {name: 'c', description: 'b', website:'www', logo: 'www', category_id: categories.sample.id, cat_id: cats.sample.id, status: false, organization_id: Organization.all.sample.id},
-#   {name: 'c', description: 'b', website:'www', logo: 'www', category_id: categories.sample.id, cat_id: cats.sample.id, status: false, organization_id: Organization.all.sample.id},
-#   {name: 'c', description: 'b', website:'www', logo: 'www', category_id: categories.sample.id, cat_id: cats.sample.id, status: false, organization_id: Organization.all.sample.id},
-#   {name: 'c', description: 'b', website:'www', logo: 'www', category_id: categories.sample.id, cat_id: cats.sample.id, status: false, organization_id: Organization.all.sample.id},
-#   {name: 'c', description: 'b', website:'www', logo: 'www', category_id: categories.sample.id, cat_id: cats.sample.id, status: false, organization_id: Organization.all.sample.id}
-#   ])
-
-
-
-# data = SmarterCSV.process('programs.csv')
-# ds = data.each_slice(5).to_a
-#
-# ds[0].each do |row|
-#   if row[:agencies] != 'undefined'
-#     if Organization.where(title: row[:agencies]).length < 1
-#       Organization.create(title: row[:agencies])
-#     end
-#   end
-#
-#   age_group = row[:age_group] == '0-5' ? 1 : 2
-#
-#   Activity.create(
-#   name: row[:short_description_that_relate_to_program],
-#    date_start: Date.current.year,
-#    date_end: Date.current.year + 1,
-#    age_group_id: age_group,
-#    program_id: program_id(row[:"programs_=_activity_type"], age_group),
-#    contact_phone_num: row[:phone_number] != 'undefined' ? row[:phone_number] : '',
-#    website: row[:website] != 'undefined' ? row[:website] : '',
-#    registration:  row[:regstration] == 'Registered' ? true : false ,
-#    paid:  row[:cost] == 'Paid' ? true : false
-#    )
-# end
-#
-#
-# def program_id type, age_group
-#   case type
-#   when 'Arts & Culture'
-#     if age_group == 1
-#       1
-#     else
-#       6
-#     end
-#   when 'Sports'
-#     if age_group == 1
-#       2
-#     else
-#       7
-#     end
-#   when 'Education'
-#     if age_group == 1
-#       3
-#     else
-#       8
-#     end
-#   when 'Parent & Child'
-#     4
-#   when 'Childcare & Preschools'
-#     5
-#   when 'Community Clubs'
-#     9
-#   when 'Childcare'
-#     10
-#   else
-#     puts 'error in program switch case'
-#   end
-# end
