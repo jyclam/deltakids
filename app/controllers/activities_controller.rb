@@ -1,6 +1,6 @@
 class ActivitiesController < ApplicationController
 	def index
-		@events = Event.order('date ASC')
+		@events = @filtered_events.nil? ? Event.order('date ASC') : @filtered_events
 		@activities = Program.all.where(age_group_id: 1)
 		@age_groups = AgeGroup.all
 	end
@@ -50,33 +50,16 @@ class ActivitiesController < ApplicationController
 		if activity_filter.count > 0 
 			activity_filter.each do |activity| 
 				if !activity.events.empty?
-					@events.push(activity.events) 
+					@filtered_events.push(activity.events) 
 				end
 			end
 		end
 
-		puts @events.count
+		puts @filtered_events.count
 		puts @filtered_events
-		
 
-
-
-		#filters = Event.all
-
-		# if params[:age_group_ids]
-		# 	filters = filters.where(age_group_id: params[:age_group_ids])
-		# end
-
-		# @resources = []
-		# resource_ids = []
-		# filters.each do |filter|
-		# 	@resources.push(filter.resource) unless resource_ids.include?(filter.resource_id)
-		# 	resource_ids.push(filter.resource_id) unless resource_ids.include?(filter.resource_id)
-		# end
-
+		redirect_to activities_path(@filtered_events)
 		render json: params
-		# render :index
-		# redirect_to @resources
 	end
 
 
