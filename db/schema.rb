@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 20170619111351) do
     t.bigint "activity_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "is_approved"
+    t.boolean "is_approved", default: false
     t.index ["activity_id"], name: "index_events_on_activity_id"
   end
 
