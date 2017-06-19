@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   # resources :welcome, only: :index
 	resources :activities
 
+  get '/map', to: 'map#index', as: :map
+
   post '/activities/filter', to: 'activities#filter', as: :filter_events
 
 	resources :sports
