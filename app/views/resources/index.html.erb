@@ -1,44 +1,89 @@
-<div class="container-fluid">
+<div class="container">
+<div class="row resource">
   <div class="col-xs-3">
-    <%= form_tag filter_resources_path do %>
-      <div class="form-group">
-        <% @age_groups.each do |age_group| %>
-          <input type="checkbox" name="age_group_ids[]" value="<%= age_group.id %>" />
-          <span><%= age_group.name %></span>
-        <% end %>
-      </div>
+    <div class="filter-bar">
+      <div class="filter-info">
+        <div class="filter-head">
+          <br>
+          <span id="filter-name">Filters
+          <%= image_tag 'icons/sliders.png', :class=> "filter-icon" %>
+        </span>
+        </div>
+        <br>
 
-      <div class="form-group">
-        <% @locations.each do |location| %>
-          <input type='radio' name='location' value='<%= location.id %>'>
-        <span><%= location.location %></span>
-        <% end %>
-      </div>
+          <span class="deep-sky-blue">For:</span>
+          <%= form_tag filter_resources_path do %>
+          <div class="form-group">
+            <% @age_groups.each do |age_group| %>
+              <input type="checkbox" name="age_group_ids[]" value="<%= age_group.id %>" />
+              <span><%= age_group.name %></span>
+              <br>
+              <% end %>
+            </div>
 
-      <div class="form-group">
-        <% @topics.each do |topic| %>
-          <input type="checkbox" name="topic_ids[]" value="<%= topic.id %>" />
-          <span><%= topic.name %></span>
-        <% end %>
-      </div>
 
-      <div class="form-group">
-        <% @types.each do |type| %>
-        <input type='radio' name='type' value='<%= type.id %>'>
-        <span><%= type.name %></span>
-        <% end %>
-      </div>
+        <span class="deep-sky-blue">Where:</span>
+        <div class="form-group">
+          <% @locations.each do |location| %>
+            <input type='radio' name='location' value='<%= location.id %>'>
+          <span><%= location.location %></span>
+          <br>
+          <% end %>
+        </div>
+
+
+        <span class="deep-sky-blue">Topic:</span>
+        <div class="form-group">
+          <% @topics.each do |topic| %>
+            <input type="checkbox" name="topic_ids[]" value="<%= topic.id %>" />
+            <span><%= topic.name %></span>
+            <br>
+          <% end %>
+        </div>
+
+        <span class="deep-sky-blue">Type:</span>
+        <div class="form-group">
+          <% @types.each do |type| %>
+          <input type='radio' name='type' value='<%= type.id %>'>
+          <span><%= type.name %></span>
+          <br>
+          <% end %>
+        </div>
 
       <div class="form-group">
         <input class="btn btn-primary" type="submit" name="submit" value="Search">
       </div>
     <% end%>
+    </div>
   </div>
+  </div>
+
   <div class="col-xs-9">
+    <div class="main">
+    </div>
+    <%= image_tag 'kids.jpg', :class=> "main-pic" %>
+    <br>
+    <h2 class="teal-blue">Featured</h2>
+    <div class="articles">
     <% @resources.each do |resource| %>
-    <%= link_to resource.name, resource_path(resource) %>
-    <h4>Location: <%= resource.resource_filters.first&.resource_location&.location %></h4>
+    <div class="article">
+    <h4><%= link_to resource.name, resource_path(resource) %></h4>
+    <br>
+    <h4>
+    <%= image_tag 'icons/globe.png', :class=> "share-pic" %>
+    <!-- <h3>Location: </h3> -->
+      <%= resource.resource_filters.first&.resource_location&.location %>
+    </h4>
     <hr>
+    <div class="article-share">
+      <%= image_tag 'icons/links.png', :class=> "share-pic" %>
+      <a href="newsletter_09.pdf" target="_blank">Share PDF</a> &nbsp&nbsp&nbsp
+      <%= image_tag 'icons/adobe.png', :class=> "share-pic" %>
+      <a href="newsletter_09.pdf" target="_blank">View</a>
+    </div>
+  </div>
     <% end %>
   </div>
+  </div>
+</div>
 </div>
