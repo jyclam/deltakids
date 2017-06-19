@@ -5,9 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-<<<<<<< HEAD
-Cat.destroy_all
-Category.destroy_all
+Service.delete_all
+Cat.delete_all
+Category.delete_all
+ResourceFilter.delete_all
+ResourceType.delete_all
+ResourceLocation.delete_all
+ResourceTopic.delete_all
+AgeGroup.delete_all
+Resource.delete_all
 
 categories = Category.create([
   {name: 'Children'},
@@ -17,22 +23,29 @@ categories = Category.create([
 
 cats = Cat.create([
   {name: 'Help in a crisis', category: categories[0] },
-  {name: 'Assistance with fees', category: categories[0]},
-  {name: 'Help in a crisis', category: categories[0]},
-  {name: 'Baby Health & Development', category: categories[1]},
-  {name: 'Child Health & Development', category: categories[1]},
-  {name: 'Child Advocacy', category: categories[1]},
-  {name: 'Childcare & Preschool', category: categories[2]},
-  {name: 'Supports for Children', category: categories[2]},
+  {name: 'Child Advocacy', category: categories[0] },
+  {name: 'Child Health & Development', category: categories[0]},
+  {name: 'Supports for Children', category: categories[0]},
+  {name: 'Help in a Crisis', category: categories[1]},
+  {name: 'Childcare & Preschool', category: categories[1]},
+  {name: 'Assistance with fees', category: categories[1]},
+  {name: 'Supports for Families', category: categories[1]},
+  {name: 'Help in a Crisis', category: categories[2]},
+  {name: 'Baby Health & Development', category: categories[2]},
   {name: 'Supports for Families', category: categories[2]}
   ])
 
-  Service.create([
-    {name: 'a', description: 'b', website:'www', logo: 'www', category_id: 16, cat_id: 19, status: false},
-    {name: 'b', description: 'b', website:'www', logo: 'www', category_id: 16, cat_id: 19, status: false},
-    {name: 'c', description: 'b', website:'www', logo: 'www', category_id: 16, cat_id: 19, status: false}
-    ])
-=======
+services = Service.create([
+  {name: 'a', description: 'b', website:'www', logo: 'www', category_id: categories.sample, cat_id: cats.sample, status: false},
+  {name: 'b', description: 'b', website:'www', logo: 'www', category_id: categories.sample, cat_id: cats.sample, status: false},
+  {name: 'c', description: 'b', website:'www', logo: 'www', category_id: categories.sample, cat_id: cats.sample, status: false},
+  {name: 'c', description: 'b', website:'www', logo: 'www', category_id: categories.sample, cat_id: cats.sample, status: false},
+  {name: 'c', description: 'b', website:'www', logo: 'www', category_id: categories.sample, cat_id: cats.sample, status: false},
+  {name: 'c', description: 'b', website:'www', logo: 'www', category_id: categories.sample, cat_id: cats.sample, status: false},
+  {name: 'c', description: 'b', website:'www', logo: 'www', category_id: categories.sample, cat_id: cats.sample, status: false},
+  {name: 'c', description: 'b', website:'www', logo: 'www', category_id: categories.sample, cat_id: cats.sample, status: false}
+  ])
+
 
 
 
@@ -44,6 +57,7 @@ ResourceLocation.delete_all
 ResourceTopic.delete_all
 AgeGroup.delete_all
 Resource.delete_all
+
 
 
 
@@ -129,4 +143,5 @@ resources.each do |resource|
     end
   end
 end
->>>>>>> d69d5cf953aecf19690830b5e074998f52825a88
+
+puts 'Done!'
