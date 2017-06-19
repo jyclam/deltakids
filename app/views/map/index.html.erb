@@ -1,0 +1,38 @@
+<h3>Map</h3>
+<div id="map" style="height: 400px; width: 100%"></div>
+<script>
+  function initMap() {
+    var uluru = {lat: 49.1048378, lng: -123.0624154};
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 11,
+      center: uluru
+    });
+    var marker = new google.maps.Marker({
+      position: uluru,
+      map: map
+    });
+  }
+</script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkNT6Sif0uSsvkKowk7V2zieduSKjEEVI&callback=initMap">
+</script>
+
+<div class="row">
+  <p>We believe when families are healthy, in every sense of the word, their children will thrive. And When children are thriving, everyone is happy</p>
+
+  <h1>THE WEBSITE IS DEDICATED TO MAKING DELTA A CHILD-FRIENDLY COMMUNITY - A GREAT PLACE TO GROW UP!</h1>
+
+  <h3>Community partners</h3>
+</div>
+
+<h1>Organizations</h1>
+<% @organizations.each do |org| %>
+  <h1><%= org.title %></h1>
+  <h2><%= org.website %></h2>
+<% end %>
+
+<h1>Sponsers</h1>
+<% @sponsers.each do |spencer| %>
+  <h1><%= spencer.title %></h1>
+  <h2><%= spencer.website %></h2>
+<% end %>
