@@ -4,54 +4,55 @@
       <div class="learn-more-info">
         <%= image_tag 'running.jpg', :class=> "learn-more-pic" %>
         <div class="learn-text">
-          <h4 class="teal-blue">Summer Farm Marathon</h4>
+					<h4 class="teal-blue"><%= @event.name %></h4>
               <div class="child-icon deep-sky-blue">
                 <%= image_tag 'icons/calender.png', :class=> "icon" %>
-                Event - 07/05/17
+								<%= @event.date %>
               </div>
               <div class="child-icon deep-sky-blue">
                 <%= image_tag 'icons/clock.png', :class=> "icon" %>
-                11:30am
+								12:00pm
               </div>
               <div class="child-icon deep-sky-blue">
                 <%= image_tag 'icons/baby.png', :class=> "icon" %>
-                6-12 year olds
+								<%= AgeGroup.find(@event.activity.age_group_id).name %>
               </div>
               <div class="child-icon deep-sky-blue">
                 <%= image_tag 'icons/tag.png', :class=> "icon" %>
-                Free
+								<%= @event.activity.cost %>
               </div>
               <div class="child-icon deep-sky-blue">
                 <%= image_tag 'icons/marker.png', :class=> "icon" %>
-                North Delta
+								<%= @event.city %>
             </div>
-              <p>Come Join us for a summer marathon for kids at Delta Farms. There will be games and food available for after the marathon. Everyone is welcome!</p>
+						<div>
+							<p><%= @event.activity.description %></p>
+						</div>
             <div class="event-info teal-blue">
               <hr>
               <div class="info-left">
                 <div class="event-icon">
                   <%= image_tag 'icons/marker.png', :class=> "info-icon" %>
                   <div class="address">
-                    North Delta Recreation centre
                     <br>
-                    11843 73 Ave Delta, BC V7E W6W
+										<%= @event.street_address %>, <%= @event.postal_code %>
                   </div>
                 </div>
               </div>
               <div class="info-right">
                   <div class="event-icon">
                     <%= image_tag 'icons/phone.png', :class=> "info-icon" %>
-                    (604) 620 0000
+										<%= @event.contact_phone_num %>
                   </div>
                   <br>
                   <div class="event-icon">
                     <%= image_tag 'icons/globe.png', :class=> "info-icon" %>
-                    www.marathon4kids.com
+										<%= @event.activity.website %>
                   </div>
                   <br>
                   <div class="event-icon">
                     <%= image_tag 'icons/mail.png', :class=> "info-icon" %>
-                    marathon4@kids.com
+										<%= @event.contact_email %>
                   </div>
               </div>
             </div>

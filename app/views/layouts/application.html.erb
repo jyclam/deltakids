@@ -26,26 +26,21 @@
         </div>
         <div class="collapse navbar-collapse myNavbar">
           <ul class="nav navbar-nav navbar-right upper-nav">
-            <li><%= link_to 'About', learn_live_path %></li>
+            <li></li>
+            <% if org_signed_in? %>
+            <li> <%= link_to "Hello, #{current_org.title}" %> </li>
+            <li><%= link_to 'Sign Out', sessions_path, method: :delete %></li>
+              <% else %>
+            <li><%= link_to 'Sign In', new_session_path %></li>
+            <% end %>
+            <% if org_signed_in? && current_org.is_admin? %>
+            <li><%= link_to 'Admin Dashboard', admin_organizations_path %></li>
+            <li> <%= link_to 'About' %> </li>
+            <li> <%= link_to 'Contact Us' %> </li>
             <li><%= link_to 'Live 5-2-1-0', learn_live_path %></li>
-            <li><%= link_to 'Contact', learn_live_path %></li>
+            <% end %>
           </ul>
         </div>
-		<% if org_signed_in? %>
-		  Hello, <%= current_org.title %> |
-		  <%= link_to 'Sign Out', sessions_path, method: :delete %>
-			<% if current_org.is_admin? %>
-				| <%= link_to 'Admin Dashboard', admin_organizations_path %>
-			<% end %>
-    <% else %>
-		  <%= link_to 'Sign In', new_session_path %>
-      <%= link_to 'Sign Up', new_organization_path %>
-    <% end %>
-
-
-    <% if current_org&.is_admin? %>
-      | <%= link_to 'Admin Dashboard', admin_organizations_path %>
-    <% end %>
       </nav>
 
     <%= link_to image_tag('main-logo.jpg', id: "main-logo"), home_path %>
@@ -59,38 +54,17 @@
           <a class="dropdown-toggle nav-word" data-toggle="dropdown"> LEARNING
             <span class="caret"></span></a>
             <!-- <div class="arrow"></div> -->
-          <ul class="dropdown-menu">
+          <ul id="learning-dropdown" class="dropdown-menu">
             <div class="container-fluid">
               <div class="row">
-                <div class="col-sm-4">
-                  <li class="yellow-header-nav"><a href="#">PREGNANT?</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Best Beginnings
-                  <i class="fa fa-caret-right" aria-hidden="true"></i>
-                  </a></li>
-                </div>
-                <div class="col-sm-4">
-                  <li class="yellow-header-nav"><a href="#">0-6 YEAR OLDS</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Articles
+                <div class="col-sm-12">
+                  <li><a href="#">Child Surveys
                   <i class="fa fa-caret-right" aria-hidden="true"></i>
                   <li class="divider"></li>
-                  <li><a href="#">Early Development Instrument (EDI)</a>
+                  <li><a href="#">Live 5-2-1-0</a>
                   <i class="fa fa-caret-right" aria-hidden="true"></i>
                   <li class="divider"></li>
-                  <li><a href="#">Child Development Milestones</a>
-                  <i class="fa fa-caret-right" aria-hidden="true"></i>
-                </div>
-                <div class="col-sm-4">
-                  <li class="yellow-header-nav"><a  href="#">6-12 YEAR OLDS</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Articles
-                  <i class="fa fa-caret-right" aria-hidden="true"></i>
-                  <li class="divider"></li>
-                  <li><a href="#">Middle Development Instrument (MDI)</a>
-                  <i class="fa fa-caret-right" aria-hidden="true"></i>
-                  <li class="divider"></li>
-                  <li><a href="#">My School Aged Child's Development</a>
+                  <li><a href="#">Resources</a>
                   <i class="fa fa-caret-right" aria-hidden="true"></i>
                 </div>
               </div>
@@ -106,15 +80,22 @@
             <div class="container-fluid">
               <div class="row">
                 <div class="col-sm-6">
-                  <li class="yellow-header-nav"><a href="#">0-6 YEAR OLDS</a></li>
+                  <li class="yellow-header-nav"><a href="#">0-5 YEAR OLDS</a></li>
                   <li class="divider"></li>
                   <div class="col-sm-6 no-padding">
-                    <li><a href="#">Preschool
+                    <li><a href="#">Drop-In Program
                     <i class="fa fa-caret-right" aria-hidden="true"></i>
                     </a></li>
+                    <li class="divider"></li>
                   </div>
                   <div class="col-sm-6 no-padding">
-                    <li><a href="#">Preschool Drop-In
+                    <li><a href="#">Registered Programs
+                    <i class="fa fa-caret-right" aria-hidden="true"></i>
+                    </a></li>
+                    <li class="divider"></li>
+                  </div>
+                  <div class="col-sm-6 no-padding">
+                    <li><a href="#">Preschools and Childcare
                     <i class="fa fa-caret-right" aria-hidden="true"></i>
                     </a></li>
                   </div>
@@ -255,7 +236,15 @@
 		<!-- </div> -->
 	<!-- </body> -->
 
-
+  <% if flash.any? %>
+   <hr>
+   <% if flash[:notice] %>
+     <div class='alert alert-success'> <%= flash[:notice] %></div>
+   <% elsif flash[:alert] %>
+     <div class='alert alert-danger'> <%= flash[:alert] %></div>
+   <% end %>
+   <hr>
+ <% end %>
 		<%= yield %>
 
   <!-- <div class="container"> -->
@@ -277,5 +266,6 @@
     </div>
   </div>
 </div>
+
 	</body>
 	</html>
