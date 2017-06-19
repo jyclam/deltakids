@@ -123,6 +123,21 @@ color:#004C81;
   width: 100%;
   float: left;
 }
+
+.thank-you{
+  background-color: #C8ECF5;
+  height: 650px;
+}
+.message{
+  background-color: white;
+  margin: 25px 75px 10px 75px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  border-radius: 45px;
+}
+.message-word{
+  font-size: 20px;
+}
 ////////
 .background {
   background-color: #C8ECF5;
@@ -151,4 +166,12 @@ span {
 
 input[type="checkbox"], input[type="radio"] {
   margin-right: 10px;
+}
+
+h4 {
+  font-size: 24px;
+}
+
+.move-radio {
+  margin-right: 15px;
 }

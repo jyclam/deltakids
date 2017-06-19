@@ -1,50 +1,89 @@
-<h1>new service form</h1>
+<div class="container background">
+  <h1>new service form</h1>
+  <br>
 
-<%= @service.errors.full_messages.join(', ') %>
+  <%= @service.errors.full_messages.join(', ') %>
 
+  <%= form_for @service do |f| %>
+    <div class="form-horizontal">
 
-<%= form_for @service do |f| %>
-  <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :description %>
-    <%= f.text_area :description, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :website %>
-    <%= f.text_area :website, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :logo %>
-    <%= f.text_area :logo, class: 'form-control' %>
-  </div>
+      <div class="form-group">
+         <%= f.label :name, class: "col-sm-3" %>
+         <div class="col-sm-8">
+            <%= f.text_field :name, class: 'form-control' %>
+        </div>
+      </div>
 
-  <div class="form-group">
-    <%= f.label :organization %>
-    <%= f.text_area :organization, class: 'form-control' %>
-  </div>
+      <br>
 
-  <div class="form-group">
-    <%= f.label :category %>
-    <%= f.collection_select :category_id,
-      Category.all,
-      :id,
-      :name,
-      include_blank: true,
-      prompt: 'Choose a category!'
-      %>
-  </div>
-  <div class="form-group">
-    <%= f.label :cat %>
-    <%= f.collection_select :cat_id,
-      Cat.all,
-      :id,
-      :name,
-      include_blank: true,
-      prompt: 'Choose a cat!'
-      %>
-  </div>
-  <%= f.submit class: 'btn btn-primary' %>
-<% end %>
+      <div class="form-group">
+         <%= f.label :description, class: "col-sm-3" %>
+         <div class="col-sm-8">
+            <%= f.text_area :description, rows: "4", class: 'form-control' %>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="form-group">
+         <%= f.label :website, class: "col-sm-3" %>
+         <div class="col-sm-8">
+            <%= f.text_field :website, class: 'form-control' %>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="form-group">
+         <%= f.label :logo, class: "col-sm-3" %>
+         <div class="col-sm-8">
+            <%= f.text_field :logo, class: 'form-control' %>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="form-group">
+         <%= f.label :organization, class: "col-sm-3" %>
+         <div class="col-sm-8">
+            <%= f.text_field :organization, class: 'form-control' %>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="form-group">
+        <%= f.label :category, class: "col-sm-3 move-right"  %>
+        <div class="move-right">
+        <%= f.collection_select :category_id,
+          Category.all,
+          :id,
+          :name,
+          include_blank: true,
+          prompt: 'Choose a category!'
+          %>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="form-group">
+        <%= f.label :cat, class: "col-sm-3 move-right" %>
+          <%= f.collection_select :cat_id,
+            Cat.all,
+            :id,
+            :name,
+            include_blank: true,
+            prompt: 'Choose a cat!'
+            %>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-9 col-sm-offset-3">
+          <%= f.submit 'Submit', class: 'btn btn-default' %>
+        </div>
+      </div>
+
+  <% end %>
+</div>
+
