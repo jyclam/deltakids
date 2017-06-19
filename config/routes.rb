@@ -30,6 +30,11 @@ Rails.application.routes.draw do
     post '/filters',to: 'resources#filter', as: :filter, on: :collection
   end
 
+
+  resources :programs, only: [:show] do
+    get '/age/:id', to: 'programs#showage', as: :learn_age, on: :collection
+  end
+
   namespace :services do
     resources :pandb, only: [:index, :show]
     resources :children, only: [:index, :show]
