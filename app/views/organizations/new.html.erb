@@ -1,6 +1,7 @@
 
 <div class="container background">
   <h2>Create a new Organization</h2>
+  <br><br>
   <%= @organization.errors.full_messages.join(', ') %>
   <%= form_for @organization do |f| %>
   <div class="form-horizontal">
@@ -11,8 +12,10 @@
       	   <%= f.text_field :title, class: 'form-control' %>
         </div>
       </div>
+
       <div>
 
+      <br>
       <div class="form-group">
       	 <%= f.label :street_address, class: "col-sm-3" %>
          <div class="col-sm-9">
@@ -20,12 +23,16 @@
         </div>
     	</div>
 
+      <br>
+
       <div class="form-group">
       	 <%= f.label :unit_number, class: "col-sm-3" %>
          <div class="col-sm-9">
       	    <%= f.text_field :unit_num, class: 'form-control' %>
         </div>
     	</div>
+
+      <br>
 
     	<div class="form-group">
     	  <%= f.label :postal_code , class: "col-sm-3"%>
@@ -38,6 +45,8 @@
         </div>
     	</div>
 
+      <br>
+
       <div class="form-group">
          <%= f.label :website, class: "col-sm-3" %>
          <div class="col-sm-9">
@@ -45,12 +54,16 @@
         </div>
       </div>
 
+      <br>
+
       <div class="form-group">
     	<%= f.label(:phone_num, 'phone number: ', class: "col-sm-3")%>
       <div class="col-sm-9">
       	<%= f.text_field :phone_num, class: 'form-control' %>
       </div>
       </div>
+
+      <br>
 
       <div class="form-group">
       	<%= f.label(:age_group, "Age Group:", class: "col-sm-3") %>
@@ -64,11 +77,14 @@
         </div>
         <div class="col-sm-3">
         	<%= f.radio_button(:age_group, "adult") %>
-          <%= f.label(:age_group, "Adult (parents, caregivers, etc)") %>
+          <%= f.label(:age_group, "Adults (parents, caregivers)") %>
         </div>
       </div>
       </div>
-      <!-- <div>
+
+      <br>
+
+      <div>
       	<%# f.label(:activity_type, "Activity Type: ") %>
       	<%# f.check_box(:activity_type) %>
       	<%# f.label(:activity_type, "Art & Culture") %>
@@ -80,12 +96,14 @@
       	<%# f.label(:activity_type, "Health") %>
       	<%# f.check_box(:activity_type) %>
       	<%# f.label(:activity_type, "Sports") %>
-      </div> -->
+      </div>
 
-      <!-- <div class="">
+      <div class="">
     	  <%= f.label :activity_types, "Activity Types:" %>
         <%= f.collection_check_boxes :programs_offered_ids, Program.all, :id, :category %>
-      </div> -->
+      </div>
+
+      <br>
 
       <div class="form-group">
          <%= f.label(:description, "Description:" , class: "col-sm-3") %>
@@ -94,13 +112,16 @@
         </div>
       </div>
 
+      <br>
+
       <div class="form-group">
       	<%= f.label(:target_clientelle, "Target Clientelle:", class: "col-sm-3") %>
         <div class="col-sm-3">
         	<%= f.select :target_clientelle, ['Pregancy And Babies', 'Children', 'Families'], class: 'form-control'%>
         </div>
-      <!-- </div> -->
-    </div>
+      </div>
+
+      <br>
         <!-- <div class="form-group">
         	<%= f.label :services, class: "col-sm-3" %>
           <div class="col-sm-3">
@@ -123,12 +144,16 @@
           </div>
         </div>
 
+        <br>
+
         <div class="form-group">
            <%= f.label :email, class: "col-sm-3" %>
            <div class="col-sm-9">
               <%= f.text_field :email, class: 'form-control' %>
           </div>
         </div>
+
+        <br>
 
         <div class="form-group">
            <%= f.label :password, class: "col-sm-3" %>
@@ -144,6 +169,7 @@
           </div>
         </div>
 
+        <br>
 
         <div class="form-group">
           <div class="col-sm-9 col-sm-offset-3">
