@@ -36,6 +36,7 @@
 		  <%= link_to 'Sign Out', sessions_path, method: :delete %>
     <% else %>
 		  <%= link_to 'Sign In', new_session_path %>
+      <%= link_to 'Sign Up', new_organization_path %> 
     <% end %>
     <% if current_org&.is_admin? %>
       | <%= link_to 'Admin Dashboard', admin_organizations_path %>
