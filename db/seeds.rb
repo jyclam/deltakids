@@ -9,10 +9,10 @@ ResourceFilter.delete_all
 ResourceType.delete_all
 ResourceLocation.delete_all
 ResourceTopic.delete_all
-#Program.destroy_all
-#AgeGroup.delete_all
+Program.destroy_all
+AgeGroup.delete_all
 Resource.delete_all
-#Organization.destroy_all
+Organization.destroy_all
 Activity.destroy_all
 Event.destroy_all
 
