@@ -21,7 +21,8 @@
 			<div class="row content-row">
 
 				<div class="col-xs-4 col-sm-2">
-					<%= image_tag('logo.jpg', id: "logo", class: 'img-thumbnail') %>
+					<% a = rand(12)+1 %>
+					<%= image_tag("sponsor#{a}.png", id: "logo", class: 'img-thumbnail') %>
 				</div>
 				<div class="col-xs-8 col-sm-4">
 					<p><%= service.name %></p>
