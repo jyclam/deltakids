@@ -1,5 +1,5 @@
 class LearnController < ApplicationController
-  
+
   def surveys
     render json: { hello: 'surveys' }
   end

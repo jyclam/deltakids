@@ -36,4 +36,8 @@ Rails.application.routes.draw do
     resources :families, only: [:index, :show]
   end
   resources :services
+
+  namespace :admin do
+    resources :users, only: :index
+  end
 end
