@@ -123,10 +123,17 @@
 			<!-- FIX THIS !! THIS MUST BE ADDED LATER CAUSE ITS NOT READY YET IN THE BACKEND-->
 			<div class="form-group">
 				<%= f.label :activity_types, "Activity Types:" , class: "col-sm-3" %>
-				<% Program.all.each do |program| %>
-				  <%= f.radio_button(:program_id, program.id) %>
-				  <%= f.label(:program_id, program.category) %>
-				<% end %>
+
+				<div class="col-sm-9 col-sm-offset-3">
+					<% Program.all.each do |program| %>
+					<div class="col-sm-6">
+						<%= f.radio_button(:program_id, program.id) %>
+						<!-- <%= f.label(:program_id, program.category) %> -->
+						<%= f.label(:program_id, "#{program.category} (#{program.age_group.name})") %>
+					</div>
+					<% end %>
+				</div>
+
 			</div>
 
 
