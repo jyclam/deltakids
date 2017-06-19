@@ -10,7 +10,7 @@ class ServicesController < ApplicationController
   end
 
   def create
-    if can? :create, @service
+    # if can? :create, @service
       @service = Service.new service_params
       @service.organization = current_org
       if @service.save
@@ -18,9 +18,9 @@ class ServicesController < ApplicationController
       else
         render :new
       end
-    else
-      head :unauthorized
-    end
+    # else
+    #   head :unauthorized
+    # end
   end
 
   def index
