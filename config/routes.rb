@@ -19,6 +19,11 @@ Rails.application.routes.draw do
 	resources :organizations, only: :index
   end
 
+  patch '/approve/event/:id', to: 'admin/organizations#editevent', as: :event_approve
+  delete '/approve/event/:id', to: 'admin/organizations#destroyevent', as: :event_delete
+  patch '/approve/service/:id', to: 'admin/organizations#editservice', as: :service_approve
+  delete '/approve/service/:id', to: 'admin/organizations#destroyservice', as: :service_delete
+
   resources :activity
 
 
@@ -42,7 +47,4 @@ Rails.application.routes.draw do
   end
   resources :services
 
-  namespace :admin do
-    resources :users, only: :index
-  end
 end

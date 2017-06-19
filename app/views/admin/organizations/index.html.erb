@@ -1,1 +1,60 @@
-<h1>This is the admin's dashboard</h1>
+<div class="container">
+  <div class="row">
+    <h1>Administrator Dashboard</h1>
+    <br>
+
+    <h4> Pending Events </h4>
+    <table class='table table-hover'>
+      <tr>
+        <th>Activity Type</th>
+        <th>Event</th>
+        <th>Organization</th>
+        <th>Location</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Contact Details</th>
+        <th></th>
+        <th></th>
+      </tr>
+      <% @events.where(is_approved:false).each do |event| %>
+      <tr>
+        <td><%= event.activity.program.category %></td>
+        <td> <%=event.activity.name  %></td>
+        <td> <%= event.activity.organization.title %></td>
+        <td> <%= event.full_address %></td>
+        <td> <%= event.date %></td>
+        <td> From: <%= event.time_start %> <br> To: <%= event.time_end %></td>
+        <td> <%= event.contact_name %><br><%= event.contact_phone_num %><br><%= event.contact_email %></td>
+        <td> <%= link_to 'Approve', event_approve_path(event, {is_approved:true}), method: :patch %> </td>
+        <td> <%= link_to 'Decline', event_approve_path(event, {is_approved:false}), method: :patch %> </td>
+      </tr>
+      <% end %>
+    </table>
+
+    <h4>Pending Services</h4>
+    <table class='table table-hover'>
+      <tr>
+        <th>Category</th>
+        <th>Clientelle</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Agency</th>
+        <th>Website</th>
+        <th></th>
+        <th></th>
+      </tr>
+      <% @services.where(status:false).each do |service| %>
+      <tr>
+        <td> <%= service.cat.name %></td>
+        <td> <%= service.category.name %></td>
+        <td><%= service.name %></td>
+        <td> <%= service.description %></td>
+        <td> <%= service.organization.title %></td>
+        <td> <%= service.website %></td>
+        <td> <%= link_to 'Approve', service_approve_path(service, {is_approved:true}), method: :patch %> </td>
+        <td> <%= link_to 'Decline', service_approve_path(service, {is_approved:false}), method: :patch %> </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
