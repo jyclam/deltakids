@@ -1,6 +1,6 @@
+Service.destroy_all
 Cat.destroy_all
 Category.destroy_all
-
 ResourceFilter.delete_all
 ResourceType.delete_all
 ResourceLocation.delete_all
@@ -178,6 +178,17 @@ ds[3].each do |row|
 end
 
 50.times do
+  Service.create name: Faker::Company.name,
+                description: Faker::Hipster.paragraph,
+                website: Faker::Internet.url,
+                logo: Faker::Internet.url,
+                category_id: categories.sample.id,
+                cat_id: cats.sample.id,
+                status: [false, true].sample,
+                organization_id: Organization.all.sample.id
+end
+
+50.times do
 	a = Activity.create(
 		name: ['Summer Basketball with Michael Jordan', 'Winter Hockey with Wayne Gretzsky', 'Drawing with Pablo Picasso', 'Singing with Celine Dion', 'Learning About Space with Neil Degrasse Tyson', 'Cooking with Ratatouille'].sample,
 		date_start: ["2018-01-#{rand(1..29)}", "2018-02-#{rand(1..29)}"].sample,
@@ -217,16 +228,19 @@ end
    )
 end
 
-services = Service.create([
-  {name: 'a', description: 'b', website:'www', logo: 'www', category_id: categories.sample.id, cat_id: cats.sample.id, status: false, organization_id: Organization.all.sample.id},
-  {name: 'b', description: 'b', website:'www', logo: 'www', category_id: categories.sample.id, cat_id: cats.sample.id, status: false, organization_id: Organization.all.sample.id},
-  {name: 'c', description: 'b', website:'www', logo: 'www', category_id: categories.sample.id, cat_id: cats.sample.id, status: false, organization_id: Organization.all.sample.id},
-  {name: 'c', description: 'b', website:'www', logo: 'www', category_id: categories.sample.id, cat_id: cats.sample.id, status: false, organization_id: Organization.all.sample.id},
-  {name: 'c', description: 'b', website:'www', logo: 'www', category_id: categories.sample.id, cat_id: cats.sample.id, status: false, organization_id: Organization.all.sample.id},
-  {name: 'c', description: 'b', website:'www', logo: 'www', category_id: categories.sample.id, cat_id: cats.sample.id, status: false, organization_id: Organization.all.sample.id},
-  {name: 'c', description: 'b', website:'www', logo: 'www', category_id: categories.sample.id, cat_id: cats.sample.id, status: false, organization_id: Organization.all.sample.id},
-  {name: 'c', description: 'b', website:'www', logo: 'www', category_id: categories.sample.id, cat_id: cats.sample.id, status: false, organization_id: Organization.all.sample.id}
-  ])
+# services = Service.create([
+#   {name: 'a', description: 'b', website:'www', logo: 'www', category_id: categories.sample.id, cat_id: cats.sample.id, status: false, organization_id: Organization.all.sample.id},
+#   {name: 'b', description: 'b', website:'www', logo: 'www', category_id: categories.sample.id, cat_id: cats.sample.id, status: false, organization_id: Organization.all.sample.id},
+#   {name: 'c', description: 'b', website:'www', logo: 'www', category_id: categories.sample.id, cat_id: cats.sample.id, status: false, organization_id: Organization.all.sample.id},
+#   {name: 'c', description: 'b', website:'www', logo: 'www', category_id: categories.sample.id, cat_id: cats.sample.id, status: false, organization_id: Organization.all.sample.id},
+#   {name: 'c', description: 'b', website:'www', logo: 'www', category_id: categories.sample.id, cat_id: cats.sample.id, status: false, organization_id: Organization.all.sample.id},
+#   {name: 'c', description: 'b', website:'www', logo: 'www', category_id: categories.sample.id, cat_id: cats.sample.id, status: false, organization_id: Organization.all.sample.id},
+#   {name: 'c', description: 'b', website:'www', logo: 'www', category_id: categories.sample.id, cat_id: cats.sample.id, status: false, organization_id: Organization.all.sample.id},
+#   {name: 'c', description: 'b', website:'www', logo: 'www', category_id: categories.sample.id, cat_id: cats.sample.id, status: false, organization_id: Organization.all.sample.id}
+#   ])
+
+
+
 # data = SmarterCSV.process('programs.csv')
 # ds = data.each_slice(5).to_a
 #

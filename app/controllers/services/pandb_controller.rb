@@ -1,8 +1,9 @@
 class Services::PandbController < ApplicationController
 
   def index
-    category = Category.all
-    @services = category[2].services
+    # category = Category.all
+    # @services = category[2].services
+    @services = Category.third.services
   end
 
   def show
