@@ -250,22 +250,19 @@
 		<h3>Featured</h3>
 		<div class="row">
 			<div class="thumbnail">
-				<img class="img-responsive" src="http://placehold.it/800x300" alt="">
+				<%= image_tag 'outdoors.jpg', class: 'img-responsive' %>
 				<div class="caption-full">
-					<h4><a href="#">Family Program</a>
+					<% feature1 = @features.first %>
+					<h4><%= link_to feature1.name, sport_path(feature1.id) %>
 					</h4>
 
 					<div class="activity-info">
-						<span class="glyphicon glyphicon-calendar">
-							<strong>Event</strong> - [Date]
-						</span>
-						<span class="glyphicon glyphicon-calendar">[Time]</span>
-						<span class="glyphicon glyphicon-calendar">[Age]</span>
-						<span class="glyphicon glyphicon-calendar">[Price]</span>
-						<span class="glyphicon glyphicon-calendar">[Location]</span>
+						<%= image_tag 'icons/clock.png', :class=> "icon" %>12:00pm
+						<%= image_tag 'icons/baby.png', :class=> "icon" %><%= feature1.age_group.name %>
+						<%= image_tag 'icons/tag.png', :class=> "icon" %><%= feature1.cost %>
+						<%= image_tag 'icons/marker.png', :class=> "icon" %><%= feature1.city %>
 					</div>
-
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+					<p><%= feature1.description%> <%= feature1.more_info %></p>
 					<p class="text-right"><a href="">Learn More</a></p>
 					<p></p>
 				</div>
@@ -275,22 +272,20 @@
 		<h3>Upcoming</h3>
 		<div class="row">
 			<div class="thumbnail">
-				<img class="img-responsive" src="http://placehold.it/800x300" alt="">
+				<% feature2 = @features.second %>
+				<%= image_tag 'rollerblade.jpg', class: 'img-responsive' %>
 				<div class="caption-full">
-					<h4><a href="#">Event name</a>
+					<h4><%= link_to feature2.name, sport_path(feature2.id) %>
 					</h4>
 
 					<div class="activity-info">
-						<span class="glyphicon glyphicon-calendar">
-							<strong>Event</strong> - [Date]
-						</span>
-						<span class="glyphicon glyphicon-calendar">[Time]</span>
-						<span class="glyphicon glyphicon-calendar">[Age]</span>
-						<span class="glyphicon glyphicon-calendar">[Price]</span>
-						<span class="glyphicon glyphicon-calendar">[Location]</span>
+						<%= image_tag 'icons/clock.png', :class=> "icon" %>3:00pm
+						<%= image_tag 'icons/baby.png', :class=> "icon" %><%= feature2.age_group.name %>
+						<%= image_tag 'icons/tag.png', :class=> "icon" %><%= feature2.cost %>
+						<%= image_tag 'icons/marker.png', :class=> "icon" %><%= feature2.city %>
 					</div>
 
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+					<p><%= feature2.description %> <%= feature2.more_info %></p>
 					<p class="text-right"><a href="">Learn More</a></p>
 					<p></p>
 				</div>
@@ -299,22 +294,20 @@
 
 		<div class="row">
 			<div class="thumbnail">
-				<img class="img-responsive" src="http://placehold.it/800x300" alt="">
+				<%= image_tag 'dance.jpg', class: "img-responsive" %>
 				<div class="caption-full">
-					<h4><a href="#">Event name</a>
+					<% feature3 = @features.third %>
+					<h4><%= link_to feature3.name, sport_path(feature3.id) %>
 					</h4>
 
 					<div class="activity-info">
-						<span class="glyphicon glyphicon-calendar">
-							<strong>Event</strong> - [Date]
-						</span>
-						<span class="glyphicon glyphicon-calendar">[Time]</span>
-						<span class="glyphicon glyphicon-calendar">[Age]</span>
-						<span class="glyphicon glyphicon-calendar">[Price]</span>
-						<span class="glyphicon glyphicon-calendar">[Location]</span>
+						<%= image_tag 'icons/clock.png', :class=> "icon" %>9:00pm
+						<%= image_tag 'icons/baby.png', :class=> "icon" %><%= feature3.age_group.name %>
+						<%= image_tag 'icons/tag.png', :class=> "icon" %><%= feature3.cost %>
+						<%= image_tag 'icons/marker.png', :class=> "icon" %><%= feature3.city %>
 					</div>
 
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+					<p><%= feature3.description %><%= feature3.more_info %></p>
 					<p class="text-right"><a href="">Learn More</a></p>
 					<p></p>
 				</div>

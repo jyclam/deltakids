@@ -6,6 +6,7 @@ class ActivitiesController < ApplicationController
 		puts filtered_events.nil? 
 		@activities = Program.all.where(age_group_id: 1)
 		@age_groups = AgeGroup.all
+		@features = Activity.limit(3)
 	end
 
 	def new

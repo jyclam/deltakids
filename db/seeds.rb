@@ -199,13 +199,15 @@ end
 		e = Event.new(
 			name: a.name,
 			date: a.date_start,
-      unit_num: a.unit_num,
-			street_address: a.street_address,
-			city: a.city,
-			postal_code: a.postal_code,
-			contact_name: a.contact_name,
-			contact_email: a.contact_email,
-			time_start: a.time_start,
+
+      unit_num: a.unit_num, 
+			street_address: a.street_address, 
+			city: a.city, 
+			postal_code: a.postal_code, 
+			contact_name: a.contact_name, 
+			contact_email: a.contact_email, 
+		  contact_phone_num: ['604-956-9129', '778-918-4521', '604-945-5226'].sample,
+			time_start: a.time_start, 
 			time_end: a.time_end,
 			activity_id: a.id
 		)
