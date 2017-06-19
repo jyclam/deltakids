@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+
     <script src="//cdn.ckeditor.com/4.7.0/basic/ckeditor.js"></script>
     <title>Deltakids</title>
     <%= csrf_meta_tags %>
@@ -30,14 +31,17 @@
             <% if org_signed_in? %>
             <li> <%= link_to "Hello, #{current_org.title}" %> </li>
             <li><%= link_to 'Sign Out', sessions_path, method: :delete %></li>
-              <% else %>
-            <li><%= link_to 'Sign In', new_session_path %></li>
-            <% end %>
             <% if org_signed_in? && current_org.is_admin? %>
-            <li><%= link_to 'Admin Dashboard', admin_organizations_path %></li>
+              <li><%= link_to 'Admin Dashboard', admin_organizations_path %></li>
+            <% else %>
+              <li> <%= link_to 'Dashboard', organizations_dashboard_path %> </li>
+            <% end %>
             <li> <%= link_to 'About' %> </li>
             <li> <%= link_to 'Contact Us' %> </li>
             <li><%= link_to 'Live 5-2-1-0', learn_live_path %></li>
+              <% else %>
+            <li><%= link_to 'Sign In', new_session_path %></li>
+            <li><%= link_to 'Sign Up', new_organization_path %></li>
             <% end %>
           </ul>
         </div>
@@ -47,7 +51,7 @@
 
     <div class="div-lower-navbar collapse navbar-collapse myNavbar" >
       <ul class="nav navbar-nav lower-navbar">
-        <li class="nav-word"> ACTIVITIES CALENDER </li>
+        <li id='move-up' class="nav-word"> <%= link_to 'ACTIVITIES CALENDER', activities_path %> </li>
 
         <!-- LEARNING DROPDOWN  -->
         <li class="dropdown">
@@ -104,7 +108,7 @@
                   <li class="yellow-header-nav"><a  href="#">6-12 YEAR OLDS</a></li>
                   <li class="divider"></li>
                   <div class="col-sm-6 no-padding">
-                    <li><a href="#">Sports
+                    <li><a href="sports">Sports
                     <i class="fa fa-caret-right" aria-hidden="true"></i>
                     <li class="divider"></li>
                     <li><a href="#">Arts & Culture</a>
@@ -215,7 +219,7 @@
               </div>
             </div>
           </ul>
-        <li class="nav-word"> WHAT'S NEW? </li>
+        <li id='move-up' class="nav-word"> <%= link_to 'WHAT\'S NEW?'%> </li>
         <li>
           <i class="fa fa-search nav-word" aria-hidden="true"></i>
         </li>
@@ -235,6 +239,7 @@
 
 		<!-- </div> -->
 	<!-- </body> -->
+	<br />
 
   <% if flash.any? %>
    <hr>
@@ -248,22 +253,25 @@
 		<%= yield %>
 
   <!-- <div class="container"> -->
-    <div class="footer">
-      <i class="fa fa-facebook fa-lg" aria-hidden="true"></i>
-      <i class="fa fa-twitter fa-lg" aria-hidden="true"></i>
-      <i class="fa fa-pinterest-p fa-lg" aria-hidden="true"></i>
-      <i class="fa fa-instagram fa-lg" aria-hidden="true"></i>
-      <div class="footer-text">
-        <div class="footer-text-firstline">
-          <p>Copyright </p>
-          <i id="copyright-icon" class="fa fa-copyright" aria-hidden="true"></i>
-          <p> 2017 </p>
-        </div>
-        <div>
-          <p> All Rights Reserved - Delta Kids </p>
-        </div>
-      </div>
-    </div>
+	<div class="row">
+		<div class="footer">
+			<i class="fa fa-facebook fa-lg" aria-hidden="true"></i>
+			<i class="fa fa-twitter fa-lg" aria-hidden="true"></i>
+			<i class="fa fa-pinterest-p fa-lg" aria-hidden="true"></i>
+			<i class="fa fa-instagram fa-lg" aria-hidden="true"></i>
+			<div class="footer-text">
+				<div class="footer-text-firstline">
+					<p>Copyright </p>
+					<i id="copyright-icon" class="fa fa-copyright" aria-hidden="true"></i>
+					<p> 2017 </p>
+				</div>
+				<div>
+					<p> All Rights Reserved - Delta Kids </p>
+				</div>
+			</div>
+		</div>
+	</div>
+
   </div>
 </div>
 

@@ -1,3 +1,71 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#carousel1{
+	height: 30%;
+	width: 30%;
+	display: inline;
+
+}
+
+#carousel2{
+	height: 30%;
+	width: 30%;
+	display: inline;
+}
+
+#carousel3{
+	height: 30%;
+	width: 30%;
+	display: inline;
+
+}
+
+.img-responsive{
+	display: block;
+	max-width: 100%;
+	height: auto;
+	width: 1200px;
+}
+
+#homeimg{
+	width: calc( 85.53em - 0.5px );
+	background-color: #D2F0FA;
+	margin-top: -1.5em;
+}
+
+
+.btnone{
+	margin-top: -73em;
+	margin-left: 56em;
+}
+#homeimg2{
+	width: calc( 85.53em - 0.5px );
+
+}
+.btntwo{
+	margin-top: -29em;
+	margin-left: 48em;
+}
+
+.btnthree {
+	margin-top: -82em;
+	margin-left: 4em;
+	width: 1000px !important;
+	font-family: cursive;
+	font-size: 26px;
+}
+
+
+#carousel{
+	position: absolute;
+	background-repeat: no-repeat;
+	background-size: cover;
+  padding: 0em 3em 2em 0em;	width: 1019px;
+	margin-left: 100px;
+	margin-top: -73em;
+}
+
+.item-hold{
+	margin-top: 100px;
+}

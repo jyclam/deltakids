@@ -3,8 +3,8 @@ class Admin::OrganizationsController < Admin::BaseController
   before_action :find_service, only:[:editservice, :destroyservice]
 
   def index
-    @events = Event.all.limit(6)
-    @services = Service.all.limit(5)
+    @events = Event.all.order(created_at: :desc).limit(6)
+    @services = Service.all.order(created_at: :desc).limit(6)
   end
 
   def editevent
