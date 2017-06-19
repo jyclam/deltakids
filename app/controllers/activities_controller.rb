@@ -81,7 +81,6 @@ class ActivitiesController < ApplicationController
 		#puts filtered_events.count
 		#puts filtered_events
 
-		redirect_to activities_path(calendar.id)
 	end
 
 

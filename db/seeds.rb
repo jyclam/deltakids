@@ -172,7 +172,7 @@ organizations = Organization.all
                 organization_id: Organization.all.sample.id
 end
 
-15.times do
+25.times do
 	a = Activity.create(
 		name: ['Basketball with Michael Jordan', 'Hockey with Wayne Gretzsky', 'Drawing with Pablo Picasso', 'Singing with Celine Dion', 'Learning About Space with Neil Degrasse Tyson', 'Cooking with Ratatouille', 'Frolicking With Forrest Gump'].sample,
 		date_start: Date.new(2017, rand(1..6), rand(1..15)),
