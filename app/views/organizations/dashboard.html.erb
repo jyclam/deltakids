@@ -1,0 +1,88 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>Organization Dashboard</h1>
+    </div>
+    <nav class="navbar navbar-fixed col-md-4 " id="sidebar" role="navigation">
+      <ul class="nav sidebar-nav left-nav" >
+        <li>
+          <a href="">Edit Organization Info</a>
+        </li>
+        <li id = "contact">
+          <p>  What would you like to create? </p>
+        </li>
+
+        <li>
+          <a href="/activities/new">Create Event
+            <i class="fa fa-caret-right pull-right" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li>
+          <a href="/services/new">Create Service
+            <i class="fa fa-caret-right pull-right" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      </ul>
+    </nav>
+    <div class="col-xs-8">
+      <h4> Your Events </h4>
+      <table class='table table-hover'>
+        <tr>
+          <th>Activity Type</th>
+          <th>Event</th>
+          <th>Organization</th>
+          <th>Location</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Contact Details</th>
+          <th>Status</th>
+        </tr>
+        <% @events.where(is_approved:false).each do |event| %>
+        <tr>
+          <td> <%= event.activity.program.category %></td>
+          <td> <%=event.activity.name  %></td>
+          <td> <%= event.activity.organization.title %></td>
+          <td> <%= event.full_address %></td>
+          <td> <%= event.date %></td>
+          <td> From: <%= event.time_start %> <br> To: <%= event.time_end %></td>
+          <td> <%= event.contact_name %><br><%= event.contact_phone_num %><br><%= event.contact_email %></td>
+            <% if event.is_approved %>
+            <td>Approved</td>
+            <% else %>
+            <td>Pending</td>
+            <% end %>
+        </tr>
+        <% end %>
+      </table>
+
+      <h4>Your Services</h4>
+      <table class='table table-hover'>
+        <tr>
+          <th>Category</th>
+          <th>Clientelle</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Agency</th>
+          <th>Website</th>
+          <th>Status</th>
+        </tr>
+        <% @services.each do |service| %>
+        <tr>
+          <td> <%= service.cat.name %></td>
+          <td> <%= service.category.name %></td>
+          <td><%= service.name %></td>
+          <td> <%= service.description %></td>
+          <td> <%= service.organization.title %></td>
+          <td> <%= service.website %></td>
+          <% if service.status %>
+            <td>Approved</td>
+          <% else %>
+            <td>Pending</td>
+          <% end %>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

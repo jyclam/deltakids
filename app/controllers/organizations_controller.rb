@@ -16,6 +16,18 @@ class OrganizationsController < ApplicationController
 	end
   end
 
+
+  def dashboard
+    @organization = Organization.find session[:org_id]
+
+    @activities = Activity.where(organization: @organization)
+    @events = Event.where(activity: @activities)
+
+    @services = Service.where(organization: @organization)
+
+    # render json: @events
+  end
+
   private
 
   def organ_params

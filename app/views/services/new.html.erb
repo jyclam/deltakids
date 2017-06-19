@@ -53,14 +53,14 @@
       <br>
 
       <div class="form-group">
-        <%= f.label :category, class: "col-sm-3 move-right"  %>
+        <%= f.label :clientele, class: "col-sm-3 move-right"  %>
         <div class="move-right">
         <%= f.collection_select :category_id,
           Category.all,
           :id,
           :name,
-          include_blank: true,
-          prompt: 'Choose a category!'
+          include_blank: false,
+          prompt: 'clientele'
           %>
         </div>
       </div>
@@ -68,13 +68,13 @@
       <br>
 
       <div class="form-group">
-        <%= f.label :cat, class: "col-sm-3 move-right" %>
+        <%= f.label :category, class: "col-sm-3 move-right" %>
           <%= f.collection_select :cat_id,
             Cat.all,
             :id,
             :name,
-            include_blank: true,
-            prompt: 'Choose a cat!'
+            include_blank: false,
+            prompt: 'category'
             %>
       </div>
 
@@ -86,4 +86,3 @@
 
   <% end %>
 </div>
-
