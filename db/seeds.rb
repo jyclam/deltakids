@@ -1,6 +1,6 @@
+Service.destroy_all
 Cat.destroy_all
 Category.destroy_all
-
 ResourceFilter.delete_all
 ResourceType.delete_all
 ResourceLocation.delete_all
@@ -18,23 +18,35 @@ categories = Category.create([
   {name: 'Pregnency and babies'}
 ])
 
+
 cats = Cat.create([
   {name: 'Help in a crisis', category: categories[0] },
-  {name: 'Assistance with fees', category: categories[0]},
-  {name: 'Help in a crisis', category: categories[0]},
-  {name: 'Baby Health & Development', category: categories[1]},
-  {name: 'Child Health & Development', category: categories[1]},
-  {name: 'Child Advocacy', category: categories[1]},
-  {name: 'Childcare & Preschool', category: categories[2]},
-  {name: 'Supports for Children', category: categories[2]},
+  {name: 'Child Advocacy', category: categories[0] },
+  {name: 'Child Health & Development', category: categories[0]},
+  {name: 'Supports for Children', category: categories[0]},
+  {name: 'Help in a Crisis', category: categories[1]},
+  {name: 'Childcare & Preschool', category: categories[1]},
+  {name: 'Assistance with fees', category: categories[1]},
+  {name: 'Supports for Families', category: categories[1]},
+  {name: 'Help in a Crisis', category: categories[2]},
+  {name: 'Baby Health & Development', category: categories[2]},
   {name: 'Supports for Families', category: categories[2]}
   ])
 
-Service.create([
-  {name: 'a', description: 'b', website:'www', logo: 'www', category_id: 16, cat_id: 19, status: false},
-  {name: 'b', description: 'b', website:'www', logo: 'www', category_id: 16, cat_id: 19, status: false},
-  {name: 'c', description: 'b', website:'www', logo: 'www', category_id: 16, cat_id: 19, status: false}
-  ])
+
+
+
+
+
+
+
+ResourceFilter.delete_all
+ResourceType.delete_all
+ResourceLocation.delete_all
+ResourceTopic.delete_all
+AgeGroup.delete_all
+Resource.delete_all
+
 
 
 
@@ -165,6 +177,17 @@ data.each do |row|
 end
 
 50.times do
+  Service.create name: Faker::Company.name,
+                description: Faker::Hipster.paragraph,
+                website: Faker::Internet.url,
+                logo: Faker::Internet.url,
+                category_id: categories.sample.id,
+                cat_id: cats.sample.id,
+                status: [false, true].sample,
+                organization_id: Organization.all.sample.id
+end
+
+50.times do
 	a = Activity.create(
 		name: ['Summer Basketball with Michael Jordan', 'Winter Hockey with Wayne Gretzsky', 'Drawing with Pablo Picasso', 'Singing with Celine Dion', 'Learning About Space with Neil Degrasse Tyson', 'Cooking with Ratatouille'].sample,
 		date_start: ["2018-01-#{rand(1..29)}", "2018-02-#{rand(1..29)}"].sample,
@@ -203,6 +226,18 @@ end
 		activity_id: Activity.all.sample.id
    )
 end
+
+# services = Service.create([
+#   {name: 'a', description: 'b', website:'www', logo: 'www', category_id: categories.sample.id, cat_id: cats.sample.id, status: false, organization_id: Organization.all.sample.id},
+#   {name: 'b', description: 'b', website:'www', logo: 'www', category_id: categories.sample.id, cat_id: cats.sample.id, status: false, organization_id: Organization.all.sample.id},
+#   {name: 'c', description: 'b', website:'www', logo: 'www', category_id: categories.sample.id, cat_id: cats.sample.id, status: false, organization_id: Organization.all.sample.id},
+#   {name: 'c', description: 'b', website:'www', logo: 'www', category_id: categories.sample.id, cat_id: cats.sample.id, status: false, organization_id: Organization.all.sample.id},
+#   {name: 'c', description: 'b', website:'www', logo: 'www', category_id: categories.sample.id, cat_id: cats.sample.id, status: false, organization_id: Organization.all.sample.id},
+#   {name: 'c', description: 'b', website:'www', logo: 'www', category_id: categories.sample.id, cat_id: cats.sample.id, status: false, organization_id: Organization.all.sample.id},
+#   {name: 'c', description: 'b', website:'www', logo: 'www', category_id: categories.sample.id, cat_id: cats.sample.id, status: false, organization_id: Organization.all.sample.id},
+#   {name: 'c', description: 'b', website:'www', logo: 'www', category_id: categories.sample.id, cat_id: cats.sample.id, status: false, organization_id: Organization.all.sample.id}
+#   ])
+
 
 
 # data = SmarterCSV.process('programs.csv')

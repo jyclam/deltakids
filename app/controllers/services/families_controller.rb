@@ -1,8 +1,9 @@
 class Services::FamiliesController < ApplicationController
 
   def index
-    category = Category.all
-    @services = category[1].services
+    # category = Category.all
+    # @services = category[1].services
+    @services = Category.second.services
   end
 
   def show

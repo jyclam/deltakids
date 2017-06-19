@@ -34,11 +34,11 @@ ActiveRecord::Schema.define(version: 20170618191641) do
     t.time "time_end"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "website"
     t.string "cost"
     t.boolean "registration"
     t.text "description"
     t.string "more_info"
+    t.string "website"
     t.index ["age_group_id"], name: "index_activities_on_age_group_id"
     t.index ["organization_id"], name: "index_activities_on_organization_id"
     t.index ["program_id"], name: "index_activities_on_program_id"
@@ -124,6 +124,7 @@ ActiveRecord::Schema.define(version: 20170618191641) do
     t.datetime "updated_at", null: false
     t.bigint "age_group_id"
     t.index ["age_group_id"], name: "index_programs_on_age_group_id"
+    t.index ["category"], name: "index_programs_on_category", unique: true
   end
 
   create_table "resource_filters", force: :cascade do |t|
