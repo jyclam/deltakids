@@ -12,8 +12,9 @@ ResourceTopic.delete_all
 Program.destroy_all
 AgeGroup.delete_all
 Resource.delete_all
-
 Organization.destroy_all
+Activity.destroy_all
+Event.destroy_all
 
 categories = Category.create([
   {name: 'Children'},
@@ -149,6 +150,48 @@ data.each do |row|
     end
   end
 end
+
+50.times do 
+	a = Activity.create(
+		name: ['Summer Basketball with Michael Jordan', 'Winter Hockey with Wayne Gretzsky', 'Drawing with Pablo Picasso', 'Singing with Celine Dion', 'Learning About Space with Neil Degrasse Tyson', 'Cooking with Ratatouille'].sample, 
+		date_start: ["2018-01-#{rand(1..29)}", "2018-02-#{rand(1..29)}"].sample,
+		date_end: ["2018-03-#{rand(1..29)}", "2018-04-#{rand(1..29)}"].sample, 
+	  repeat: [true, false].sample, 
+	  street_address: ['4838 Clinton St.', '4-565 Shaw Ave.', '911 Emergency Lane'].sample, 
+	  city: ['Ladner', 'Tsawwassen', 'North Delta'].sample,
+		unit_num: ['1', '2', '3', '4', '5'].sample,
+	  postal_code: ['V5K 2K9', 'V5B 1W8'].sample, 
+	  contact_name: ['Jon Snow', 'Dany Targaryen', 'Tyrion Lannister'].sample,
+	  contact_email: ['important_person@gmail.com', 'vip@vip.com', 'happyman@heaven.ca'].sample,
+	  time_start: ['12:00', '3:00', '6:00'].sample,
+	  time_end: ['7:00', '8:00', '9:00'].sample, 
+	  website: ['https://www.google.com', 'https://amazon.com', 'https://deltakids.ca'].sample, 
+	  cost: ['free', 'low', 'paid'].sample, 
+	  description: ['last night I had a dream, about a dream, about you!', 'if they come for you, i will field their questions, i will shield your name', 'foot on the devils neck till they drift to pangea, im moving all my family to chadman to zambia'].sample, 
+	  more_info: ['', 'come and have some fun!!', 'you will grow and learn', 'be like water my friends'].sample, 
+		age_group_id: AgeGroup.all.sample.id,
+		program_id: Program.all.sample.id,
+		organization_id: Organization.all.sample.id
+   )
+end
+
+
+50.times do 
+	e = Event.create(
+		name: ['Summer Basketball with Michael Jordan', 'Winter Hockey with Wayne Gretzsky', 'Drawing with Pablo Picasso', 'Singing with Celine Dion', 'Learning About Space with Neil Degrasse Tyson', 'Cooking with Ratatouille'].sample, 
+		date: ["2018-01-#{rand(1..29)}", "2018-02-#{rand(1..29)}"].sample,
+		unit_num: ['1', '2', '3', '4', '5'].sample,
+	  street_address: ['4838 Clinton St.', '4-565 Shaw Ave.', '911 Emergency Lane'].sample, 
+	  city: ['Ladner', 'Tsawwassen', 'North Delta'].sample,
+	  postal_code: ['V5K 2K9', 'V5B 1W8'].sample, 
+	  contact_name: ['Jon Snow', 'Dany Targaryen', 'Tyrion Lannister'].sample,
+	  contact_email: ['important_person@gmail.com', 'vip@vip.com', 'happyman@heaven.ca'].sample,
+	  time_start: ['12:00', '3:00', '6:00'].sample,
+	  time_end: ['7:00', '8:00', '9:00'].sample, 
+		activity_id: Activity.all.sample.id
+   )
+end
+
 
 # data = SmarterCSV.process('programs.csv')
 # ds = data.each_slice(5).to_a

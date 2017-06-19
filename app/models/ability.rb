@@ -10,7 +10,7 @@ class Ability
 	  service.organization_id = organization.id
 	end
 
-	can :crud Activity do |activity| 
+	can :crud, Activity do |activity| 
 	  activity.organization_id = organization.id
 	end
 
