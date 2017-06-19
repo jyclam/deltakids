@@ -24,7 +24,7 @@ class ServicesController < ApplicationController
   end
 
   def index
-    @services = Service.where(status:false)
+    @services = Service.where(status:true)
   end
 
 
