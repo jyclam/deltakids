@@ -39,19 +39,23 @@
       <% end %>
     <% else %>
 		  <%= link_to 'Sign In', new_session_path %>
+      <%= link_to 'Sign Up', new_organization_path %> 
     <% end %>
-
+        
+    <% if current_org&.is_admin? %>
+      | <%= link_to 'Admin Dashboard', admin_organizations_path %>
+    <% end %>
       </nav>
 
     <%= link_to image_tag('main-logo.jpg', id: "main-logo"), home_path %>
 
     <div class="div-lower-navbar collapse navbar-collapse myNavbar" >
       <ul class="nav navbar-nav lower-navbar">
-        <li> ACTIVITIES CALENDER </li>
+        <li class="nav-word"> ACTIVITIES CALENDER </li>
 
         <!-- LEARNING DROPDOWN  -->
         <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown"> LEARNING
+          <a class="dropdown-toggle nav-word" data-toggle="dropdown"> LEARNING
             <span class="caret"></span></a>
             <!-- <div class="arrow"></div> -->
           <ul class="dropdown-menu">
@@ -94,7 +98,7 @@
 
           <!-- PROGRAMS DROPDOWN -->
         <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown"> PROGRAMS
+          <a class="dropdown-toggle nav-word" data-toggle="dropdown"> PROGRAMS
             <span class="caret"></span></a>
             <!-- <div class="arrow"></div> -->
           <ul class="dropdown-menu">
@@ -139,8 +143,9 @@
             </div>
           </ul>
 
+          <!-- SERVICES DROPDOWN -->
         <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown"> SERVICES
+          <a class="dropdown-toggle nav-word" data-toggle="dropdown"> SERVICES
             <span class="caret"></span></a>
             <!-- <div class="arrow"></div> -->
           <ul class="dropdown-menu dropdown-menu-right">
@@ -210,9 +215,9 @@
               </div>
             </div>
           </ul>
-        <li> WHAT'S NEW? </li>
+        <li class="nav-word"> WHAT'S NEW? </li>
         <li>
-          <i class="fa fa-search" aria-hidden="true"></i>
+          <i class="fa fa-search nav-word" aria-hidden="true"></i>
         </li>
       </ul>
     </div>
