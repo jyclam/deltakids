@@ -1,6 +1,6 @@
 <h1>Service show page</h1>
 
-<div class="row">
+<!-- <div class="row">
   <div class="col-lg-1">
   </div>
   <div class="col-lg-7">
@@ -13,4 +13,114 @@
   </div>
   <div class="col-lg-1">
   </div>
+</div> -->
+
+<div class="container learn_more_body">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="learn-more-info">
+        <img src="http://cdn2.hubspot.net/hub/211718/file-1994657483-jpg/email/KidsHelpPhone300.jpg" class="learn-more-pic">
+        <!-- <%= image_tag 'kids.jpg', :class=> "learn-more-pic" %> -->
+        <div class="learn-text">
+          <h4 class="teal-blue"><%= @service.cat.name %></h4>
+              <p><%= @service.description %></p>
+            <div class="event-info teal-blue">
+              <hr>
+              <div class="info-left">
+                <div class="event-icon">
+                  <%= image_tag 'icons/marker.png', :class=> "info-icon" %>
+                  <div class="address">
+                    North Delta Recreation centre
+                    <br>
+                    11843 73 Ave Delta, BC V7E W6W
+                  </div>
+                </div>
+              </div>
+              <div class="info-right">
+                  <div class="event-icon">
+                    <%= image_tag 'icons/phone.png', :class=> "info-icon" %>
+                    604-660-4444
+                  </div>
+                  <br>
+                  <div class="event-icon">
+                    <%= image_tag 'icons/globe.png', :class=> "info-icon" %>
+                    <%= @service.website %>
+                  </div>
+                  <br>
+              </div>
+            </div>
+            <div class="bottom-clear">
+              <br>
+              <hr/>
+            </div>
+            <div>
+              <h4 class="teal-blue">SHARE</h4>
+              <%= image_tag 'icons/facebook.png', :class=> "share-icon" %>
+              <%= image_tag 'icons/email.png', :class=> "share-icon" %>
+            </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col-md-4 similar-events">
+      <h4 class="teal-blue">SIMILAR ORGANIZATIONS</h4>
+      <!-- depending on how many similar events you want, can do a for each loop -->
+      <div class="sim-event">
+        <%= image_tag 'healthlink.png', :class=> "sim-event-pic" %>
+        <div class="event-icon deep-sky-blue">
+          <h4 class="teal-blue">Health Link BC</h4>
+          <%= image_tag 'icons/globe.png', :class=> "icon" %>
+          <a href="https://www.healthlinkbc.ca/">www.healthlinkbc.ca</a>
+        </div>
+        <div class="event-icon deep-sky-blue">
+          <%= image_tag 'icons/phone.png', :class=> "icon" %>
+          604-660-4444
+        </div>
+        <div class="event-icon deep-sky-blue">
+          <%= image_tag 'icons/mail.png', :class=> "icon" %>
+          healthlink@health.bc.ca
+        </div>
+      </div>
+
+      <div class="sim-event">
+        <%= image_tag 'youthbc.jpg', :class=> "sim-event-pic" %>
+        <div class="event-icon deep-sky-blue">
+          <h4 class="teal-blue">YouthInBC Crisis Line</h4>
+          <%= image_tag 'icons/globe.png', :class=> "icon" %>
+          <a href="http://youthinbc.com/">http://youthinbc.com/</a>
+        </div>
+        <div class="event-icon deep-sky-blue">
+          <%= image_tag 'icons/phone.png', :class=> "icon" %>
+          1-866-661-3311
+        </div>
+        <div class="event-icon deep-sky-blue">
+          <%= image_tag 'icons/mail.png', :class=> "icon" %>
+          info@crisiscentre.bc.ca
+        </div>
+      </div>
+
+      <div class="sim-event">
+        <%= image_tag 'kidshelpphone.png', :class=> "sim-event-pic" %>
+        <div class="event-icon deep-sky-blue">
+          <h4 class="teal-blue">Kids Help Phone</h4>
+          <%= image_tag 'icons/globe.png', :class=> "icon" %>
+          <a href="https://kidshelpphone.ca/">https://kidshelpphone.ca/</a>
+        </div>
+        <div class="event-icon deep-sky-blue">
+          <%= image_tag 'icons/phone.png', :class=> "icon" %>
+          1-800-668-6868
+        </div>
+        <div class="event-icon deep-sky-blue">
+          <%= image_tag 'icons/mail.png', :class=> "icon" %>
+          info@kidshelpphone.bc.ca
+        </div>
+      </div>
+
+      <div class="see-more text-center">
+        <%= image_tag 'icons/see_more.png', :class=> "see-more-pic" %>
+      </div>
+    </div>
+</div>
+
 </div>
