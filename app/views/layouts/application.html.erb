@@ -26,9 +26,9 @@
         </div>
         <div class="collapse navbar-collapse myNavbar">
           <ul class="nav navbar-nav navbar-right upper-nav">
-            <li> About </li>
+            <li><%= link_to 'About', learn_live_path %></li>
             <li><%= link_to 'Live 5-2-1-0', learn_live_path %></li>
-            <li> Contact Us </li>
+            <li><%= link_to 'Contact', learn_live_path %></li>
           </ul>
         </div>
 		<% if org_signed_in? %>
