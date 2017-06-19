@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170618172336) do
+ActiveRecord::Schema.define(version: 20170618191641) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "activities", force: :cascade do |t|
     t.string "name"
-    t.string "date_start"
-    t.string "date_end"
+    t.date "date_start"
+    t.date "date_end"
     t.boolean "repeat"
     t.bigint "age_group_id"
     t.bigint "program_id"
@@ -30,10 +30,15 @@ ActiveRecord::Schema.define(version: 20170618172336) do
     t.string "contact_name"
     t.string "contact_email"
     t.string "contact_phone_num"
-    t.string "time_start"
-    t.string "time_end"
+    t.time "time_start"
+    t.time "time_end"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "website"
+    t.string "cost"
+    t.boolean "registration"
+    t.text "description"
+    t.string "more_info"
     t.index ["age_group_id"], name: "index_activities_on_age_group_id"
     t.index ["organization_id"], name: "index_activities_on_organization_id"
     t.index ["program_id"], name: "index_activities_on_program_id"
@@ -51,6 +56,14 @@ ActiveRecord::Schema.define(version: 20170618172336) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_categories_on_name"
+  end
+
+  create_table "cats", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_cats_on_category_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -109,7 +122,8 @@ ActiveRecord::Schema.define(version: 20170618172336) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category"], name: "index_programs_on_category", unique: true
+    t.bigint "age_group_id"
+    t.index ["age_group_id"], name: "index_programs_on_age_group_id"
   end
 
   create_table "resource_filters", force: :cascade do |t|
@@ -167,6 +181,9 @@ ActiveRecord::Schema.define(version: 20170618172336) do
     t.bigint "organization_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "status", default: false
+    t.bigint "cat_id"
+    t.index ["cat_id"], name: "index_services_on_cat_id"
     t.index ["category_id"], name: "index_services_on_category_id"
     t.index ["organization_id"], name: "index_services_on_organization_id"
   end
@@ -174,14 +191,17 @@ ActiveRecord::Schema.define(version: 20170618172336) do
   add_foreign_key "activities", "age_groups"
   add_foreign_key "activities", "organizations"
   add_foreign_key "activities", "programs"
+  add_foreign_key "cats", "categories"
   add_foreign_key "events", "activities"
   add_foreign_key "orgprograms", "organizations"
   add_foreign_key "orgprograms", "programs"
+  add_foreign_key "programs", "age_groups"
   add_foreign_key "resource_filters", "age_groups"
   add_foreign_key "resource_filters", "resource_locations"
   add_foreign_key "resource_filters", "resource_topics"
   add_foreign_key "resource_filters", "resource_types"
   add_foreign_key "resource_filters", "resources"
   add_foreign_key "services", "categories"
+  add_foreign_key "services", "cats"
   add_foreign_key "services", "organizations"
 end

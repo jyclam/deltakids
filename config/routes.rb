@@ -19,6 +19,8 @@ Rails.application.routes.draw do
 	resources :organizations, only: :index
   end
 
+  resources :activity 
+
 
 
 
@@ -28,4 +30,10 @@ Rails.application.routes.draw do
     post '/filters',to: 'resources#filter', as: :filter, on: :collection
   end
 
+  namespace :services do
+    resources :pandb, only: [:index, :show]
+    resources :children, only: [:index, :show]
+    resources :families, only: [:index, :show]
+  end
+  resources :services
 end

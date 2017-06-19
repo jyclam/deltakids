@@ -1,6 +1,7 @@
 // Place all the styles related to the resources controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 hr{
     display: block;
     height: 1px;
@@ -76,4 +77,33 @@ color:#004C81;
 
 .light-blue{
   color: #C8ECF5;
+}
+
+.background {
+  background-color: #C8ECF5;
+}
+
+.btn {
+  margin-bottom: 20px;
+}
+
+label, input {
+  font-family: 'Open Sans', sans-serif;
+  color: #004C81;
+  font-size: 18px;
+}
+
+h2, h3 {
+  color: #004C81;
+}
+
+span {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  color: #004C81;
+  margin-right: 10px;
+}
+
+input[type="checkbox"], input[type="radio"] {
+  margin-right: 10px;
 }
