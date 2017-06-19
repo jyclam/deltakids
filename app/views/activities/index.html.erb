@@ -233,12 +233,12 @@
 					<h4 style="text-align:center;"><a href="#">ACTIVITIES CALENDAR</a></h4>
 				</div>
 					<%= month_calendar events: @events do |date, events| %>
-					<%= date %>
+					<%= date.day %>
 					<% events.each do |event| %>
 						<div>
 							<% link_name = event.name %>
-							<% if link_name.length > 22 %>
-								<% link_name = link_name.first(22) + '...' %>
+							<% if link_name.length > 7 %>
+								<% link_name = link_name.first(7) + '...' %>
 							<% end %>
 							<%= link_to(link_name, sport_path(event)) %>
 						</div>

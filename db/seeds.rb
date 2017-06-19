@@ -174,7 +174,7 @@ end
 
 15.times do
 	a = Activity.create(
-		name: ['Summer Basketball with Michael Jordan', 'Winter Hockey with Wayne Gretzsky', 'Drawing with Pablo Picasso', 'Singing with Celine Dion', 'Learning About Space with Neil Degrasse Tyson', 'Cooking with Ratatouille', 'Frolicking With Forrest Gump'].sample,
+		name: ['Basketball with Michael Jordan', 'Hockey with Wayne Gretzsky', 'Drawing with Pablo Picasso', 'Singing with Celine Dion', 'Learning About Space with Neil Degrasse Tyson', 'Cooking with Ratatouille', 'Frolicking With Forrest Gump'].sample,
 		date_start: Date.new(2017, rand(1..6), rand(1..15)),
 		date_end: Date.new(2017, (rand(1..6) + 6), (rand(1..15) + 15)),
 	  repeat: [true, false].sample,
