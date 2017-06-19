@@ -84,7 +84,7 @@
 
       <br>
 
-      <div>
+      <!-- <div> -->
       	<%# f.label(:activity_type, "Activity Type: ") %>
       	<%# f.check_box(:activity_type) %>
       	<%# f.label(:activity_type, "Art & Culture") %>
@@ -96,11 +96,20 @@
       	<%# f.label(:activity_type, "Health") %>
       	<%# f.check_box(:activity_type) %>
       	<%# f.label(:activity_type, "Sports") %>
-      </div>
+      <!-- </div> -->
 
-      <div class="">
-    	  <%= f.label :activity_types, "Activity Types:" %>
-        <%= f.collection_check_boxes :programs_offered_ids, Program.all, :id, :category %>
+      <div class="form-group">
+    	  <%= f.label :activity_types, "Activity Types:", class: 'col-sm-3' %>
+        <div class="col-sm-9 activity_type">
+          <div class="">
+            <label for=""> 0-5 Years Old:</label>
+          </div>
+          <%= f.collection_check_boxes :programs_offered_ids, Program.all.where(age_group_id: 1), :id, :category, class: 'form-control' %>
+          <div class="">
+            <label for=""> 6-12 Years Old: </label>
+          </div>
+          <%= f.collection_check_boxes :programs_offered_ids, Program.all.where(age_group_id: 2), :id, :category, class: 'form-control' %>
+        </div>
       </div>
 
       <br>
@@ -123,9 +132,9 @@
 
       <br>
         <!-- <div class="form-group">
-        	<%= f.label :services, class: "col-sm-3" %>
+        	<%#= f.label :services, class: "col-sm-3" %>
           <div class="col-sm-3">
-        	   <%= f.collection_select(:service_ids, Service.all, :id, :name)%>
+        	   <%#= f.collection_select(:service_ids, Service.all, :id, :name)%>
           </div>
         </div> -->
 
