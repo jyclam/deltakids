@@ -10,16 +10,16 @@ Rails.application.routes.draw do
 	resources :sports
 
   resources :organizations, only: [:new, :create]
-  
-  resources :sessions, only: [:new, :create] do 
-	delete :destroy, on: :collection 
+
+  resources :sessions, only: [:new, :create] do
+	delete :destroy, on: :collection
   end
 
-  namespace :admin do 
+  namespace :admin do
 	resources :organizations, only: :index
   end
 
-  resources :activity 
+  resources :activity
 
 
 
@@ -36,4 +36,8 @@ Rails.application.routes.draw do
     resources :families, only: [:index, :show]
   end
   resources :services
+
+  namespace :admin do
+    resources :users, only: :index
+  end
 end

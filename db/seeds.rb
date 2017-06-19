@@ -1,7 +1,3 @@
-
-
-
-
 Cat.destroy_all
 Category.destroy_all
 
@@ -43,7 +39,7 @@ Service.create([
 
 
 # age group seed
-AgeGroup.create([
+agegroups = AgeGroup.create([
   {name: '0-5 years'},
   {name: '6-12 years'},
   {name: 'Not applicable'}
@@ -140,13 +136,31 @@ programs = Program.create([
   ])
 
 # create organizations from programs.csv
+cities = ['North Delta', 'South Delta', 'Surrey']
 
 data = SmarterCSV.process('programs.csv')
+ds = data.each_slice(5).to_a
 
-data.each do |row|
-  if row[:agencies] != 'undefined'
+ds[3].each do |row|
+  if row[:agencies]
     if Organization.where(title: row[:agencies]).length < 1
-      Organization.create(title: row[:agencies])
+      Organization.create(
+      title: row[:agencies],
+      password_digest: '123',
+      target_clientelle: categories.sample.name,
+      phone_num: row[:phone_number] ? row[:phone_number] : "#{Faker::PhoneNumber.phone_number}",
+      services: cats.sample.name,
+      age_group: agegroups.sample.name,
+      website: row[:website] ? row[:website] : Faker::Internet.url,
+      unit_num: rand(1111..9999),
+      street_address: row[:address] ? row[:address] : Faker::Address.street_name ,
+      city: cities.sample,
+      first_name: Faker::Name.first_name,
+      last_name: Faker::Name.last_name,
+      description: row[:short_description_that_relate_to_program] ? row[:short_description_that_relate_to_program] : Faker::Hipster.paragraph(1),
+      email: Faker::Internet.email(row[:agencies])
+
+      )
     end
   end
 end
@@ -174,7 +188,6 @@ end
 		organization_id: Organization.all.sample.id
    )
 end
-
 
 50.times do 
 	e = Event.create(
