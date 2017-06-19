@@ -1,3 +1,4 @@
+Service.destroy_all
 Cat.destroy_all
 Category.destroy_all
 
@@ -12,13 +13,14 @@ Organization.destroy_all
 Activity.destroy_all
 Event.destroy_all
 
-categories = Category.create([
+Category.create([
   {name: 'Children'},
   {name: 'Families'},
   {name: 'Pregnency and babies'}
 ])
+categories = Category.all
 
-cats = Cat.create([
+Cat.create([
   {name: 'Help in a crisis', category: categories[0] },
   {name: 'Assistance with fees', category: categories[0]},
   {name: 'Help in a crisis', category: categories[0]},
@@ -29,22 +31,15 @@ cats = Cat.create([
   {name: 'Supports for Children', category: categories[2]},
   {name: 'Supports for Families', category: categories[2]}
   ])
-
-Service.create([
-  {name: 'a', description: 'b', website:'www', logo: 'www', category_id: 16, cat_id: 19, status: false},
-  {name: 'b', description: 'b', website:'www', logo: 'www', category_id: 16, cat_id: 19, status: false},
-  {name: 'c', description: 'b', website:'www', logo: 'www', category_id: 16, cat_id: 19, status: false}
-  ])
-
-
+cats = Cat.all
 
 # age group seed
-agegroups = AgeGroup.create([
+AgeGroup.create([
   {name: '0-5 years'},
   {name: '6-12 years'},
   {name: 'Not applicable'}
   ])
-
+agegroups = AgeGroup.all
 
 # resource seeds
 def generateResourceDescription
@@ -60,7 +55,6 @@ def generateResourceDescription
   end
   return body
 end
-
 
 50.times do
   Resource.create name: Faker::Hacker.say_something_smart,
@@ -84,7 +78,6 @@ ResourceLocation.create([
   {location: 'Canada'}
   ])
 
-
 ResourceTopic.create([
   {name: 'Physical Health'},
   {name: 'Mental Health'},
@@ -92,7 +85,6 @@ ResourceTopic.create([
   {name: 'Policy'},
   {name: 'Child Safety'}
   ])
-
 
 resource_types = ResourceType.all
 resource_locations = ResourceLocation.all
@@ -122,7 +114,7 @@ resources.each do |resource|
 end
 
 # create programs
-programs = Program.create([
+Program.create([
   {category: 'Arts & Culture', age_group_id: 1},
   {category: 'Sports', age_group_id: 1},
   {category: 'Education', age_group_id: 1},
@@ -134,8 +126,11 @@ programs = Program.create([
   {category: 'Community Clubs', age_group_id: 2},
   {category: 'Childcare', age_group_id: 2}
   ])
+programs = Program.all
 
 # create organizations from programs.csv
+# admin organization:
+Organization.create(title:'Kids Delta Admin', email:'123@123.com', password:'123', is_admin:true)
 cities = ['North Delta', 'South Delta', 'Surrey']
 
 data = SmarterCSV.process('programs.csv')
@@ -163,44 +158,55 @@ data.each do |row|
     end
   end
 end
+organizations = Organization.all
 
-50.times do 
+# create service
+Service.create([
+  {name: 'a', description: 'b', website:'www', logo: 'www', category_id: categories.sample.id, cat_id: cats.sample.id, organization_id: organizations.sample.id, status: false},
+  {name: 'a', description: 'b', website:'www', logo: 'www', category_id: categories.sample.id, cat_id: cats.sample.id, organization_id: organizations.sample.id, status: false},
+  {name: 'a', description: 'b', website:'www', logo: 'www', category_id: categories.sample.id, cat_id: cats.sample.id, organization_id: organizations.sample.id, status: false}
+  ])
+
+# create activity
+50.times do
 	a = Activity.create(
-		name: ['Summer Basketball with Michael Jordan', 'Winter Hockey with Wayne Gretzsky', 'Drawing with Pablo Picasso', 'Singing with Celine Dion', 'Learning About Space with Neil Degrasse Tyson', 'Cooking with Ratatouille'].sample, 
+		name: ['Summer Basketball with Michael Jordan', 'Winter Hockey with Wayne Gretzsky', 'Drawing with Pablo Picasso', 'Singing with Celine Dion', 'Learning About Space with Neil Degrasse Tyson', 'Cooking with Ratatouille'].sample,
 		date_start: ["2018-01-#{rand(1..29)}", "2018-02-#{rand(1..29)}"].sample,
-		date_end: ["2018-03-#{rand(1..29)}", "2018-04-#{rand(1..29)}"].sample, 
-	  repeat: [true, false].sample, 
-	  street_address: ['4838 Clinton St.', '4-565 Shaw Ave.', '911 Emergency Lane'].sample, 
+		date_end: ["2018-03-#{rand(1..29)}", "2018-04-#{rand(1..29)}"].sample,
+	  repeat: [true, false].sample,
+	  street_address: ['4838 Clinton St.', '4-565 Shaw Ave.', '911 Emergency Lane'].sample,
 	  city: ['Ladner', 'Tsawwassen', 'North Delta'].sample,
 		unit_num: ['1', '2', '3', '4', '5'].sample,
-	  postal_code: ['V5K 2K9', 'V5B 1W8'].sample, 
+	  postal_code: ['V5K 2K9', 'V5B 1W8'].sample,
 	  contact_name: ['Jon Snow', 'Dany Targaryen', 'Tyrion Lannister'].sample,
 	  contact_email: ['important_person@gmail.com', 'vip@vip.com', 'happyman@heaven.ca'].sample,
 	  time_start: ['12:00', '3:00', '6:00'].sample,
-	  time_end: ['7:00', '8:00', '9:00'].sample, 
-	  website: ['https://www.google.com', 'https://amazon.com', 'https://deltakids.ca'].sample, 
-	  cost: ['free', 'low', 'paid'].sample, 
-	  description: ['last night I had a dream, about a dream, about you!', 'if they come for you, i will field their questions, i will shield your name', 'foot on the devils neck till they drift to pangea, im moving all my family to chadman to zambia'].sample, 
-	  more_info: ['', 'come and have some fun!!', 'you will grow and learn', 'be like water my friends'].sample, 
-		age_group_id: AgeGroup.all.sample.id,
-		program_id: Program.all.sample.id,
-		organization_id: Organization.all.sample.id
+	  time_end: ['7:00', '8:00', '9:00'].sample,
+	  website: ['https://www.google.com', 'https://amazon.com', 'https://deltakids.ca'].sample,
+	  cost: ['free', 'low', 'paid'].sample,
+	  description: ['last night I had a dream, about a dream, about you!', 'if they come for you, i will field their questions, i will shield your name', 'foot on the devils neck till they drift to pangea, im moving all my family to chadman to zambia'].sample,
+	  more_info: ['', 'come and have some fun!!', 'you will grow and learn', 'be like water my friends'].sample,
+		age_group_id: agegroups.sample.id,
+		program_id: programs.sample.id,
+		organization_id: organizations.sample.id
    )
 end
 
-50.times do 
+# create event
+50.times do
 	e = Event.create(
-		name: ['Summer Basketball with Michael Jordan', 'Winter Hockey with Wayne Gretzsky', 'Drawing with Pablo Picasso', 'Singing with Celine Dion', 'Learning About Space with Neil Degrasse Tyson', 'Cooking with Ratatouille'].sample, 
+		name: ['Summer Basketball with Michael Jordan', 'Winter Hockey with Wayne Gretzsky', 'Drawing with Pablo Picasso', 'Singing with Celine Dion', 'Learning About Space with Neil Degrasse Tyson', 'Cooking with Ratatouille'].sample,
 		date: ["2018-01-#{rand(1..29)}", "2018-02-#{rand(1..29)}"].sample,
 		unit_num: ['1', '2', '3', '4', '5'].sample,
-	  street_address: ['4838 Clinton St.', '4-565 Shaw Ave.', '911 Emergency Lane'].sample, 
+	  street_address: ['4838 Clinton St.', '4-565 Shaw Ave.', '911 Emergency Lane'].sample,
 	  city: ['Ladner', 'Tsawwassen', 'North Delta'].sample,
-	  postal_code: ['V5K 2K9', 'V5B 1W8'].sample, 
+	  postal_code: ['V5K 2K9', 'V5B 1W8'].sample,
 	  contact_name: ['Jon Snow', 'Dany Targaryen', 'Tyrion Lannister'].sample,
 	  contact_email: ['important_person@gmail.com', 'vip@vip.com', 'happyman@heaven.ca'].sample,
 	  time_start: ['12:00', '3:00', '6:00'].sample,
-	  time_end: ['7:00', '8:00', '9:00'].sample, 
-		activity_id: Activity.all.sample.id
+	  time_end: ['7:00', '8:00', '9:00'].sample,
+		activity_id: Activity.all.sample.id,
+    is_approved: [true,false].sample
    )
 end
 
