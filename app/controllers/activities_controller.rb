@@ -1,6 +1,6 @@
 class ActivitiesController < ApplicationController
 	def index
-
+		@events = Event.order('date ASC')
 	end
 
 	def new
@@ -18,6 +18,7 @@ class ActivitiesController < ApplicationController
 		render :new
 		end
 	end
+
 
 	private
 

@@ -257,9 +257,19 @@
 		</div>
 	</div>
 	<!-- Start Contents -->
+
 	<!-- Start Calendar -->
 	<div class="col-sm-8">
 		<div class="row">
+			<%= month_calendar events: @events do |date, events| %>
+				<%= date %>
+
+				<% events.each do |event| %>
+					<div>
+						<%= event.name %>
+					</div>
+				<% end %>
+			<% end %>
 			<div class="thumbnail">
 				<img class="img-responsive" src="http://placehold.it/800x300" alt="">
 				<div class="caption-full">
