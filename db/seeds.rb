@@ -1,7 +1,3 @@
-
-
-
-
 Cat.destroy_all
 Category.destroy_all
 
@@ -42,7 +38,7 @@ Service.create([
 
 
 # age group seed
-AgeGroup.create([
+agegroups = AgeGroup.create([
   {name: '0-5 years'},
   {name: '6-12 years'},
   {name: 'Not applicable'}
@@ -139,72 +135,31 @@ programs = Program.create([
   ])
 
 # create organizations from programs.csv
+cities = ['North Delta', 'South Delta', 'Surrey']
 
 data = SmarterCSV.process('programs.csv')
+ds = data.each_slice(5).to_a
 
-data.each do |row|
-  if row[:agencies] != 'undefined'
+ds[3].each do |row|
+  if row[:agencies]
     if Organization.where(title: row[:agencies]).length < 1
-      Organization.create(title: row[:agencies])
+      Organization.create(
+      title: row[:agencies],
+      password_digest: '123',
+      target_clientelle: categories.sample.name,
+      phone_num: row[:phone_number] ? row[:phone_number] : "#{Faker::PhoneNumber.phone_number}",
+      services: cats.sample.name,
+      age_group: agegroups.sample.name,
+      website: row[:website] ? row[:website] : Faker::Internet.url,
+      unit_num: rand(1111..9999),
+      street_address: row[:address] ? row[:address] : Faker::Address.street_name ,
+      city: cities.sample,
+      first_name: Faker::Name.first_name,
+      last_name: Faker::Name.last_name,
+      description: row[:short_description_that_relate_to_program] ? row[:short_description_that_relate_to_program] : Faker::Hipster.paragraph(1),
+      email: Faker::Internet.email(row[:agencies])
+
+      )
     end
   end
 end
-
-# data = SmarterCSV.process('programs.csv')
-# ds = data.each_slice(5).to_a
-#
-# ds[0].each do |row|
-#   if row[:agencies] != 'undefined'
-#     if Organization.where(title: row[:agencies]).length < 1
-#       Organization.create(title: row[:agencies])
-#     end
-#   end
-#
-#   age_group = row[:age_group] == '0-5' ? 1 : 2
-#
-#   Activity.create(
-#   name: row[:short_description_that_relate_to_program],
-#    date_start: Date.current.year,
-#    date_end: Date.current.year + 1,
-#    age_group_id: age_group,
-#    program_id: program_id(row[:"programs_=_activity_type"], age_group),
-#    contact_phone_num: row[:phone_number] != 'undefined' ? row[:phone_number] : '',
-#    website: row[:website] != 'undefined' ? row[:website] : '',
-#    registration:  row[:regstration] == 'Registered' ? true : false ,
-#    paid:  row[:cost] == 'Paid' ? true : false
-#    )
-# end
-#
-#
-# def program_id type, age_group
-#   case type
-#   when 'Arts & Culture'
-#     if age_group == 1
-#       1
-#     else
-#       6
-#     end
-#   when 'Sports'
-#     if age_group == 1
-#       2
-#     else
-#       7
-#     end
-#   when 'Education'
-#     if age_group == 1
-#       3
-#     else
-#       8
-#     end
-#   when 'Parent & Child'
-#     4
-#   when 'Childcare & Preschools'
-#     5
-#   when 'Community Clubs'
-#     9
-#   when 'Childcare'
-#     10
-#   else
-#     puts 'error in program switch case'
-#   end
-# end
