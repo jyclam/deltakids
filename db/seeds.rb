@@ -184,6 +184,7 @@ end
 	  postal_code: ['V5K 2K9', 'V5B 1W8'].sample,
 	  contact_name: ['Jon Snow', 'Dany Targaryen', 'Tyrion Lannister'].sample,
 	  contact_email: ['important_person@gmail.com', 'vip@vip.com', 'happyman@heaven.ca'].sample,
+		contact_phone_num: ['604-956-9129', '778-918-4521', '604-945-5226'].sample,
 	  time_start: ['12:00', '3:00', '6:00'].sample,
 	  time_end: ['7:00', '8:00', '9:00'].sample,
 	  website: ['https://www.google.com', 'https://amazon.com', 'https://deltakids.ca'].sample,
@@ -204,6 +205,7 @@ end
 			postal_code: a.postal_code, 
 			contact_name: a.contact_name, 
 			contact_email: a.contact_email, 
+		  contact_phone_num: ['604-956-9129', '778-918-4521', '604-945-5226'].sample,
 			time_start: a.time_start, 
 			time_end: a.time_end,
 			activity_id: a.id

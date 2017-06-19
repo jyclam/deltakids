@@ -228,20 +228,22 @@
 	<!-- Start Calendar -->
 	<div class="col-sm-8">
 		<div class="row">
-			<%= month_calendar events: @events do |date, events| %>
-				<%= date %>
-
-				<% events.each do |event| %>
-					<div>
-						<%= event.name %>
-					</div>
-				<% end %>
-			<% end %>
 			<div class="thumbnail">
-				<img class="img-responsive" src="http://placehold.it/800x300" alt="">
 				<div class="caption-full">
 					<h4 style="text-align:center;"><a href="#">ACTIVITIES CALENDAR</a></h4>
 				</div>
+					<%= month_calendar events: @events do |date, events| %>
+					<%= date %>
+					<% events.each do |event| %>
+						<div>
+							<% link_name = event.name %>
+							<% if link_name.length > 22 %>
+								<% link_name = link_name.first(22) + '...' %>
+							<% end %>
+							<%= link_to(link_name, sport_path(event)) %>
+						</div>
+					<% end %>
+				<% end %>
 			</div>
 		</div>
 		<!--S Featured  -->
