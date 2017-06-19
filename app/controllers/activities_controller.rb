@@ -26,7 +26,7 @@ class ActivitiesController < ApplicationController
 		@activity.organization_id = session[:org_id]
 		if @activity.save
 		create_events(@activity.id)
-		redirect_to home_path
+		redirect_to organizations_dashboard_path
 		else
 		render :new
 		end
@@ -59,11 +59,11 @@ class ActivitiesController < ApplicationController
 
 
 		calendar = Calendar.new()
-		if activity_filter.count > 0 
-			activity_filter.each do |activity| 
+		if activity_filter.count > 0
+			activity_filter.each do |activity|
 				if !activity.events.empty?
-					activity.events.each do |event| 
-						calendar.events.push(event.id) 
+					activity.events.each do |event|
+						calendar.events.push(event.id)
 					end
 				end
 			end
@@ -72,9 +72,9 @@ class ActivitiesController < ApplicationController
 		puts calendar.events.count
 
 		if calendar.save
-			redirect_to activities_path(calendar.id) 
-		else 
-			render :new 
+			redirect_to activities_path(calendar.id)
+		else
+			render :new
 		end
 
 		#puts "filtered events final: ---------------------------"
@@ -147,14 +147,14 @@ class ActivitiesController < ApplicationController
 	  ])
 	end
 
-	def find_events(event_id_array) 
+	def find_events(event_id_array)
 		arr = []
-		event_id_array.each do |id| 
+		event_id_array.each do |id|
 			arr.push(Event.find(id))
 		end
 		return arr
 	end
-			
-			
+
+
 
 end

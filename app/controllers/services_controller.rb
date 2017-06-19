@@ -14,7 +14,7 @@ class ServicesController < ApplicationController
       @service = Service.new service_params
       @service.organization = current_org
       if @service.save
-        redirect_to service_path(@service)
+        redirect_to organizations_dashboard_path, notice: 'Service created, pending approval.'
       else
         render :new
       end
