@@ -34,12 +34,13 @@
 		<% if org_signed_in? %>
 		  Hello, <%= current_org.title %> |
 		  <%= link_to 'Sign Out', sessions_path, method: :delete %>
+      <% if current_org.is_admin? %>
+        | <%= link_to 'Admin Dashboard', admin_organizations_path %>
+      <% end %>
     <% else %>
 		  <%= link_to 'Sign In', new_session_path %>
     <% end %>
-    <% if current_org.is_admin? %>
-      | <%= link_to 'Admin Dashboard', admin_organizations_path %>
-    <% end %>
+
       </nav>
 
     <%= link_to image_tag('main-logo.jpg', id: "main-logo"), home_path %>
