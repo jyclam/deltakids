@@ -14,7 +14,7 @@
           <span class="deep-sky-blue">For:</span>
           <%= form_tag filter_resources_path do %>
           <div class="form-group">
-            <% @age_groups.each do |age_group| %> 
+            <% @age_groups.each do |age_group| %>
               <input type="checkbox" name="age_group_ids[]" value="<%= age_group.id %>" />
               <span><%= age_group.name %></span>
               <br>
@@ -70,10 +70,41 @@
     <h4><%= link_to resource.name, resource_path(resource) %></h4>
     <br>
     <h4>
-    <%= image_tag 'icons/globe.png', :class=> "share-pic" %>
-    <!-- <h3>Location: </h3> -->
+    <%= image_tag 'icons/marker.png', :class=> "share-pic" %>
       <%= resource.resource_filters.first&.resource_location&.location %>
     </h4>
+
+    <h4>
+    <%= image_tag 'icons/tag.png', :class=> "share-pic" %>
+      <%= resource.resource_filters.first&.resource_type&.name %>
+    </h4>
+
+
+    <% age_arr = [] %>
+    <% resource.resource_filters.each do |f| %>
+      <% age_arr.push(f.age_group.name) %>
+    <% end %>
+
+    <h4>
+    <%= image_tag 'icons/baby.png', :class=> "share-pic" %>
+      <%= age_arr.uniq.join(', ') %>
+    </h4>
+
+    <% topic_arr = [] %>
+    <% resource.resource_filters.each do |f| %>
+      <% topic_arr.push(f.resource_topic.name) %>
+    <% end %>
+
+    <h4>
+    <%= image_tag 'icons/globe.png', :class=> "share-pic" %>
+      <%= topic_arr.uniq.join(', ') %>
+    </h4>
+
+
+
+
+
+
     <hr class="hr-thick">
     <div class="article-share">
       <%= image_tag 'icons/links.png', :class=> "share-pic" %>
