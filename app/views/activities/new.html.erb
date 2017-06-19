@@ -1,104 +1,185 @@
-<h1>Create a New Activity</h1>
+<div class="container background">
+	<h1>Create a New Activity</h1>
+	<br><br>
+	<%= @activity.errors.full_messages.join(', ') %>
+		<%= form_for @activity do |f| %>
+		<div class="form-horizontal">
 
-<%= @activity.errors.full_messages.join(', ') %>
-<%= form_for @activity do |f| %>
-	<div>
-	  <%= f.label(:name, 'Title: ')  %>
-	  <%= f.text_field :name %>
-	</div>
-	<div>
-	  <%= f.label(:date_start, 'Date Start: ')  %>
-	  <%= f.date_field :date_start %>
-	  <%= f.label(:time_start, 'Time Start: ') %>
-	  <%= f.time_field :time_start %>
-	</div>
-	<div>
-	  <%= f.label(:date_end, 'Date End: ')  %>
-	  <%= f.date_field :date_end %>
-	  <%= f.label(:time_end, 'Time End: ') %>
-	  <%= f.time_field :time_end %>
-	</div>
-	<div>
-	  <%= f.label(:repeat, 'Event Repeat: ') %>
-	  <%= f.radio_button(:repeat, true) %> 
-	  <%= f.label(:repeat, 'Weekly') %> 
-	  <%= f.radio_button(:repeat, false) %> 
-	  <%= f.label(:repeat, 'Never') %> 
-	</div>
-	<div>
-	    <h5>Event Address: </h5>
-		<div>
-			<%= f.label :street_address %>
-			<%= f.text_field :street_address %>
-		</div>
-		<div>
-			<%= f.label :unit_number %>
-			<%= f.text_field :unit_num %>
-		</div>
-		<div>
-			<%= f.label :postal_code %>
-			<%= f.text_field :postal_code %>
-		</div> 
-		<div>
-			<%= f.label :city, 'City: ' %>
-			<%= f.radio_button(:city, 'Ladner') %>
-			<%= f.label :city, 'Ladner' %>
-			<%= f.radio_button(:city, 'Delta') %>
-			<%= f.label :city, 'North Delta' %>
-			<%= f.radio_button(:city, 'Tsawwassen') %>
-			<%= f.label :city, 'Tsawwassen' %>
-		</div>
-	</div>
-	<div>
-	  <%= f.label :age_group_id, 'Age Group:' %>
-	  <% agegroups = AgeGroup.all %>
-	  <% agegroups.each do |agegroup| %>
-		<%= f.radio_button(:age_group_id, agegroup.id) %>
-		<%= f.label(:age_group_id, agegroup.name)%>
-	  <% end %>
-	</div>
-	<div>
-	  <%= f.label(:cost, 'Cost: ')%> 
-	  <%= f.radio_button(:cost, 'free') %>
-	  <%= f.label :cost, 'Free' %>
-	  <%= f.radio_button(:cost, 'low') %>
-	  <%= f.label :cost, 'Low Cost' %>
-	  <%= f.radio_button(:cost, 'paid') %>
-	  <%= f.label :cost, 'Paid' %>
-	</div>
-	<div class="">
-		<%= f.label :activity_types, "Activity Types:" %>
-		<% Program.all.each do |program| %>
-		  <%= f.radio_button(:program_id, program.id) %>
-		  <%= f.label(:program_id, program.category) %>
+			<div class="form-group">
+			  <%= f.label(:name, 'Title: ', class: "col-sm-3" )  %>
+				 <div class="col-sm-8">
+				  <%= f.text_field :name, class: 'form-control' %>
+				</div>
+			</div>
+			<br>
+
+			<div class="form-group">
+			  <%= f.label(:date_start, 'Date Start: ', class: "col-sm-3" )  %>
+				<div class="col-sm-3">
+				  <%= f.date_field :date_start, class: 'form-control' %>
+				</div>
+			  <%= f.label(:time_start, 'Time Start: ', class: "col-sm-2" ) %>
+				<div class="col-sm-3">
+				  <%= f.time_field :time_start, class: 'form-control'   %>
+				</div>
+			</div>
+			<div class="form-group">
+			  <%= f.label(:date_end, 'Date End: ', class: "col-sm-3" )  %>
+				<div class="col-sm-3">
+				  <%= f.date_field :date_end, class: 'form-control'   %>
+				</div>
+			  <%= f.label(:time_end, 'Time End: ', class: "col-sm-2" ) %>
+				<div class="col-sm-3">
+				  <%= f.time_field :time_end, class: 'form-control'   %>
+				</div>
+			</div>
+			<br>
+
+			<div class="form-group">
+			  <%= f.label(:repeat, 'Event Repeat: ', class: "col-sm-3 move-radio" ) %>
+				<div class="col-sm-3">
+				  <%= f.radio_button(:repeat, true) %>
+				  <%= f.label(:repeat, 'Weekly', class: 'style-radio') %>
+				</div>
+				<div class="col-sm-3">
+				  <%= f.radio_button(:repeat, false) %>
+				  <%= f.label(:repeat, 'Never') %>
+				</div>
+			</div>
+			<br>
+
+			<div>
+			  <h5 class="event-address">Event Address: </h5>
+				<br>
+				<div class="form-group">
+					<%= f.label :street_address, class: "col-sm-3"  %>
+					 <div class="col-sm-8">
+						<%= f.text_field :street_address, class: 'form-control'  %>
+					</div>
+				</div>
+				<br>
+
+				<div class="form-group">
+					<%= f.label :unit_number, class: "col-sm-3"  %>
+					 <div class="col-sm-1">
+						<%= f.text_field :unit_num, class: 'form-control'  %>
+					</div>
+					<div class="col-sm-2"></div>
+					<%= f.label :postal_code, class: "col-sm-2"  %>
+					<div class="col-sm-3">
+						<%= f.text_field :postal_code, class: 'form-control' %>
+					</div>
+				</div>
+				<br>
+
+				<div class="form-group">
+					<%= f.label :city, 'City: ', class: "col-sm-3"  %>
+					<div class="col-sm-3">
+						<%= f.radio_button(:city, 'Ladner') %>
+						<%= f.label :city, 'Ladner'%>
+					</div>
+					<div class="col-sm-3">
+						<%= f.radio_button(:city, 'Delta') %>
+						<%= f.label :city, 'North Delta'%>
+					</div>
+					<div class="col-sm-3">
+						<%= f.radio_button(:city, 'Tsawwassen') %>
+						<%= f.label :city, 'Tsawwassen' %>
+					</div>
+				</div>
+			</div>
+			<br>
+
+			<div class="form-group">
+			  <%= f.label :age_group_id, 'Age Group:', class: "col-sm-3" %>
+			  <% agegroups = AgeGroup.all %>
+			  <% agegroups.each do |agegroup| %>
+				<div class="col-sm-3">
+					<%= f.radio_button(:age_group_id, agegroup.id) %>
+					<%= f.label(:age_group_id, agegroup.name)%>
+				</div>
+			  <% end %>
+			</div>
+
+			<br>
+
+			<div class="form-group">
+				<%= f.label :cost, 'City: ', class: "col-sm-3"  %>
+				<div class="col-sm-3">
+					<%= f.radio_button(:cost, 'free') %>
+					<%= f.label :cost, 'Free'%>
+				</div>
+				<div class="col-sm-3">
+					<%= f.radio_button(:cost, 'low') %>
+					<%= f.label :cost, 'Low Cost'%>
+				</div>
+				<div class="col-sm-3">
+					<%= f.radio_button(:cost, 'paid') %>
+					<%= f.label :cost, 'Paid' %>
+				</div>
+			</div>
+
+			<br>
+			<!-- FIX THIS !! THIS MUST BE ADDED LATER CAUSE ITS NOT READY YET IN THE BACKEND-->
+			<div class="col-sm-12">
+				<%= f.label :activity_types, "Activity Types:" , class: "col-sm-3" %>
+				<% Program.all.each do |program| %>
+				  <%= f.radio_button(:program_id, program.id) %>
+				  <%= f.label(:program_id, program.category) %>
+				<% end %>
+			</div>
+
+			<br><br>
+			<div class="form-group">
+			  <%= f.label :registration, 'Registration: ', class: "col-sm-3"  %>
+				<div class="col-sm-3">
+				  <%= f.radio_button(:registration, true) %>
+				  <%= f.label(:registration, 'Drop-in') %>
+				</div>
+				<div class="col-sm-3">
+				  <%= f.radio_button(:registration, false) %>
+				  <%= f.label(:registration, 'Pre-registration required') %>
+				</div>
+			</div>
+
+			<br><br>
+			<div class="form-group">
+			  <%= f.label :description, 'Description: ', class: "col-sm-3" %>
+				 <div class="col-sm-8">
+				  <%= f.text_area :description, rows: "10", class: 'form-control'  %>
+				</div>
+			</div>
+			<br>
+
+			<div class="form-group">
+			  <%= f.label :more_info, 'More Info: ', class: "col-sm-3" %>
+				 <div class="col-sm-8">
+				  <%= f.text_field :more_info, class: 'form-control'  %>
+				</div>
+			</div>
+			<br>
+
+			<div class="form-group">
+			  <%= f.label :contact_name, 'Contact Name: ', class: "col-sm-3"  %>
+				<div class="col-sm-8">
+				  <%= f.text_field :contact_name, class: 'form-control'  %>
+				</div>
+			</div>
+			<br>
+
+			<div class="form-group">
+			  <%= f.label :contact_email, 'Contact Email: ', class: "col-sm-3"  %>
+				<div class="col-sm-8">
+				  <%= f.text_field :contact_email, class: 'form-control'  %>
+				</div>
+			</div>
+			<br>
+
+			<div class="form-group">
+				<div class="col-sm-8 col-sm-offset-3">
+					<%= f.submit 'Submit', class: "btn btn-default" %>
+				</div>
+			</div>
 		<% end %>
 	</div>
-	<div>
-	  <%= f.label :registration, 'Registration: ' %>
-	  <%= f.radio_button(:registration, true) %>
-	  <%= f.label(:registration, 'Drop-in') %>
-	  <%= f.radio_button(:registration, false) %>
-	  <%= f.label(:registration, 'Pre-registration required') %>
-	</div>
-	<div>
-	  <%= f.label :description, 'Description: '%>
-	  <%= f.text_area :description %>
-	</div>
-	<div>
-	  <%= f.label :more_info, 'More Info: '%>
-	  <%= f.text_field :more_info %>
-	</div>
-	<div>
-	  <%= f.label :contact_name, 'Contact Name: ' %>
-	  <%= f.text_field :contact_name %>
-	</div>
-	<div>
-	  <%= f.label :contact_email, 'Contact Email: ' %>
-	  <%= f.text_field :contact_email %>
-	</div>
-	<div>
-	  <%= f.submit %>
-	</div>
-<% end %>
-
-
+</div>
