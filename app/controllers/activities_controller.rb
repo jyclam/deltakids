@@ -1,6 +1,12 @@
 class ActivitiesController < ApplicationController
-	def index
 
+	def index(filtered_events = nil)
+		@events = filtered_events.nil? ? Event.order('date ASC') : filtered_events
+		puts 'FILTERED EVENTS : ----------------'
+		puts filtered_events.nil? 
+		@activities = Program.all.where(age_group_id: 1)
+		@age_groups = AgeGroup.all
+		@features = Activity.limit(3)
 	end
 
 	def new
@@ -18,6 +24,48 @@ class ActivitiesController < ApplicationController
 		render :new
 		end
 	end
+
+	def filter
+		activity_filter = Activity.all
+		puts activity_filter.count
+		age_group = params[:age_group_id] 
+	  if (params[:age_group_id] != 'all')
+			activity_filter = activity_filter.where(age_group_id: params[:age_group_id])
+			puts activity_filter.count
+		end
+	  if (params[:city] != 'all') 
+			activity_filter = activity_filter.where(city: params[:city])
+			puts activity_filter.count
+		end
+		if (params[:cost] != 'all') 
+			activity_filter = activity_filter.where(cost: params[:cost])
+			puts activity_filter.count
+		end
+		if (params[:repeat] != 'all') 
+			activity_filter = activity_filter.where(repeat: params[:repeat])
+			puts activity_filter.count
+		end
+		if (params[:activity_id] != 'all') 
+			activity_filter = activity_filter.where(id: params[:activity_id])
+			puts activity_filter.count
+		end
+
+	  filtered_events = []
+		if activity_filter.count > 0 
+			activity_filter.each do |activity| 
+				if !activity.events.empty?
+					filtered_events.push(activity.events.ids) 
+				end
+			end
+		end
+
+		puts "filtered events final: ---------------------------"
+		puts filtered_events.count
+		puts filtered_events
+
+		redirect_to activities_path(filtered_events)
+	end
+
 
 	private
 

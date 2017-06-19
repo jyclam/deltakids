@@ -13,7 +13,7 @@
 
 // left side
 .resource{
-  background-color: #C8ECF5;
+  background-color: #D1F0F4;
 }
 .filter-bar{
   background-color: #F0FFFF;
@@ -76,11 +76,11 @@ color:#004C81;
 }
 
 .light-blue{
-  color: #C8ECF5;
+  color: #D1F0F4;
 }
 /// resource show page
 .resource-back{
-  background-color: #C8ECF5;
+  background-color: #D1F0F4;
 }
 
 .resource-show-top{
@@ -123,9 +123,24 @@ color:#004C81;
   width: 100%;
   float: left;
 }
+
+.thank-you{
+  background-color: #D1F0F4;
+  height: 650px;
+}
+.message{
+  background-color: white;
+  margin: 25px 75px 10px 75px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  border-radius: 45px;
+}
+.message-word{
+  font-size: 20px;
+}
 ////////
 .background {
-  background-color: #C8ECF5;
+  background-color: #D1F0F4;
 }
 
 .btn {
@@ -151,4 +166,12 @@ span {
 
 input[type="checkbox"], input[type="radio"] {
   margin-right: 10px;
+}
+
+h4 {
+  font-size: 24px;
+}
+
+.move-radio {
+  margin-right: 15px;
 }

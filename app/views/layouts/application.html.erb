@@ -26,62 +26,45 @@
         </div>
         <div class="collapse navbar-collapse myNavbar">
           <ul class="nav navbar-nav navbar-right upper-nav">
-            <li> About </li>
-            <li> Live 5-2-1-0 </li>
-            <li> Contact Us </li>
+            <li></li>
+            <% if org_signed_in? %>
+            <li> <%= link_to "Hello, #{current_org.title}" %> </li>
+            <li><%= link_to 'Sign Out', sessions_path, method: :delete %></li>
+              <% else %>
+            <li><%= link_to 'Sign In', new_session_path %></li>
+            <% end %>
+            <% if org_signed_in? && current_org.is_admin? %>
+            <li><%= link_to 'Admin Dashboard', admin_organizations_path %></li>
+            <li> <%= link_to 'About' %> </li>
+            <li> <%= link_to 'Contact Us' %> </li>
+            <li><%= link_to 'Live 5-2-1-0', learn_live_path %></li>
+            <% end %>
           </ul>
         </div>
-		<% if org_signed_in? %>
-		  Hello <%= current_org.title %>
-		  <%= link_to 'Sign Out', sessions_path, method: :delete %>
-	    <% else %>
-		  <%= link_to 'Sign In', new_session_path %>
-	    <% end %>
       </nav>
 
     <%= link_to image_tag('main-logo.jpg', id: "main-logo"), home_path %>
 
     <div class="div-lower-navbar collapse navbar-collapse myNavbar" >
       <ul class="nav navbar-nav lower-navbar">
-        <li> ACTIVITIES CALENDER </li>
+        <li class="nav-word"> ACTIVITIES CALENDER </li>
 
         <!-- LEARNING DROPDOWN  -->
         <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown"> LEARNING
+          <a class="dropdown-toggle nav-word" data-toggle="dropdown"> LEARNING
             <span class="caret"></span></a>
             <!-- <div class="arrow"></div> -->
-          <ul class="dropdown-menu">
+          <ul id="learning-dropdown" class="dropdown-menu">
             <div class="container-fluid">
               <div class="row">
-                <div class="col-sm-4">
-                  <li class="yellow-header-nav"><a href="#">PREGNANT?</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Best Beginnings
-                  <i class="fa fa-caret-right" aria-hidden="true"></i>
-                  </a></li>
-                </div>
-                <div class="col-sm-4">
-                  <li class="yellow-header-nav"><a href="#">0-6 YEAR OLDS</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Articles
+                <div class="col-sm-12">
+                  <li><%= link_to 'Child Surveys', learn_survey_path %>
                   <i class="fa fa-caret-right" aria-hidden="true"></i>
                   <li class="divider"></li>
-                  <li><a href="#">Early Development Instrument (EDI)</a>
+                  <li><%= link_to 'Live 5-2-1-0', learn_live_path %></a>
                   <i class="fa fa-caret-right" aria-hidden="true"></i>
                   <li class="divider"></li>
-                  <li><a href="#">Child Development Milestones</a>
-                  <i class="fa fa-caret-right" aria-hidden="true"></i>
-                </div>
-                <div class="col-sm-4">
-                  <li class="yellow-header-nav"><a  href="#">6-12 YEAR OLDS</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Articles
-                  <i class="fa fa-caret-right" aria-hidden="true"></i>
-                  <li class="divider"></li>
-                  <li><a href="#">Middle Development Instrument (MDI)</a>
-                  <i class="fa fa-caret-right" aria-hidden="true"></i>
-                  <li class="divider"></li>
-                  <li><a href="#">My School Aged Child's Development</a>
+                  <li><%= link_to 'Resouces', resources_path %>
                   <i class="fa fa-caret-right" aria-hidden="true"></i>
                 </div>
               </div>
@@ -90,22 +73,29 @@
 
           <!-- PROGRAMS DROPDOWN -->
         <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown"> PROGRAMS
+          <a class="dropdown-toggle nav-word" data-toggle="dropdown"> PROGRAMS
             <span class="caret"></span></a>
             <!-- <div class="arrow"></div> -->
           <ul class="dropdown-menu">
             <div class="container-fluid">
               <div class="row">
                 <div class="col-sm-6">
-                  <li class="yellow-header-nav"><a href="#">0-6 YEAR OLDS</a></li>
+                  <li class="yellow-header-nav"><a href="#">0-5 YEAR OLDS</a></li>
                   <li class="divider"></li>
                   <div class="col-sm-6 no-padding">
-                    <li><a href="#">Preschool
+                    <li><a href="#">Drop-In Program
                     <i class="fa fa-caret-right" aria-hidden="true"></i>
                     </a></li>
+                    <li class="divider"></li>
                   </div>
                   <div class="col-sm-6 no-padding">
-                    <li><a href="#">Preschool Drop-In
+                    <li><a href="#">Registered Programs
+                    <i class="fa fa-caret-right" aria-hidden="true"></i>
+                    </a></li>
+                    <li class="divider"></li>
+                  </div>
+                  <div class="col-sm-6 no-padding">
+                    <li><a href="#">Preschools and Childcare
                     <i class="fa fa-caret-right" aria-hidden="true"></i>
                     </a></li>
                   </div>
@@ -135,28 +125,33 @@
             </div>
           </ul>
 
+          <!-- SERVICES DROPDOWN -->
         <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown"> SERVICES
+          <a class="dropdown-toggle nav-word" data-toggle="dropdown"> SERVICES
             <span class="caret"></span></a>
             <!-- <div class="arrow"></div> -->
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu dropdown-menu-right">
             <div class="container-fluid">
               <div class="row">
-                <div class="col-sm-3">
-                  <li class="yellow-header-nav"><a href="#">PREGNANCY & NEW PARENTS</a></li>
+                <div class="col-sm-4">
+                  <li class="yellow-header-nav"><a href="/services/children">Children</a></li>
                   <li class="divider"></li>
-                  <li><a href="#">Pregnancy, Breast feeding, My child's health
+                  <li><a href="/services/children/0">Help in a crisis
                   <i class="fa fa-caret-right" aria-hidden="true"></i>
                   </a></li>
-                  <li><a href="#">Caring for my Family and Baby</a>
+                  <li class="divider"></li>
+                  <li><a href="/services/children/1">Child Advocacy</a>
                   <i class="fa fa-caret-right" aria-hidden="true"></i>
                   <li class="divider"></li>
-                  <li><a href="#">Post Partum Depression</a>
+                  <li><a href="/services/children/2">Child Health and Development</a>
+                  <i class="fa fa-caret-right" aria-hidden="true"></i>
+                  <li class="divider"></li>
+                  <li><a href="/services/children/3">Support for Children</a>
                   <i class="fa fa-caret-right" aria-hidden="true"></i>
                 </div>
 
-                <div class="nav_till_six col-sm-3">
-                  <li class="yellow-header-nav"><a href="#">CHILD DEVELOPMENT</a></li>
+                <!-- <div class="nav_till_six col-sm-4">
+                  <li class="yellow-header-nav"><a href="#">Families</a></li>
                   <li class="divider"></li>
                   <li><a href="#">Child's Vision, Hearing, Nutrition
                   <i class="fa fa-caret-right" aria-hidden="true"></i>
@@ -166,25 +161,39 @@
                   <li class="divider"></li>
                   <li><a href="#">Child's Communication, Speech or Language</a>
                   <i class="fa fa-caret-right" aria-hidden="true"></i>
+                </div> -->
+
+                <div class="col-sm-4">
+                  <li class="yellow-header-nav"><a href="/services/families">Families</a></li>
+                  <li class="divider"></li>
+                  <li><a href="/services/families/0">Help in a Crisis
+                  <i class="fa fa-caret-right" aria-hidden="true"></i>
+                  </a></li>
+                  <li class="divider"></li>
+                  <li><a href="/services/families/1">Childcare and Preschool</a>
+                  <i class="fa fa-caret-right" aria-hidden="true"></i>
+                  <li class="divider"></li>
+                  <li><a href="/services/families/2">Assistance with fees</a>
+                  <i class="fa fa-caret-right" aria-hidden="true"></i>
+                  <li class="divider"></li>
+                  <li><a href="/services/families/3">Supports for Families</a>
+                  <i class="fa fa-caret-right" aria-hidden="true"></i>
                 </div>
 
-                <div class="col-sm-3">
-                  <li class="yellow-header-nav"><a  href="#">BRAIN & BEHAVIOR</a></li>
+                <div class="col-sm-4">
+                  <li class="yellow-header-nav"><a  href="/services/pandb">Pregnancy and babies</a></li>
                   <li class="divider"></li>
-                  <li><a href="#">Child's Behaviour
+                  <li><a href="/services/pandb/0">Help in a Crisis
                   <i class="fa fa-caret-right" aria-hidden="true"></i>
                   <li class="divider"></li>
-                  <li><a href="#">Support for families whose children have special needs</a>
+                  <li><a href="/services/pandb/1">Baby Health and Development</a>
                   <i class="fa fa-caret-right" aria-hidden="true"></i>
                   <li class="divider"></li>
-                  <li><a href="#">Services for Children with Autism Spectrum Disorders</a>
-                  <i class="fa fa-caret-right" aria-hidden="true"></i>
-                  <li class="divider"></li>
-                  <li><a href="#">Child's Learning Behavior</a>
+                  <li><a href="/services/pandb/2">Supports for Families</a>
                   <i class="fa fa-caret-right" aria-hidden="true"></i>
                 </div>
 
-                <div class="col-sm-3">
+                <!-- <div class="col-sm-3">
                   <li class="yellow-header-nav"><a  href="#">FAMILY SERVICES</a></li>
                   <li class="divider"></li>
                   <li><a href="#">Finding a Childcare and/or Preschool Program
@@ -201,14 +210,14 @@
                   <li class="divider"></li>
                   <li><a href="#">Services to help families who are experiencing abuse / violence</a>
                   <i class="fa fa-caret-right" aria-hidden="true"></i>
-                </div>
+                </div> -->
 
               </div>
             </div>
           </ul>
-        <li> WHAT'S NEW? </li>
+        <li class="nav-word"> WHAT'S NEW? </li>
         <li>
-          <i class="fa fa-search" aria-hidden="true"></i>
+          <i class="fa fa-search nav-word" aria-hidden="true"></i>
         </li>
       </ul>
     </div>
@@ -227,7 +236,15 @@
 		<!-- </div> -->
 	<!-- </body> -->
 
-
+  <% if flash.any? %>
+   <hr>
+   <% if flash[:notice] %>
+     <div class='alert alert-success'> <%= flash[:notice] %></div>
+   <% elsif flash[:alert] %>
+     <div class='alert alert-danger'> <%= flash[:alert] %></div>
+   <% end %>
+   <hr>
+ <% end %>
 		<%= yield %>
 
   <!-- <div class="container"> -->
@@ -249,5 +266,6 @@
     </div>
   </div>
 </div>
+
 	</body>
 	</html>

@@ -9,11 +9,23 @@ class OrganizationsController < ApplicationController
   # @organization.service_ids = [params[:organization][:service_ids]]
 
 	if @organization.save
-	  # session[:org_id] = @organization.id
+	  session[:org_id] = @organization.id
 	  redirect_to home_path
 	else
 	  render :new
 	end
+  end
+
+
+  def dashboard
+    @organization = Organization.find session[:org_id]
+
+    @activities = Activity.where(organization: @organization)
+    @events = Event.where(activity: @activities)
+
+    @services = Service.where(organization: @organization)
+
+    # render json: @events
   end
 
   private

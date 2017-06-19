@@ -1,3 +1,144 @@
 // Place all the styles related to the services controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.background {
+  background-color: #D1F0F4;
+}
+
+h1 {
+    color: #004C81;
+}
+
+label {
+  font-family: 'Open Sans', sans-serif;
+  color: #004C81;
+}
+
+.move-right {
+  margin-right: 15px;
+}
+
+/////////////// SERVICE SHOW PAGE BELOW
+// Place all the styles related to the programs controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.learn_more_body {
+  background-color: #D1F0F4;
+  padding-top: 20px;
+}
+
+.learn-more-pic{
+  height: 400px;
+  width: 100%;
+  z-index: 0;
+}
+
+.learn-more-info{
+  background-color: #FFFFFF;
+}
+
+.learn-text{
+  padding-left: 1vw;
+  padding-right: 1vw;
+}
+
+.child-icon{
+  width:20%;
+  float:left;
+  box-sizing: border-box;
+  padding-bottom: 10px;
+}
+
+
+.info-left{
+  width:50%;
+  float:left;
+  box-sizing: border-box;
+  display:inline-block;
+}
+
+.info-right{
+  width:50%;
+  float:left;
+  box-sizing: border-box;
+}
+
+.icon{
+  width: 25px;
+  height: 25px;
+}
+
+.event-icon{
+  padding-bottom: 10px;
+  display:inline-block;
+  padding-right: 15px;
+}
+
+.info-icon{
+  padding-right: 10px;
+  width: 40px;
+  height: 25px;
+}
+
+.address{
+  display:inline-block;
+  margin-top: 5px;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #004C81;
+    margin: 1em 0;
+    padding: 0;
+}
+
+.bottom-clear {
+  clear: both;
+}
+
+.share-icon{
+  width: 175px;
+  padding-bottom: 25px;
+}
+.event-icon{
+  width: 100%;
+  padding-left: 10px;
+}
+
+// right event column
+.sim-event{
+  background-color: white;
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+
+.similar-events{
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.sim-event-pic{
+  height: 200px;
+  width: 100%;
+  z-index: 0;
+}
+
+.see-more-pic{
+  width: 200px;
+  height: 60px;
+}
+
+// colours
+.teal-blue{
+  color: #004C81;
+}
+.deep-sky-blue{
+  color: #00A3DA
+}
+
+.light-blue{
+  color: #D1F0F4;
+}

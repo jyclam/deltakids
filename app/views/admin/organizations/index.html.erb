@@ -1,1 +1,153 @@
-<h1>This is the admin's dashboard</h1>
+<div class="container">
+  <div class="row">
+    <h1>Administrator Dashboard</h1>
+    <br>
+
+    <h4> Pending Events </h4>
+    <table class='table table-hover'>
+      <tr>
+        <th>Activity Type</th>
+        <th>Event</th>
+        <th>Organization</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th></th>
+        <th></th>
+      </tr>
+      <% @events.where(is_approved:false).each do |event| %>
+      <tr>
+        <td><%= event.activity.program.category %></td>
+        <td> <%=event.activity.name  %></td>
+        <td> <%= event.activity.organization.title %></td>
+        <td> <%= event.date %></td>
+        <td> From: <%= event.time_start %> <br> To: <%= event.time_end %></td>
+        <td> <a href="#event<%= event.id %>" role="button" class="btn" data-toggle="modal">details...</a></td>
+        <td> <%= link_to 'Approve', event_approve_path(event, {is_approved:true}), method: :patch, class:'btn' %> </td>
+        <td> <%= link_to 'Delete', event_approve_path(event), method: :delete, class:'btn' %> </td>
+      </tr>
+
+
+
+
+      <div class="modal fade" id="event<%= event.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel"><%= event.activity.name %></h4>
+
+
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                  <div class='col-sm-4'>
+                    <p><strong>Organization Information</strong></p>
+                    <p><%= event.activity.organization.title %></p>
+                    <p><%= event.activity.organization.full_address %></p>
+                    <p><%= event.activity.organization.phone_num %></p>
+                    <p><%= event.activity.organization.website %></p>
+                    <p></p>
+                  </div>
+                  <div class='col-sm-4'>
+                    <p><strong>Location:</strong></p>
+                    <p><%= event.full_address %></p>
+                  </div>
+                  <div class='col-sm-4'>
+                    <p><strong>Date and time:</strong></p>
+                    <p><%= event.date %></p>
+                    <p><%= event.time_start %> to <%= event.time_end %></p>
+                  </div>
+                  <div class='col-sm-4'>
+                    <p><strong>Contact Details:</strong></p>
+                    <p><%= event.contact_name %></p>
+                    <p><%= event.contact_email %></p>
+                  </div>
+                  <div class='col-sm-4'>
+                    <p><strong>Age Group:</strong></p> <%= event.activity.age_group.name %>
+                    <p><strong></strong></p>
+                  </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <div class="">
+                <%= link_to 'Approve', event_approve_path(event, {is_approved:true}), method: :patch, class:'btn btn-default' %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </table>
+
+    <h4>Pending Services</h4>
+    <table class='table table-hover'>
+      <tr>
+        <th>Category</th>
+        <th>Clientelle</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Agency</th>
+        <th>Website</th>
+        <th></th>
+        <th></th>
+      </tr>
+      <% @services.where(status:false).each do |service| %>
+      <tr>
+        <td> <%= service.cat.name %></td>
+        <td> <%= service.category.name %></td>
+        <td><%= service.name %></td>
+        <td> <%= service.description %></td>
+        <td> <%= service.organization.title %></td>
+        <td> <%= service.website %></td>
+        <td> <a href="#service<%= service.id %>" role="button" class="btn" data-toggle="modal">details...</a></td>
+        <td> <%= link_to 'Approve', service_approve_path(service, {status:true}), method: :patch, class:'btn' %> </td>
+        <td> <%= link_to 'Delete', service_approve_path(service), method: :delete, class:'btn' %> </td>
+      </tr>
+      <div class="modal fade" id="service<%= service.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel"><%= service.cat.name %></h4>
+
+
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                  <div class='col-sm-4'>
+                    <p><strong>Organization Information</strong></p>
+                    <p><%= service.organization.title %></p>
+                    <p><%= service.organization.full_address %></p>
+                    <p><%= service.organization.phone_num %></p>
+                    <p><%= service.organization.website %></p>
+                    <p></p>
+                  </div>
+                  <div class='col-sm-4'>
+                    <p><strong>Service Details:</strong></p>
+                    <p><%= service.name %></p>
+                    <p><%= service.description %></p>
+                    <p><%= service.website %></p>
+                  </div>
+                  <div class='col-sm-4'>
+                    <p><strong>Category:</strong></p>
+                    <p><%= service.cat.name %></p>
+                  </div>
+                  <div class='col-sm-4'>
+                    <p><strong>Clientelle:</strong></p>
+                    <p><%= service.category.name %></p>
+                  </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+              <div class="">
+                <%= link_to 'Approve', service_approve_path(service, {status:true}), method: :patch, class:'btn btn-default' %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </table>
+  </div>
+</div>

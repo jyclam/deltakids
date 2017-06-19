@@ -5,5 +5,8 @@ class Organization < ApplicationRecord
   has_many :programs_offered, through: :orgprograms, source: :program
 
   has_many :activities, dependent: :nullify
-  # has_many :services, dependent: :nullify
+
+  def full_address
+    "#{unit_num} #{street_address} #{city} #{postal_code}"
+  end
 end
