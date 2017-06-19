@@ -6,251 +6,218 @@
 				<div class="col-xs-4 col-sm-8 col-md-10">
 					<div id="accordion" class="panel panel-primary behclick-panel">
 						<div class="panel-heading">
-							<h3 class="panel-title" style="text-align: center;">FILTERS<i class="fa fa-filter pull-right" aria-hidden="true"></i></h3>
+							<h3 class="panel-title" style="text-align: center;">FILTERS!!!<i class="fa fa-filter pull-right" aria-hidden="true"></i></h3>
 						</div>
-						<div class="panel-body" >
-							<div class="panel-heading " >
-								<h4 class="panel-title">
-									<a data-toggle="collapse" href="#collapse0">
-										<i class="indicator fa fa-caret-down" aria-hidden="true"></i> For
-									</a>
-								</h4>
-							</div>
-							<div id="collapse0" class="panel-collapse collapse in" >
-								<ul class="list-group">
-									<li class="list-group-item">
-										<div class="checkbox">
-											<label>
-												<input type="checkbox" value="">
-												Everyone
-											</label>
-										</div>
-									</li>
-									<li class="list-group-item">
-										<div class="checkbox" >
-											<label>
-												<input type="checkbox" value="">
-												0-6 years old
-											</label>
-										</div>
-									</li>
-									<li class="list-group-item">
-										<div class="checkbox"  >
-											<label>
-												<input type="checkbox" value="">
-												6-12 years old
-											</label>
-										</div>
-									</li>
-									<li class="list-group-item">
-										<div class="checkbox"  >
-											<label>
-												<input type="checkbox" value="">
-												Parents
-											</label>
-										</div>
-									</li>
-									<li class="list-group-item">
-										<div class="checkbox"  >
-											<label>
-												<input type="checkbox" value="">
-												Child care workers or service providers
-											</label>
-										</div>
-									</li>
-								</ul>
-							</div>
+						<%= form_tag filter_events_path do %>
+							<div class="panel-body" >
+								<div class="panel-heading " >
+									<h4 class="panel-title">
+										<a data-toggle="collapse" href="#collapse0">
+											<i class="indicator fa fa-caret-down" aria-hidden="true"></i> For
+										</a>
+									</h4>
+								</div>
+								<div id="collapse0" class="panel-collapse collapse in" >
+									<ul class="list-group">
+										<li class="list-group-item">
+											<div class="checkbox">
+												<label>
+													<input type="radio" name="age_group_id" value="all" />
+													Everyone
+												</label>
+											</div>
+										</li>
+										<% @age_groups.each do |age_group| %>
+											<li class="list-group-item">
+												<div class="checkbox">
+													<label>
+														<input type="radio" name="age_group_id" value="<%= age_group.id %>" />
+														<%= age_group.name %>
+													</label>
+												</div>
+											</li>
+										<% end %>
+									</ul>
+								</div>
 							<!--  -->
-							<div class="panel-heading " >
-								<h4 class="panel-title">
-									<a data-toggle="collapse" href="#collapse1">
-										<i class="indicator fa fa-caret-down" aria-hidden="true"></i> Activity Type
-									</a>
-								</h4>
-							</div>
-							<div id="collapse1" class="panel-collapse collapse in" >
-								<ul class="list-group">
-									<li class="list-group-item">
-										<div class="checkbox">
-											<label>
-												<input type="checkbox" value="">
-												All activities
-											</label>
-										</div>
-									</li>
-									<li class="list-group-item">
-										<div class="checkbox" >
-											<label>
-												<input type="checkbox" value="">
-												Workshops
-											</label>
-										</div>
-									</li>
-									<li class="list-group-item">
-										<div class="checkbox"  >
-											<label>
-												<input type="checkbox" value="">
-												Drop-ins
-											</label>
-										</div>
-									</li>
-									<li class="list-group-item">
-										<div class="checkbox"  >
-											<label>
-												<input type="checkbox" value="">
-												Special events
-											</label>
-										</div>
-									</li>
-									<li class="list-group-item">
-										<div class="checkbox"  >
-											<label>
-												<input type="checkbox" value="">
-												Adults programs
-											</label>
-										</div>
-									</li>
-								</ul>
-							</div>
+								<div class="panel-heading " >
+									<h4 class="panel-title">
+										<a data-toggle="collapse" href="#collapse1">
+											<i class="indicator fa fa-caret-down" aria-hidden="true"></i> Activity Type
+										</a>
+									</h4>
+								</div>
+								<div id="collapse1" class="panel-collapse collapse in" >
+									<ul class="list-group">
+										<li class="list-group-item">
+											<div class="checkbox">
+												<label>
+													<input type="radio" name="activity_id" value="all">
+													All activities
+												</label>
+											</div>
+										</li>
+										<% @activities.each do |activity| %>
+											<li class="list-group-item">
+												<div class="radio" >
+													<label>
+														<input type="radio" name="activity_id" value="<%= activity.id %>">
+														<%= activity.category %>
+													</label>
+												</div>
+											</li>
+										<% end %>
+									</ul>
+								</div>
 
-							<!--  -->
-							<div class="panel-heading" >
-								<h4 class="panel-title">
-									<a data-toggle="collapse" href="#collapse2"><i class="indicator fa fa-caret-down" aria-hidden="true"></i>Where</a>
-								</h4>
+								<!--  -->
+								<div class="panel-heading" >
+									<h4 class="panel-title">
+										<a data-toggle="collapse" href="#collapse2"><i class="indicator fa fa-caret-down" aria-hidden="true"></i>Where</a>
+									</h4>
+								</div>
+								<div id="collapse2" class="panel-collapse collapse in">
+									<ul class="list-group">
+										<li class="list-group-item">
+											<div class="checkbox">
+												<label>
+													<input type="radio" name="city" value="all">
+													All locations
+												</label>
+											</div>
+										</li>
+										<li class="list-group-item">
+											<div class="checkbox" >
+												<label>
+													<input type="radio" name="city" value="Ladner">
+													Ladner
+												</label>
+											</div>
+										</li>
+										<li class="list-group-item">
+											<div class="checkbox"  >
+												<label>
+													<input type="radio" name="city" value="North Delta">
+													North Delta
+												</label>
+											</div>
+										</li>
+										<li class="list-group-item">
+											<div class="checkbox"  >
+												<label>
+													<input type="radio" name="city" value="Tsawwassen">
+													Tsawwassen
+												</label>
+											</div>
+										</li>
+									</ul>
+								</div>
+								<!--  -->
+
+								<div class="panel-heading" >
+									<h4 class="panel-title">
+										<a data-toggle="collapse" href="#collapse4"><i class="indicator fa fa-caret-down" aria-hidden="true"></i>Cost</a>
+									</h4>
+								</div>
+								<div id="collapse4" class="panel-collapse collapse in">
+									<ul class="list-group">
+										<li class="list-group-item">
+											<div class="checkbox">
+												<label>
+													<input type="radio" name="cost" value="all">
+													Free and paid
+												</label>
+											</div>
+										</li>
+										<li class="list-group-item">
+											<div class="checkbox" >
+												<label>
+													<input type="radio" name="cost" value="free">
+													Free
+												</label>
+											</div>
+										</li>
+										<li class="list-group-item">
+											<div class="checkbox" >
+												<label>
+													<input type="radio" name="cost" value="paid">
+													Paid
+												</label>
+											</div>
+										</li>
+									</ul>
+								</div>
+
+								<!--  -->
+
+								<div class="panel-heading" >
+									<h4 class="panel-title">
+										<a data-toggle="collapse" href="#collapse5"><i class="indicator fa fa-caret-down" aria-hidden="true"></i>Recurrence</a>
+									</h4>
+								</div>
+								<div id="collapse5" class="panel-collapse collapse in">
+									<ul class="list-group">
+										<li class="list-group-item">
+											<div class="checkbox">
+												<label>
+													<input type="radio" name="repeat" value="all">
+													Ongoing and events
+												</label>
+											</div>
+										</li>
+										<li class="list-group-item">
+											<div class="checkbox">
+												<label>
+													<input type="radio" name="repeat" value="true">
+													Ongoing
+												</label>
+											</div>
+										</li>
+										<li class="list-group-item">
+											<div class="checkbox" >
+												<label>
+													<input type="radio" name="repeat" value="false">
+													Events
+												</label>
+											</div>
+										</li>
+									</ul>
+								</div>
+
+								<!--  -->
+
+								<!-- <div class="panel-heading" >
+									<h4 class="panel-title">
+										<a data-toggle="collapse" href="#collapse3"><i class="indicator fa fa-caret-down" aria-hidden="true"></i>When</a>
+									</h4>
+								</div>
+								<div id="collapse3" class="panel-collapse collapse in">
+									<ul class="list-group">
+										<li class="list-group-item">
+											<div class="form-group" >
+												<label for="from">
+													Start Date:
+												</label>
+												<input type="text" class="form-control" id="from">
+											</div>
+										</li>
+										<li class="list-group-item">
+											<div class="form-group" >
+												<label for="to">
+													End Date:
+												</label>
+												<input type="text" class="form-control" id="to">
+											</div>
+										</li>
+									</ul>
+								</div> -->
+
+								<!--  -->
 							</div>
-							<div id="collapse2" class="panel-collapse collapse in">
-								<ul class="list-group">
-									<li class="list-group-item">
-										<div class="checkbox">
-											<label>
-												<input type="checkbox" value="">
-												All locations
-											</label>
-										</div>
-									</li>
-									<li class="list-group-item">
-										<div class="checkbox" >
-											<label>
-												<input type="checkbox" value="">
-												Ladner
-											</label>
-										</div>
-									</li>
-									<li class="list-group-item">
-										<div class="checkbox"  >
-											<label>
-												<input type="checkbox" value="">
-												North Delta
-											</label>
-										</div>
-									</li>
-									<li class="list-group-item">
-										<div class="checkbox"  >
-											<label>
-												<input type="checkbox" value="">
-												Tsawwassen
-											</label>
-										</div>
-									</li>
-								</ul>
+							<div class="form-group">
+								<input class="btn btn-primary" type="submit" name="submit" value="Filter">
 							</div>
-							<!--  -->
-							<div class="panel-heading" >
-								<h4 class="panel-title">
-									<a data-toggle="collapse" href="#collapse3"><i class="indicator fa fa-caret-down" aria-hidden="true"></i>When</a>
-								</h4>
-							</div>
-							<div id="collapse3" class="panel-collapse collapse in">
-								<ul class="list-group">
-									<li class="list-group-item">
-										<div class="form-group" >
-											<label for="from">
-												Start Date:
-											</label>
-											<input type="text" class="form-control" id="from">
-										</div>
-									</li>
-									<li class="list-group-item">
-										<div class="form-group" >
-											<label for="to">
-												End Date:
-											</label>
-											<input type="text" class="form-control" id="to">
-										</div>
-									</li>
-								</ul>
-							</div>
-							<!--  -->
-							<div class="panel-heading" >
-								<h4 class="panel-title">
-									<a data-toggle="collapse" href="#collapse4"><i class="indicator fa fa-caret-down" aria-hidden="true"></i>Cost</a>
-								</h4>
-							</div>
-							<div id="collapse4" class="panel-collapse collapse in">
-								<ul class="list-group">
-									<li class="list-group-item">
-										<div class="checkbox">
-											<label>
-												<input type="checkbox" value="">
-												Free and paid
-											</label>
-										</div>
-									</li>
-									<li class="list-group-item">
-										<div class="checkbox" >
-											<label>
-												<input type="checkbox" value="">
-												Free
-											</label>
-										</div>
-									</li>
-									<li class="list-group-item">
-										<div class="checkbox" >
-											<label>
-												<input type="checkbox" value="">
-												Paid
-											</label>
-										</div>
-									</li>
-								</ul>
-							</div>
-							<!--  -->
-							<div class="panel-heading" >
-								<h4 class="panel-title">
-									<a data-toggle="collapse" href="#collapse5"><i class="indicator fa fa-caret-down" aria-hidden="true"></i>Recurrence</a>
-								</h4>
-							</div>
-							<div id="collapse5" class="panel-collapse collapse in">
-								<ul class="list-group">
-									<li class="list-group-item">
-										<div class="checkbox">
-											<label>
-												<input type="checkbox" value="">
-												Ongoing and events
-											</label>
-										</div>
-									</li>
-									<li class="list-group-item">
-										<div class="checkbox">
-											<label>
-												<input type="checkbox" value="">
-												Ongoing
-											</label>
-										</div>
-									</li>
-									<li class="list-group-item">
-										<div class="checkbox" >
-											<label>
-												<input type="checkbox" value="">
-												Events
-											</label>
-										</div>
-									</li>
-								</ul>
-							</div>
-							<!--  -->
-						</div>
+						<% end %>
 					</div>
 				</div>
 			</div>

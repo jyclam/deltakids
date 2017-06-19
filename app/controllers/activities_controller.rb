@@ -1,6 +1,8 @@
 class ActivitiesController < ApplicationController
 	def index
 		@events = Event.order('date ASC')
+		@activities = Program.all.where(age_group_id: 1)
+		@age_groups = AgeGroup.all
 	end
 
 	def new
@@ -17,6 +19,28 @@ class ActivitiesController < ApplicationController
 		else
 		render :new
 		end
+	end
+
+	def filter
+		@activities = Program.all.where(age_group_id: 1)
+		@age_groups = AgeGroup.all
+
+		filters = Event.all
+
+		# if params[:age_group_ids]
+		# 	filters = filters.where(age_group_id: params[:age_group_ids])
+		# end
+
+		# @resources = []
+		# resource_ids = []
+		# filters.each do |filter|
+		# 	@resources.push(filter.resource) unless resource_ids.include?(filter.resource_id)
+		# 	resource_ids.push(filter.resource_id) unless resource_ids.include?(filter.resource_id)
+		# end
+
+		render json: params
+		# render :index
+		# redirect_to @resources
 	end
 
 

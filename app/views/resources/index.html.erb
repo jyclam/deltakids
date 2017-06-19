@@ -14,7 +14,7 @@
           <span class="deep-sky-blue">For:</span>
           <%= form_tag filter_resources_path do %>
           <div class="form-group">
-            <% @age_groups.each do |age_group| %>
+            <% @age_groups.each do |age_group| %> 
               <input type="checkbox" name="age_group_ids[]" value="<%= age_group.id %>" />
               <span><%= age_group.name %></span>
               <br>
