@@ -24,6 +24,16 @@
  //   margin: 0px;
  // }
 
+ .nav > li > a:hover, .nav > li > a:focus {
+  background-color: rgba(255,255,255,0);
+  text-decoration: none;
+}
+
+ #move-up{
+  position: relative;
+  top: -15px;
+ }
+
  #main-logo {
    width: 275px;
    margin-top: 25px;
