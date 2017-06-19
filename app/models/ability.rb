@@ -2,21 +2,22 @@ class Ability
   include CanCan::Ability
 
   def initialize(organization)
-	organization ||= Organization.new
+	  organization ||= Organization.new
 
-	alias_action :create, :read, :update, :delete, to: :crud
 
-	can :crud, Service do |service|
-	  service.organization_id = organization.id
-	end
+  	alias_action :create, :read, :update, :delete, to: :crud
 
-	can :crud, Activity do |activity|
-	  activity.organization_id = organization.id
-	end
+  	can :crud, Service do |serv|
+  	  serv.organization_id = organization.id
+  	end
 
-	if organization.is_admin?
-	  can :manage, :all
-	end
+  	can :crud, Activity do |activity|
+  	  activity.organization_id = organization.id
+  	end
+
+  	if organization.is_admin?
+  	  can :manage, :all
+  	end
 
     # Define abilities for the passed in user here. For example:
     #
@@ -44,6 +45,7 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
+
   end
 
 end

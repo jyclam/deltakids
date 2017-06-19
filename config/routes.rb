@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
 	resources :sports
 
+  get '/organizations/dashboard', to: 'organizations#dashboard'
   resources :organizations, only: [:new, :create]
 
   resources :sessions, only: [:new, :create] do

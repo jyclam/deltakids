@@ -142,7 +142,7 @@ data.each do |row|
     if Organization.where(title: row[:agencies]).length < 1
       Organization.create(
       title: row[:agencies],
-      password_digest: '123',
+      password: '123',
       target_clientelle: categories.sample.name,
       phone_num: row[:phone_number] ? row[:phone_number] : "#{Faker::PhoneNumber.phone_number}",
       services: cats.sample.name,
