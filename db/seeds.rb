@@ -142,7 +142,7 @@ data.each do |row|
     if Organization.where(title: row[:agencies]).length < 1
       Organization.create(
       title: row[:agencies],
-      password_digest: '123',
+      password: '123',
       target_clientelle: categories.sample.name,
       phone_num: row[:phone_number] ? row[:phone_number] : "#{Faker::PhoneNumber.phone_number}",
       services: cats.sample.name,
@@ -233,4 +233,19 @@ end
 		end
 	end
 
+50.times do
+	e = Event.create(
+		name: ['Summer Basketball with Michael Jordan', 'Winter Hockey with Wayne Gretzsky', 'Drawing with Pablo Picasso', 'Singing with Celine Dion', 'Learning About Space with Neil Degrasse Tyson', 'Cooking with Ratatouille'].sample,
+		date: ["2018-01-#{rand(1..29)}", "2018-02-#{rand(1..29)}"].sample,
+		unit_num: ['1', '2', '3', '4', '5'].sample,
+	  street_address: ['4838 Clinton St.', '4-565 Shaw Ave.', '911 Emergency Lane'].sample,
+	  city: ['Ladner', 'Tsawwassen', 'North Delta'].sample,
+	  postal_code: ['V5K 2K9', 'V5B 1W8'].sample,
+	  contact_name: ['Jon Snow', 'Dany Targaryen', 'Tyrion Lannister'].sample,
+	  contact_email: ['important_person@gmail.com', 'vip@vip.com', 'happyman@heaven.ca'].sample,
+	  time_start: ['12:00', '3:00', '6:00'].sample,
+	  time_end: ['7:00', '8:00', '9:00'].sample,
+		activity_id: Activity.all.sample.id,
+    is_approved: [true,false].sample
+   )
 end
