@@ -7,6 +7,10 @@ class ActivitiesController < ApplicationController
 		@events = filtered_events.nil? ? Event.order('date ASC') : filtered_events
 		#puts 'FILTERED EVENTS : ----------------'
 		#puts filtered_events.nil?
+
+		filtered_events_ids = Calendar.find_by(id: params[:format])&.events
+		@events = filtered_events_ids.nil? ? Event.order('date ASC') : find_events(filtered_events_ids)
+
 		@activities = Program.all.where(age_group_id: 1)
 		@age_groups = AgeGroup.all
 		@features = Activity.limit(3)
@@ -53,21 +57,31 @@ class ActivitiesController < ApplicationController
 			#puts activity_filter.count
 		end
 
-	  filtered_events = []
-		if activity_filter.count > 0
-			activity_filter.each do |activity|
+
+		calendar = Calendar.new()
+		if activity_filter.count > 0 
+			activity_filter.each do |activity| 
 				if !activity.events.empty?
-					filtered_events.push(activity.events.ids)
+					activity.events.each do |event| 
+						calendar.events.push(event.id) 
+					end
 				end
 			end
+		end
+
+		puts calendar.events.count
+
+		if calendar.save
+			redirect_to activities_path(calendar.id) 
+		else 
+			render :new 
 		end
 
 		#puts "filtered events final: ---------------------------"
 		#puts filtered_events.count
 		#puts filtered_events
 
-		redirect_to activities_path(1)
-
+		redirect_to activities_path(calendar.id)
 	end
 
 
@@ -133,5 +147,15 @@ class ActivitiesController < ApplicationController
 		:time_end,
 	  ])
 	end
+
+	def find_events(event_id_array) 
+		arr = []
+		event_id_array.each do |id| 
+			arr.push(Event.find(id))
+		end
+		return arr
+	end
+			
+			
 
 end
