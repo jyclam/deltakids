@@ -1,75 +1,131 @@
-<div class="container-fluid">
+<div class="container background">
+  <h2>Submit your resources to benefit the Delta children here<h2>
   <%= form_for @resource do |f| %>
+    <div class="form-horizontal">
 
-    <div class="form-group">
-      <%= f.label :name %>
-      <%= f.text_area :name, class: 'form-control' %>
-    </div>
+      <div class="form-group">
+        <%= f.label :name, 'Title', class: "col-sm-3" %>
+        <div class="col-sm-9">
+          <%= f.text_field :name, class: 'form-control' %>
+        </div>
+      </div>
 
-    <div class="form-group">
-      <%= f.label :feature %>
-      <input type='radio' name='resource[feature]' value='true'>
-      <span>Yes</span>
-      <input type='radio' name='resource[feature]' value='false'>
-      <span>No</span>
-    </div>
+      <div class="form-group">
+        <%= f.label :feature, class: "col-sm-3"%>
+        <div class="col-sm-2">
+          <input type='radio' name='resource[feature]' value='true'>
+          <span>Yes</span>
+        </div>
+        <div>
+          <input type='radio' name='resource[feature]' value='false'>
+          <span>No</span>
+        </div>
+      </div>
 
-    <div class="form-group">
-      <%= f.label :start_date %>
-      <%= f.date_field :start_date %>
-    </div>
+      <div class="form-group">
+        <%= f.label :start_date, class: "col-sm-3" %>
+        <div class="col-sm-2">
+          <%= f.date_field :start_date, class: "form-control" %>
+        </div>
+      </div>
 
-    <div class="form-group">
-      <%= f.label :end_date %>
-      <%= f.date_field :end_date %>
-    </div>
+      <br>
 
-    <div class="form-group">
-      <% @locations.each do |location| %>
-        <input type='radio' name='location' value='<%= location.id %>'>
-      <span><%= location.location %></span>
-      <% end %>
-    </div>
+      <div class="form-group">
+        <%= f.label :end_date, class: "col-sm-3" %>
+        <div class="col-sm-2">
+          <%= f.date_field :end_date, class: "form-control" %>
+        </div>
+      </div>
 
-    <div class="form-group">
-      <% @age_groups.each do |age_group| %>
-        <input type="checkbox" name="age_group_ids[]" value="<%= age_group.id %>" />
-        <span><%= age_group.name %></span>
-      <% end %>
-    </div>
+      <h4> Resource is about the situation in: <h4>
 
-    <div class="form-group">
-      <% @topics.each do |topic| %>
-        <input type="checkbox" name="topic_ids[]" value="<%= topic.id %>" />
-        <span><%= topic.name %></span>
-      <% end %>
-    </div>
+        <!-- <div class="form-group">
+          <%= f.label :feature, class: "col-sm-3"%>
+          <div class="col-sm-2">
+            <input type='radio' name='resource[feature]' value='true'>
+            <span>Yes</span>
+          </div>
+          <div>
+            <input type='radio' name='resource[feature]' value='false'>
+            <span>No</span>
+          </div>
+        </div> -->
 
-    <% @types.each do |type| %>
-      <input type='radio' name='type' value='<%= type.id %>'>
-      <span><%= type.name %></span>
+      <div class="form-group">
+        <div class="col-sm-offset-3">
+          <% @locations.each do |location| %>
+            <input type='radio' name='location' value='<%= location.id %>'>
+          <span><%= location.location %></span>
+          <% end %>
+        </div>
+      </div>
+      <br><br>
+
+      <div class="form-group">
+        <label class="col-sm-3">Age Group</label>
+        <div class="col-sm-offset-3">
+          <% @age_groups.each do |age_group| %>
+            <input type="checkbox" name="age_group_ids[]" value="<%= age_group.id %>" />
+            <span><%= age_group.name %></span>
+          <% end %>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="form-group">
+        <label class="col-sm-3">Subject</label>
+        <% @topics.each do |topic| %>
+          <input type="checkbox" name="topic_ids[]" value="<%= topic.id %>" />
+          <span><%= topic.name %></span>
+        <% end %>
+      </div>
+
+      <br>
+
+      <div class="form-group">
+        <label class="col-sm-3">Type</label>
+        <% @types.each do |type| %>
+          <input type='radio' name='type' value='<%= type.id %>'>
+          <span><%= type.name %></span>
+        <% end %>
+      </div>
+
+      <br><br>
+
+      <div class="form-group">
+         <%= f.label :description, class: "col-sm-3" %>
+         <div class="col-sm-9">
+            <%= f.text_area :description, class: 'form-control' %>
+            <script type="text/javascript">
+             CKEDITOR.replace('resource_description');
+           </script>
+        </div>
+      </div>
+
+      <div class="form-group">
+         <%= f.label :contact_name, class: "col-sm-3" %>
+         <div class="col-sm-9">
+            <%= f.text_field :contact_name, class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class="form-group">
+         <%= f.label :contact_email, class: "col-sm-3" %>
+         <div class="col-sm-9">
+            <%= f.text_field :contact_email, class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-9 col-sm-offset-3">
+          <%= f.submit 'Submit', class: 'btn btn-default' %>
+        </div>
+      </div>
+
     <% end %>
-
-    <div class="form-group">
-      <%= f.label :description %>
-      <%= f.text_area :description, class: 'form-control' %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :contact_name %>
-      <%= f.text_field :contact_name, class: 'form-control' %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :contact_email %>
-      <%= f.email_field :contact_email, class: 'form-control' %>
-    </div>
-
-    <div class="form-group">
-      <%= f.submit class: 'btn btn-primary' %>
-    </div>
-
-  <% end %>
+  </div>
 </div>
 
 
