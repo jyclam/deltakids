@@ -1,3 +1,92 @@
-// Place all the styles related to the learn controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #00A3DA;
+    margin: 1em 0;
+    padding: 0;
+}
+
+
+.main-info{
+  background-color: #D1F0F4;
+}
+
+.main-picture{
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 85px;
+}
+.main-pic{
+  width: 100%;
+  height: 450px;
+}
+
+.main-content{
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 40px;
+  margin-bottom: 50px;
+  background-color: white;
+}
+
+.content-info{
+  margin-left: 50px;
+  margin-right: 50px;
+  font-size: 18px;
+  font-family: "Open Sans",sans-serif;
+}
+
+.bold{
+  font-family: "Bree serif";
+  font-size: 24px;
+}
+.slight-bold{
+  font-size: 24px;
+}
+
+.info-pic{
+  width: 100%;
+  height: 450px;
+}
+
+.icon{
+  width: 35px;
+  height: 35px;
+}
+
+.carrot-pic{
+  width: 100%;
+  height: 200px;
+}
+.resources{
+  margin-top: 25px;
+  margin-bottom: 20px;
+}
+
+.footer5210 {
+  border-radius: 25px;
+  width: 500px;
+  margin:0 auto;
+  background-color: #D1F0F4;
+  color: #00A3DA;
+  padding: 15px 35px 10px 35px;
+}
+#black{
+  color: #000000;
+  // padding-top: 15px;
+}
+.footer-space{
+  height:50px;
+}
+// colours
+.teal-blue{
+  color: #004C81;
+}
+.deep-sky-blue{
+  color: #00A3DA
+}
+
+.light-blue{
+  color: #D1F0F4;
+}
