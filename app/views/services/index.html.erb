@@ -1,37 +1,50 @@
-<h1>Index Page</h1>
+<div class="container">
 
+<nav class="navbar navbar-fixed col-md-4 " id="sidebar" role="navigation">
+	<ul class="nav sidebar-nav left-nav" >
+		<li class="sidebar-brand">
+			<p>Services</p>
+		</li>
+		<li>
+			<a href="/services/children">Childen
+				<i class="fa fa-caret-right pull-right" aria-hidden="true"></i></a>
+			</li>
+			<li>
+				<a href="/services/families">Families<i class="fa fa-caret-right pull-right" aria-hidden="true"></i></a>
+			</li>
+			<li>
+				<a href="/services/pandb">Pregnancy and babies<i class="fa fa-caret-right pull-right" aria-hidden="true"></i></a>
+			</li>
+		</ul>
+	</nav>
+	<div class="container">
 
-<div class="row">
-  <div class="col-lg-4">
-    <h2>All services</h2>
-  </div>
-  <div class="col-lg-8">
-    <div class="row">
-      <div class="col-lg-4">
-        <h2>Organizations</h2>
-        <hr>
-      </div>
-      <div class="col-lg-4">
-        <h2>Programs offered</h2>
-        <hr>
-      </div>
-    </div>
-    <% @services.each do |service| %>
-    <div class="row">
-      <div class="col-lg-4">
-        <p>Service logo: <%= service&.logo %></p>
-        <p>Organization name: <%= service.name %></p>
-        <p>website: <a href="<%= service&.website %>">website</a> </p>
-        <a href="/services/<%= service.id %>">learn more</a>
+		<div class="col-md-8 content">
+			<div class="row content-header">
+				<div class="col-sm-6">
+					ORGANIZATIONS
+				</div>
+				<div class="col-sm-6 hidden-xs">
+					SERVICES OFFERED
+				</div>
+			</div>
+      <% @services.each do |service| %>
+			<div class="row content-row">
 
-      </div>
-      <div class="col-lg-4">
-        Programs offered
-      </div>
+				<div class="col-xs-4 col-sm-2">
+					<%= image_tag('logo.jpg', id: "logo", class: 'img-thumbnail') %>
+				</div>
+				<div class="col-xs-8 col-sm-4">
+					<p><%= service.name %></p>
+					<a href="/services/<%= service.id %>">learn more</a>
+				</div>
+				<div class="col-xs-12 col-sm-6">
+					<span class="visible-xs">Service Description: </span>
+					<p><%= service.description %></p>
+				</div>
+			</div>
+      <% end %>
 
-    </div>
-    <hr>
-    <% end %>
-  </div>
-
+		</div>
+	</div>
 </div>

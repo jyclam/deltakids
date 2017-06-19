@@ -18,6 +18,7 @@ categories = Category.create([
   {name: 'Pregnency and babies'}
 ])
 
+
 cats = Cat.create([
   {name: 'Help in a crisis', category: categories[0] },
   {name: 'Child Advocacy', category: categories[0] },
@@ -32,16 +33,7 @@ cats = Cat.create([
   {name: 'Supports for Families', category: categories[2]}
   ])
 
-services = Service.create([
-  {name: 'a', description: 'b', website:'www', logo: 'www', category_id: categories.sample, cat_id: cats.sample, status: false},
-  {name: 'b', description: 'b', website:'www', logo: 'www', category_id: categories.sample, cat_id: cats.sample, status: false},
-  {name: 'c', description: 'b', website:'www', logo: 'www', category_id: categories.sample, cat_id: cats.sample, status: false},
-  {name: 'c', description: 'b', website:'www', logo: 'www', category_id: categories.sample, cat_id: cats.sample, status: false},
-  {name: 'c', description: 'b', website:'www', logo: 'www', category_id: categories.sample, cat_id: cats.sample, status: false},
-  {name: 'c', description: 'b', website:'www', logo: 'www', category_id: categories.sample, cat_id: cats.sample, status: false},
-  {name: 'c', description: 'b', website:'www', logo: 'www', category_id: categories.sample, cat_id: cats.sample, status: false},
-  {name: 'c', description: 'b', website:'www', logo: 'www', category_id: categories.sample, cat_id: cats.sample, status: false}
-  ])
+
 
 
 
@@ -225,7 +217,16 @@ end
    )
 end
 
-
+services = Service.create([
+  {name: 'a', description: 'b', website:'www', logo: 'www', category_id: categories.sample.id, cat_id: cats.sample.id, status: false, organization_id: Organization.all.sample.id},
+  {name: 'b', description: 'b', website:'www', logo: 'www', category_id: categories.sample.id, cat_id: cats.sample.id, status: false, organization_id: Organization.all.sample.id},
+  {name: 'c', description: 'b', website:'www', logo: 'www', category_id: categories.sample.id, cat_id: cats.sample.id, status: false, organization_id: Organization.all.sample.id},
+  {name: 'c', description: 'b', website:'www', logo: 'www', category_id: categories.sample.id, cat_id: cats.sample.id, status: false, organization_id: Organization.all.sample.id},
+  {name: 'c', description: 'b', website:'www', logo: 'www', category_id: categories.sample.id, cat_id: cats.sample.id, status: false, organization_id: Organization.all.sample.id},
+  {name: 'c', description: 'b', website:'www', logo: 'www', category_id: categories.sample.id, cat_id: cats.sample.id, status: false, organization_id: Organization.all.sample.id},
+  {name: 'c', description: 'b', website:'www', logo: 'www', category_id: categories.sample.id, cat_id: cats.sample.id, status: false, organization_id: Organization.all.sample.id},
+  {name: 'c', description: 'b', website:'www', logo: 'www', category_id: categories.sample.id, cat_id: cats.sample.id, status: false, organization_id: Organization.all.sample.id}
+  ])
 # data = SmarterCSV.process('programs.csv')
 # ds = data.each_slice(5).to_a
 #
