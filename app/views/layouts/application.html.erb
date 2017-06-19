@@ -26,25 +26,21 @@
         </div>
         <div class="collapse navbar-collapse myNavbar">
           <ul class="nav navbar-nav navbar-right upper-nav">
-            <li><%= link_to 'About', learn_live_path %></li>
+            <li></li>
+            <% if org_signed_in? %>
+            <li> <%= link_to "Hello, #{current_org.title}" %> </li>
+            <li><%= link_to 'Sign Out', sessions_path, method: :delete %></li>
+              <% else %>
+            <li><%= link_to 'Sign In', new_session_path %></li>
+            <% end %>
+            <% if org_signed_in? && current_org.is_admin? %>
+            <li><%= link_to 'Admin Dashboard', admin_organizations_path %></li>
+            <li> <%= link_to 'About' %> </li>
+            <li> <%= link_to 'Contact Us' %> </li>
             <li><%= link_to 'Live 5-2-1-0', learn_live_path %></li>
-            <li><%= link_to 'Contact', learn_live_path %></li>
+            <% end %>
           </ul>
         </div>
-		<% if org_signed_in? %>
-		  Hello, <%= current_org.title %> |
-		  <%= link_to 'Sign Out', sessions_path, method: :delete %>
-			<% if current_org.is_admin? %>
-				| <%= link_to 'Admin Dashboard', admin_organizations_path %>
-			<% end %>
-    <% else %>
-		  <%= link_to 'Sign In', new_session_path %>
-      <%= link_to 'Sign Up', new_organization_path %>
-    <% end %>
-
-    <% if current_org&.is_admin? %>
-      | <%= link_to 'Admin Dashboard', admin_organizations_path %>
-    <% end %>
       </nav>
 
     <%= link_to image_tag('main-logo.jpg', id: "main-logo"), home_path %>
@@ -240,7 +236,15 @@
 		<!-- </div> -->
 	<!-- </body> -->
 
-
+  <% if flash.any? %>
+   <hr>
+   <% if flash[:notice] %>
+     <div class='alert alert-success'> <%= flash[:notice] %></div>
+   <% elsif flash[:alert] %>
+     <div class='alert alert-danger'> <%= flash[:alert] %></div>
+   <% end %>
+   <hr>
+ <% end %>
 		<%= yield %>
 
   <!-- <div class="container"> -->
@@ -262,5 +266,6 @@
     </div>
   </div>
 </div>
+
 	</body>
 	</html>

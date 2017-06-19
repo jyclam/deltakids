@@ -8,18 +8,29 @@ class Admin::OrganizationsController < Admin::BaseController
   end
 
   def editevent
-    event_params = params.require(:event).permit(:is_approved)
-    render json: :event_params
-    event.update(is_approved)
+    event = Event.find params[:id]
+    event_params = params.permit(:is_approved)
+    event.update(event_params)
+    redirect_to admin_organizations_path, notice: 'Event approved'
   end
 
   def destroyevent
+    event = Event.find params[:id]
+    event.destroy
+    redirect_to admin_organizations_path, alert: 'Event deleted.'
   end
 
   def editservice
+    service = Service.find params[:id]
+    service_params = params.permit(:status)
+    service.update(service_params)
+    redirect_to admin_organizations_path, notice: 'Service approved'
   end
 
   def destroyservice
+    service = Service.find params[:id]
+    service.destroy
+    redirect_to admin_organizations_path, alert: 'Service deleted.'
   end
 
   private
