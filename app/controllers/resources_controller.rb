@@ -87,9 +87,14 @@ class ResourcesController < ApplicationController
           end
         end
         # render json: params
-        redirect_to resource_path(resource), notice: 'Resource created'
+        # redirect_to resource_path(resource), notice: 'Resource created'
+        redirect_to :resource_submitted
+
     end
 
+  end
+
+  def submitted
   end
 
   def show
