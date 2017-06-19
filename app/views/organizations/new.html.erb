@@ -105,7 +105,7 @@
             <label for=""> 0-5 Years Old:</label>
           </div>
           <%= f.collection_check_boxes :programs_offered_ids, Program.all.where(age_group_id: 1), :id, :category, class: 'form-control' %>
-          <div class="">
+          <div class=""><br>
             <label for=""> 6-12 Years Old: </label>
           </div>
           <%= f.collection_check_boxes :programs_offered_ids, Program.all.where(age_group_id: 2), :id, :category, class: 'form-control' %>
