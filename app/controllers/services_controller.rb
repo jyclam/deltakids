@@ -10,12 +10,16 @@ class ServicesController < ApplicationController
   end
 
   def create
-    @service = Service.new service_params
-    @service.organization = current_user
-    if @service.save
-      redirect_to service_path(@service)
+    if can? :create, @service
+      @service = Service.new service_params
+      @service.organization = current_org
+      if @service.save
+        redirect_to service_path(@service)
+      else
+        render :new
+      end
     else
-      render :new
+      head :unauthorized
     end
   end
 
@@ -34,7 +38,7 @@ class ServicesController < ApplicationController
   private
 
   def service_params
-    params.require(:service).permit([:title, :description, :website, :logo, :category_id, :organization_id, :cat_id])
+    params.require(:service).permit([:title, :description, :website, :logo, :category_id, :cat_id])
   end
 
 end

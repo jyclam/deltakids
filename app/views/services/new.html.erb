@@ -4,46 +4,40 @@
 
 
 <%= form_for @service do |f| %>
-  <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control' %>
-  </div>
+
   <div class="form-group">
     <%= f.label :description %>
     <%= f.text_area :description, class: 'form-control' %>
   </div>
+
   <div class="form-group">
     <%= f.label :website %>
     <%= f.text_area :website, class: 'form-control' %>
   </div>
+
   <div class="form-group">
     <%= f.label :logo %>
     <%= f.text_area :logo, class: 'form-control' %>
   </div>
 
   <div class="form-group">
-    <%= f.label :organization %>
-    <%= f.text_area :organization, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :category %>
+    <%= f.label :clientele %>
     <%= f.collection_select :category_id,
       Category.all,
       :id,
       :name,
       include_blank: true,
-      prompt: 'Choose a category!'
+      prompt: 'Age group'
       %>
   </div>
   <div class="form-group">
-    <%= f.label :cat %>
+    <%= f.label :category %>
     <%= f.collection_select :cat_id,
       Cat.all,
       :id,
       :name,
       include_blank: true,
-      prompt: 'Choose a cat!'
+      prompt: 'Choose a category!'
       %>
   </div>
   <%= f.submit class: 'btn btn-primary' %>
