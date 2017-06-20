@@ -3,62 +3,45 @@
 	<br><br><br><br><br>
 </div>
 
-	<div class="row first-button">
-		<%= image_tag('homepagepic1.png', :class => "img-responsive", id: "homeimg")%>
+<div class="row first-button">
+	<%= image_tag('homepagepic1.png', :class => "img-responsive", id: "homeimg")%>
 	<%= link_to 'Learn More'.html_safe,  map_path, class: 'btn btn-primary btnone' %>
 </div>
 
-	<div class="row" >
-		<%= image_tag('homepagepic2.png', :class => "img-responsive", id: "homeimg2")%>
-		<%= link_to 'GO TO ACTIVITIES CALENDAR'.html_safe,  activities_path, class: 'btn btn-info btntwo' %>
-	</div>
+<div class="row" >
+	<%= image_tag('homepagepic2.png', :class => "img-responsive", id: "homeimg2")%>
+	<%= link_to 'GO TO ACTIVITIES CALENDAR'.html_safe,  activities_path, class: 'btn btn-info btntwo' %>
+</div>
 
-
-
-	<div class="row">
-
-			<%= image_tag('homepagepic3.png', :class => "img-responsive", id: "homepagepic3")%>
-
-		<%= link_to 'WHATS NEWS?'.html_safe,  activities_path, class: 'btn btn-info btnthree' %>
-	</div>
-
-
+<div class="row">
+	<%= image_tag('homepagepic3.png', :class => "img-responsive", id: "homepagepic3")%>
+	<%= link_to 'WHATS NEWS?'.html_safe,  activities_path, class: 'btn btn-info btnthree' %>
+</div>
 
 <div id="carousel">
-
-
 	<% @images = ["http://placehold.it/350x300?text=4", "http://placehold.it/350x300?text=4", "http://placehold.it/350x300?text=4", "http://placehold.it/350x300?text=4", "http://placehold.it/350x300?text=4"] %>
 
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
 		<!-- Indicators -->
 		<ol class="carousel-indicators">
 			<% @images.each_with_index do |photo, n| %>
-			<li data-target='#MyCarousel' data-slide-to="#{n}" class="#{'active' if n == 0}"></li>
+				<li data-target='#MyCarousel' data-slide-to="#{n}" class="#{'active' if n == 0}"></li>
 			<% end %>
 		</ol>
-
 		<!-- Wrapper for slides -->
-
 		<div class="carousel-inner" role="listbox">
-			<!-- <div class="carousel-hold"> -->
 			<div class="item active">
 				<%= image_tag('carousel1.png', :class => "img-responsive", id: "carousel3")%>
-			<%= image_tag('carousel2.png', :class => "img-responsive", id: "carousel2")%>
-			<%= image_tag('carousel3.png', :class => "img-responsive", id: "carousel2")%>
+				<%= image_tag('carousel2.png', :class => "img-responsive", id: "carousel2")%>
+				<%= image_tag('carousel3.png', :class => "img-responsive", id: "carousel2")%>
 			</div>
 
-
-			<%# @images.drop(3).each do |photo| %>
 			<div class="item">
-<%= image_tag('carousel4.png', :class => "img-responsive", id: "carousel1")%>
-	<%= image_tag('carousel5.png', :class => "img-responsive", id: "carousel2")%>
-	<%= image_tag('carousel6.png', :class => "img-responsive", id: "carousel2")%>
+				<%= image_tag('carousel4.png', :class => "img-responsive", id: "carousel1")%>
+				<%= image_tag('carousel5.png', :class => "img-responsive", id: "carousel2")%>
+				<%= image_tag('carousel6.png', :class => "img-responsive", id: "carousel2")%>
 			</div>
-			<%# end %>
-		<!-- </div> -->
 		</div>
-
-
 		<!-- Left and right controls -->
 		<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
 			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -71,4 +54,3 @@
 
 	</div>
 </div>
-<!-- </div> -->

@@ -1,77 +1,75 @@
 <div class="blue-holder">
-<div id="map" style="height: 400px; width: 100%"></div>
-<script>
-  function initMap() {
-    var uluru = {lat: 49.1048378, lng: -123.0624154};
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 11,
-      center: uluru
-    });
-    var marker = new google.maps.Marker({
-      position: uluru,
-      map: map
-    });
-  }
-</script>
-<script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkNT6Sif0uSsvkKowk7V2zieduSKjEEVI&callback=initMap">
-</script>
+  <div id="map" style="height: 400px; width: 100%"></div>
+  <script>
+    function initMap() {
+      var uluru = {lat: 49.1048378, lng: -123.0624154};
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 11,
+        center: uluru
+      });
+      var marker = new google.maps.Marker({
+        position: uluru,
+        map: map
+      });
+    }
+  </script>
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkNT6Sif0uSsvkKowk7V2zieduSKjEEVI&callback=initMap">
+  </script>
 
-<div class="row">
-  <div class="col-md-7">
-    <div class="organizations-holder">
-      <p class="text">We believe when families are healthy, in every sense of the word, their children will thrive. And When children are thriving, everyone is happy</p>
-      <div class="website-banner deep-sky-blue">
-      THE WEBSITE IS DEDICATED TO MAKING DELTA A CHILD-FRIENDLY COMMUNITY - A GREAT PLACE TO GROW UP!
-    </div>
-      <div class="community">
-      <h3>Community partners</h3>
-      <p class="text">DeltaKids is a coalition of community partners. We work together to build Delta's capacity as a child-friendly community where all children thrive. Membership on the committee includes representativs from: </p>
-      <!-- <h1>Organizations</h1> -->
-      <div class="row">
-        <div class="col-md-6">
-          <div class="partner">
-          <% @organizations1.each do |org| %>
-          <% a = (rand(12) + 1) %>
-          <%= image_tag "sponsor#{a}.png",class: 'sponsor-icon' %>
-          <div class="spon-info">
-          <h4><%= org.title %></h4>
-          <h4><a href="<%= org.website %>">Go to website</a></h5>
-            <hr>
+  <div class="row">
+    <div class="col-md-7">
+      <div class="organizations-holder">
+        <p class="text">We believe when families are healthy, in every sense of the word, their children will thrive. And When children are thriving, everyone is happy</p>
+        <div class="website-banner deep-sky-blue">
+        THE WEBSITE IS DEDICATED TO MAKING DELTA A CHILD-FRIENDLY COMMUNITY - A GREAT PLACE TO GROW UP!
+        </div>
+        <div class="community">
+        <h3>Community partners</h3>
+        <p class="text">DeltaKids is a coalition of community partners. We work together to build Delta's capacity as a child-friendly community where all children thrive. Membership on the committee includes representativs from: </p>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="partner">
+              <% @organizations1.each do |org| %>
+                <% a = (rand(12) + 1) %>
+                <%= image_tag "sponsor#{a}.png",class: 'sponsor-icon' %>
+                <div class="spon-info">
+                  <h4><%= org.title %></h4>
+                  <h4><a href="<%= org.website %>">Go to website</a></h5>
+                  <hr>
+                </div>
+              <% end %>
           </div>
-          <% end %>
         </div>
-      </div>
 
-      <div class="col-md-6">
-        <% @organizations2.each do |org| %>
-        <% a = (rand(12) + 1) %>
-        <%= image_tag "sponsor#{a}.png",class: 'sponsor-icon' %>
-        <div class="spon-info">
-        <h4><%= org.title %></h4>
-        <h4><a href="<%= org.website %>">Go to website</a></h5>
-          <hr>
+          <div class="col-md-6">
+            <% @organizations2.each do |org| %>
+              <% a = (rand(12) + 1) %>
+              <%= image_tag "sponsor#{a}.png",class: 'sponsor-icon' %>
+              <div class="spon-info">
+                <h4><%= org.title %></h4>
+                <h4><a href="<%= org.website %>">Go to website</a></h5>
+                <hr>
+              </div>
+            <% end %>
+          </div>
         </div>
-        <% end %>
-      </div>
       </div>
     </div>
-      </div>
-</div>
-
-<div class="col-md-5">
-  <div class="sponsors-holder">
-<h1>Sponsers</h1>
-<p class="text">Funded by the United Way of the Lower Mainland and the Ministry for Children and Family Development, the main contributors to this website are members of the Delta Early Childhood Development Committee and the Delta Middle Years Committee</p>
-  <div class="sponsors text-center">
-    <%= image_tag "bigsponsor.png",class: 'sponsor-pic' %>
   </div>
 
-  <div class="handshake">
-    <%= image_tag "handshake.png",class: 'handshake-pic' %>
-  </div>
-</div>
+  <div class="col-md-5">
+    <div class="sponsors-holder">
+      <h1>Sponsers</h1>
+      <p class="text">Funded by the United Way of the Lower Mainland and the Ministry for Children and Family Development, the main contributors to this website are members of the Delta Early Childhood Development Committee and the Delta Middle Years Committee</p>
+    <div class="sponsors text-center">
+      <%= image_tag "bigsponsor.png",class: 'sponsor-pic' %>
+    </div>
 
-</div>
-</div>
+    <div class="handshake">
+      <%= image_tag "handshake.png",class: 'handshake-pic' %>
+    </div>
+    </div>
+    </div>
+  </div>
 </div>
