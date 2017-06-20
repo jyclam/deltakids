@@ -31,18 +31,19 @@
             <% if org_signed_in? %>
             <li> <%= link_to "Hello, #{current_org.title}" %> </li>
             <li><%= link_to 'Sign Out', sessions_path, method: :delete %></li>
-            <% if org_signed_in? && current_org.is_admin? %>
-              <li><%= link_to 'Admin Dashboard', admin_organizations_path %></li>
-            <% else %>
-              <li> <%= link_to 'Dashboard', organizations_dashboard_path %> </li>
-            <% end %>
-            <li> <%= link_to 'About' %> </li>
-            <li> <%= link_to 'Contact Us' %> </li>
-            <li><%= link_to 'Live 5-2-1-0', learn_live_path %></li>
+              <% if current_org.is_admin? %>
+                <li><%= link_to 'Admin Dashboard', admin_organizations_path %></li>
               <% else %>
-            <li><%= link_to 'Sign In', new_session_path %></li>
-            <li><%= link_to 'Sign Up', new_organization_path %></li>
+                <li> <%= link_to 'Dashboard', organizations_dashboard_path %> </li>
+              <% end %>
+            <% else %>
+              <li><%= link_to 'Sign In', new_session_path %></li>
+              <li><%= link_to 'Sign Up', new_organization_path %></li>
+
             <% end %>
+            <li> <%= link_to 'About', map_path %> </li>
+            <li> <%= link_to 'Contact Us', contact_path %> </li>
+            <li><%= link_to 'Live 5-2-1-0', learn_live_path %></li>
           </ul>
         </div>
       </nav>
@@ -84,7 +85,7 @@
             <div class="container-fluid">
               <div class="row">
                 <div class="col-sm-6">
-                  <li class="yellow-header-nav"><a href="#">0-5 YEAR OLDS</a></li>
+                  <li class="yellow-header-nav"><a href="/programs/age/1">0-5 YEAR OLDS</a></li>
                   <li class="divider"></li>
                   <div class="col-sm-6 no-padding">
                     <li><a href="#">Drop-In Program
@@ -105,7 +106,7 @@
                   </div>
                 </div>
                 <div class="col-sm-6">
-                  <li class="yellow-header-nav"><a  href="#">6-12 YEAR OLDS</a></li>
+                  <li class="yellow-header-nav"><a  href="/programs/age/2">6-12 YEAR OLDS</a></li>
                   <li class="divider"></li>
                   <div class="col-sm-6 no-padding">
                     <li><a href="sports">Sports
@@ -219,7 +220,7 @@
               </div>
             </div>
           </ul>
-        <li id='move-up' class="nav-word"> <%= link_to 'WHAT\'S NEW?'%> </li>
+        <li id='move-up' class="nav-word"> <%= link_to 'WHAT\'S NEW?', activities_path%> </li>
         <li>
           <i class="fa fa-search nav-word" aria-hidden="true"></i>
         </li>
