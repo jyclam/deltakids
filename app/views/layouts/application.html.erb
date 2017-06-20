@@ -31,18 +31,19 @@
             <% if org_signed_in? %>
             <li> <%= link_to "Hello, #{current_org.title}" %> </li>
             <li><%= link_to 'Sign Out', sessions_path, method: :delete %></li>
-            <% if org_signed_in? && current_org.is_admin? %>
-              <li><%= link_to 'Admin Dashboard', admin_organizations_path %></li>
-            <% else %>
-              <li> <%= link_to 'Dashboard', organizations_dashboard_path %> </li>
-            <% end %>
-            <li> <%= link_to 'About' %> </li>
-            <li> <%= link_to 'Contact Us' %> </li>
-            <li><%= link_to 'Live 5-2-1-0', learn_live_path %></li>
+              <% if current_org.is_admin? %>
+                <li><%= link_to 'Admin Dashboard', admin_organizations_path %></li>
               <% else %>
-            <li><%= link_to 'Sign In', new_session_path %></li>
-            <li><%= link_to 'Sign Up', new_organization_path %></li>
+                <li> <%= link_to 'Dashboard', organizations_dashboard_path %> </li>
+              <% end %>
+            <% else %>
+              <li><%= link_to 'Sign In', new_session_path %></li>
+              <li><%= link_to 'Sign Up', new_organization_path %></li>
+
             <% end %>
+            <li> <%= link_to 'About', map_path %> </li>
+            <li> <%= link_to 'Contact Us', contact_path %> </li>
+            <li><%= link_to 'Live 5-2-1-0', learn_live_path %></li>
           </ul>
         </div>
       </nav>
@@ -57,7 +58,6 @@
         <li class="dropdown">
           <a class="dropdown-toggle nav-word" data-toggle="dropdown"> LEARNING
             <span class="caret"></span></a>
-            <!-- <div class="arrow"></div> -->
           <ul id="learning-dropdown" class="dropdown-menu">
             <div class="container-fluid">
               <div class="row">
@@ -79,12 +79,11 @@
         <li class="dropdown">
           <a class="dropdown-toggle nav-word" data-toggle="dropdown"> PROGRAMS
             <span class="caret"></span></a>
-            <!-- <div class="arrow"></div> -->
           <ul class="dropdown-menu">
             <div class="container-fluid">
               <div class="row">
                 <div class="col-sm-6">
-                  <li class="yellow-header-nav"><a href="#">0-5 YEAR OLDS</a></li>
+                  <li class="yellow-header-nav"><a href="/programs/age/1">0-5 YEAR OLDS</a></li>
                   <li class="divider"></li>
                   <div class="col-sm-6 no-padding">
                     <li><a href="#">Drop-In Program
@@ -105,7 +104,7 @@
                   </div>
                 </div>
                 <div class="col-sm-6">
-                  <li class="yellow-header-nav"><a  href="#">6-12 YEAR OLDS</a></li>
+                  <li class="yellow-header-nav"><a  href="/programs/age/2">6-12 YEAR OLDS</a></li>
                   <li class="divider"></li>
                   <div class="col-sm-6 no-padding">
                     <li><a href="sports">Sports
@@ -133,7 +132,6 @@
         <li class="dropdown">
           <a class="dropdown-toggle nav-word" data-toggle="dropdown"> SERVICES
             <span class="caret"></span></a>
-            <!-- <div class="arrow"></div> -->
           <ul class="dropdown-menu dropdown-menu-right">
             <div class="container-fluid">
               <div class="row">
@@ -153,19 +151,6 @@
                   <li><a href="/services/children/3">Support for Children</a>
                   <i class="fa fa-caret-right" aria-hidden="true"></i>
                 </div>
-
-                <!-- <div class="nav_till_six col-sm-4">
-                  <li class="yellow-header-nav"><a href="#">Families</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Child's Vision, Hearing, Nutrition
-                  <i class="fa fa-caret-right" aria-hidden="true"></i>
-                  <li class="divider"></li>
-                  <li><a href="#">Child's Physical Development</a>
-                  <i class="fa fa-caret-right" aria-hidden="true"></i>
-                  <li class="divider"></li>
-                  <li><a href="#">Child's Communication, Speech or Language</a>
-                  <i class="fa fa-caret-right" aria-hidden="true"></i>
-                </div> -->
 
                 <div class="col-sm-4">
                   <li class="yellow-header-nav"><a href="/services/families">Families</a></li>
@@ -197,48 +182,15 @@
                   <i class="fa fa-caret-right" aria-hidden="true"></i>
                 </div>
 
-                <!-- <div class="col-sm-3">
-                  <li class="yellow-header-nav"><a  href="#">FAMILY SERVICES</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Finding a Childcare and/or Preschool Program
-                  <i class="fa fa-caret-right" aria-hidden="true"></i>
-                  <li class="divider"></li>
-                  <li><a href="#">Assistance with Fees </a>
-                  <i class="fa fa-caret-right" aria-hidden="true"></i>
-                  <li class="divider"></li>
-                  <li><a href="#">Finding Work</a>
-                  <i class="fa fa-caret-right" aria-hidden="true"></i>
-                  <li class="divider"></li>
-                  <li><a href="#">Parenting Support</a>
-                  <i class="fa fa-caret-right" aria-hidden="true"></i>
-                  <li class="divider"></li>
-                  <li><a href="#">Services to help families who are experiencing abuse / violence</a>
-                  <i class="fa fa-caret-right" aria-hidden="true"></i>
-                </div> -->
-
               </div>
             </div>
           </ul>
-        <li id='move-up' class="nav-word"> <%= link_to 'WHAT\'S NEW?'%> </li>
+        <li id='move-up' class="nav-word"> <%= link_to 'WHAT\'S NEW?', activities_path%> </li>
         <li>
           <i class="fa fa-search nav-word" aria-hidden="true"></i>
         </li>
       </ul>
     </div>
-		<!--White Cloud Backgroung  here  -->
-<!-- <div class="row"> -->
-
-		<div class="row top-cloud-background">
-			<br /><br /><br />
-		</div>
-			<!-- <div class="row content-background">
-				<br />
-				<br />
-			</div> -->
-		<!-- </div> -->
-
-		<!-- </div> -->
-	<!-- </body> -->
 	<br />
 
   <% if flash.any? %>
@@ -250,27 +202,27 @@
    <% end %>
    <hr>
  <% end %>
+
 		<%= yield %>
 
-  <!-- <div class="container"> -->
-	<div class="row">
-		<div class="footer">
-			<i class="fa fa-facebook fa-lg" aria-hidden="true"></i>
-			<i class="fa fa-twitter fa-lg" aria-hidden="true"></i>
-			<i class="fa fa-pinterest-p fa-lg" aria-hidden="true"></i>
-			<i class="fa fa-instagram fa-lg" aria-hidden="true"></i>
-			<div class="footer-text">
-				<div class="footer-text-firstline">
-					<p>Copyright </p>
-					<i id="copyright-icon" class="fa fa-copyright" aria-hidden="true"></i>
-					<p> 2017 </p>
-				</div>
-				<div>
-					<p> All Rights Reserved - Delta Kids </p>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div class="row">
+  		<div class="footer">
+  			<i class="fa fa-facebook fa-lg" aria-hidden="true"></i>
+  			<i class="fa fa-twitter fa-lg" aria-hidden="true"></i>
+  			<i class="fa fa-pinterest-p fa-lg" aria-hidden="true"></i>
+  			<i class="fa fa-instagram fa-lg" aria-hidden="true"></i>
+  			<div class="footer-text">
+  				<div class="footer-text-firstline">
+  					<p>Copyright </p>
+  					<i id="copyright-icon" class="fa fa-copyright" aria-hidden="true"></i>
+  					<p> 2017 </p>
+  				</div>
+  				<div>
+  					<p> All Rights Reserved - Delta Kids </p>
+  				</div>
+  			</div>
+  		</div>
+	  </div>
 
   </div>
 </div>

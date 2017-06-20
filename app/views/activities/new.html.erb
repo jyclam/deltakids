@@ -1,9 +1,8 @@
 <div class="container background">
-	<h1>Create a New Activity</h1>
 	<br><br>
 	<%= @activity.errors.full_messages.join(', ') %>
 		<%= form_for @activity do |f| %>
-		<div class="form-horizontal">
+		<div class="form-horizontal" style="margin-top: 50px;">
 
 			<div class="form-group">
 			  <%= f.label(:name, 'Title: ', class: "col-sm-3" )  %>

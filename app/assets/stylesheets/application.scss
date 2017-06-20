@@ -23,6 +23,19 @@
  // body {
  //   margin: 0px;
  // }
+	.background {
+		background-color: #D1F0F4;
+	}
+
+ .nav > li > a:hover, .nav > li > a:focus {
+  background-color: rgba(255,255,255,0);
+  text-decoration: none;
+}
+
+ #move-up{
+  position: relative;
+  top: -15px;
+ }
 
  .nav > li > a:hover, .nav > li > a:focus {
   background-color: rgba(255,255,255,0);

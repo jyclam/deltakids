@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
   get '/', to: 'welcome#index', as: :home
+  get '/contact', to: 'welcome#contact'
   # resources :welcome, only: :index
 	resources :activities
 
