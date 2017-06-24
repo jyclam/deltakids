@@ -1,3 +1,24 @@
+.img-responsive,
+.thumbnail > img,
+.thumbnail a > img,
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  z-index: 15;
+  margin: 0;
+  padding: 0 25px 25px 0;
+  text-align: right;
+}
 
 .background {
   background-color: #D1F0F4;
@@ -40,58 +61,87 @@
 
 }
 
-.img-responsive{
-	display: block;
-	max-width: 100%;
-	height: auto;
-	width: 1200px;
-}
 
 #homeimg{
-	width: calc( 85.53em - 0.5px );
+	// width: calc( 85.53em - 0.5px );
 	background-color: #D2F0FA;
 	margin-top: -1.5em;
+  width: 99%;
+  margin-left: 0.5%;
 }
 
+.first-button{
+  position: relative;
+}
 
 .btnone{
-	margin-top: -51em;
-	    margin-left: 35em;
-	    width: 260px !important;
-	    font-size: 20px;
-	    background-color: yellow;
-	    color: black;
-	    box-shadow: 4px 4px #5078ba;
-			border-style: none;
+  position: absolute;
+  top: 35%;
+  left: 55%;
+	// margin-top: -51em;
+  // margin-left: 35em;
+  width: 30% !important;
+  // font-size: 20px;
+  background-color: yellow;
+  color: black;
+  box-shadow: 4px 4px #5078ba;
+	border-style: none;
 }
+
 #homeimg2{
 	width: calc( 85.53em - 0.5px );
-
 }
+
+.second-button{
+  position: relative;
+}
+
 .btntwo{
-	margin-top: -19em;
-	margin-left: 31em;
-	width: 379px !important;
-	font-size: 20px;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+	// margin-top: -19em;
+	// margin-left: 31em;
+	width: 30% !important;
+	// font-size: 20px;
+}
+
+.carousel-div {
+  position: relative;
 }
 
 .btnthree {
-	margin-top: -82em;
-	margin-left: 4em;
-	width: 1000px !important;
-	font-size: 26px;
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  width: 80% !important;
 }
 
 
+.btnfour {
+  position: absolute;
+  top: 56%;
+  // left: 10%;
+  left: 70%;
+  width: 80% !important;
+}
+
 #carousel{
 	position: absolute;
+  top: 25%;
 	background-repeat: no-repeat;
 	background-size: cover;
-  padding: 0em 3em 2em 0em;	width: 1019px;
-	margin-left: 100px;
-	margin-top: -73em;
+	margin-left: 10%;
+  width: 80%;
 }
 
 .item-hold{
 	margin-top: 100px;
+}
+
+.top-cloud-background {
+  margin-left: 0px;
+  background-image: url("new_top.png");
+	width: 100%;
+	// position: relative;
 }
