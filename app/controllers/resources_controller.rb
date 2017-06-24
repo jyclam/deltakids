@@ -13,7 +13,7 @@ class ResourcesController < ApplicationController
     @types = ResourceType.all
 
     # @resources = Resource.all
-    @resources = Resource.where(feature: true)
+    @resources = Resource.where(feature: true).order(created_at: :desc)
   end
 
 

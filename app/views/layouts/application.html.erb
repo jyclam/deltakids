@@ -74,7 +74,6 @@
               </div>
             </div>
           </ul>
-
           <!-- PROGRAMS DROPDOWN -->
         <li class="dropdown">
           <a class="dropdown-toggle nav-word" data-toggle="dropdown"> PROGRAMS
@@ -85,44 +84,30 @@
                 <div class="col-sm-6">
                   <li class="yellow-header-nav"><a href="/programs/age/1">0-5 YEAR OLDS</a></li>
                   <li class="divider"></li>
-                  <div class="col-sm-6 no-padding">
-                    <li><a href="#">Drop-In Program
+                  <!-- programs for age 0~5 -->
+                  <% Program.where(age_group_id: 1).each do |program| %>
+                  <div class="col-sm-12 no-padding">
+                    <li><a href="/programs/<%= program.id %>"><%= program.category %>
                     <i class="fa fa-caret-right" aria-hidden="true"></i>
                     </a></li>
                     <li class="divider"></li>
                   </div>
-                  <div class="col-sm-6 no-padding">
-                    <li><a href="#">Registered Programs
-                    <i class="fa fa-caret-right" aria-hidden="true"></i>
-                    </a></li>
-                    <li class="divider"></li>
-                  </div>
-                  <div class="col-sm-6 no-padding">
-                    <li><a href="#">Preschools and Childcare
-                    <i class="fa fa-caret-right" aria-hidden="true"></i>
-                    </a></li>
-                  </div>
+                  <% end %>
+
                 </div>
                 <div class="col-sm-6">
                   <li class="yellow-header-nav"><a  href="/programs/age/2">6-12 YEAR OLDS</a></li>
                   <li class="divider"></li>
-                  <div class="col-sm-6 no-padding">
-                    <li><a href="sports">Sports
+                  <!-- programs for age 6~12 -->
+                  <% Program.where(age_group_id: 2).each do |program| %>
+                  <div class="col-sm-12 no-padding">
+                    <li><a href="/programs/<%= program.id %>"><%= program.category %>
                     <i class="fa fa-caret-right" aria-hidden="true"></i>
+                    </a></li>
                     <li class="divider"></li>
-                    <li><a href="#">Arts & Culture</a>
-                    <i class="fa fa-caret-right" aria-hidden="true"></i>
-                    <li class="divider"></li>
-                    <li><a href="#">Community Clubs </a>
-                    <i class="fa fa-caret-right" aria-hidden="true"></i>
                   </div>
-                  <div class="col-sm-6">
-                    <li><a href="#">Before & After School</a>
-                    <i class="fa fa-caret-right" aria-hidden="true"></i>
-                    <li class="divider"></li>
-                    <li><a href="#">Holliday/Pro-D days</a>
-                    <i class="fa fa-caret-right" aria-hidden="true"></i>
-                  </div>
+                  <% end %>
+
                 </div>
               </div>
             </div>

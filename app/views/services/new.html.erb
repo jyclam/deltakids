@@ -1,14 +1,18 @@
-<div class="container background">
-  <h1>new service form</h1>
+<div style="background-color: #D1F0F4;">
+
+  <div class="col-sm-offset-1">
+    <h1>new service form</h1>
+  </div>
   <br>
 
   <%= @service.errors.full_messages.join(', ') %>
 
+
   <%= form_for @service do |f| %>
-    <div class="form-horizontal">
+  <div class="form-horizontal">
 
       <div class="form-group">
-         <%= f.label :name, class: "col-sm-3" %>
+         <%= f.label :name, class: "col-sm-2 col-sm-offset-1" %>
          <div class="col-sm-8">
             <%= f.text_field :name, class: 'form-control' %>
         </div>
@@ -17,7 +21,7 @@
       <br>
 
       <div class="form-group">
-         <%= f.label :description, class: "col-sm-3" %>
+         <%= f.label :description, class: "col-sm-2 col-sm-offset-1" %>
          <div class="col-sm-8">
             <%= f.text_area :description, rows: "4", class: 'form-control' %>
         </div>
@@ -26,7 +30,7 @@
       <br>
 
       <div class="form-group">
-         <%= f.label :website, class: "col-sm-3" %>
+         <%= f.label :website, class: "col-sm-2 col-sm-offset-1" %>
          <div class="col-sm-8">
             <%= f.text_field :website, class: 'form-control' %>
         </div>
@@ -35,7 +39,7 @@
       <br>
 
       <div class="form-group">
-         <%= f.label :logo, class: "col-sm-3" %>
+         <%= f.label :logo, class: "col-sm-2 col-sm-offset-1" %>
          <div class="col-sm-8">
             <%= f.text_field :logo, class: 'form-control' %>
         </div>
@@ -44,7 +48,7 @@
       <br>
 
       <div class="form-group">
-         <%= f.label :organization, class: "col-sm-3" %>
+         <%= f.label :organization, class: "col-sm-2 col-sm-offset-1" %>
          <div class="col-sm-8">
             <%= f.text_field :organization, class: 'form-control' %>
         </div>
@@ -53,7 +57,7 @@
       <br>
 
       <div class="form-group">
-        <%= f.label :clientele, class: "col-sm-3 move-right"  %>
+        <%= f.label :clientele, class: "col-sm-2 col-sm-offset-1 move-right"  %>
         <div class="move-right">
         <%= f.collection_select :category_id,
           Category.all,
@@ -68,7 +72,7 @@
       <br>
 
       <div class="form-group">
-        <%= f.label :category, class: "col-sm-3 move-right" %>
+        <%= f.label :category, class: "col-sm-2 col-sm-offset-1 move-right" %>
           <%= f.collection_select :cat_id,
             Cat.all,
             :id,
@@ -84,5 +88,7 @@
         </div>
       </div>
 
+    </div>
   <% end %>
 </div>
+<br>
