@@ -5,6 +5,7 @@ class Admin::OrganizationsController < Admin::BaseController
   def index
     @events = Event.all.order(created_at: :desc).limit(6)
     @services = Service.all.order(created_at: :desc).limit(6)
+    @resources = Resource.order(created_at: :desc).limit(3)
   end
 
   def editevent
