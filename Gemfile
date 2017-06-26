@@ -12,6 +12,10 @@ gem 'font-awesome-rails'
 # gem 'chosen-rails'
 gem 'jquery-rails'
 gem 'bootstrap_form'
+gem 'faker', github: 'stympy/faker'
+gem 'smarter_csv'
+
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.1'
@@ -44,7 +48,6 @@ gem "simple_calendar", "~> 2.0"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'faker', github: 'stympy/faker'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
@@ -56,7 +59,6 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rails-erd'
-  gem 'smarter_csv'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
